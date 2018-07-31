@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{07039A93-40ED-441D-AF8D-C60FAF1AB785}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QEthics</RootNamespace>
+    <AssemblyName>QEthics</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\..\Program Files %28x86%29\Steam\steamapps\common\RimWorld\Mods\QuestionableEthics\Assemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\..\Program Files %28x86%29\Steam\steamapps\common\RimWorld\Mods\QuestionableEthics\Assemblies\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="AlienRace">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\AlienRace\Assemblies\AlienRace.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AI\JobDriver_DepositIntoGrower.cs" />
+    <Compile Include="AI\JobDriver_ExtractGrowerProduct.cs" />
+    <Compile Include="AI\JobDriver_MaintainGrower.cs" />
+    <Compile Include="AI\JobDriver_UseBrainTemplate.cs" />
+    <Compile Include="AI\JobDriver_SalvageGenome.cs" />
+    <Compile Include="AI\Properties\MaintainVatProperties.cs" />
+    <Compile Include="AI\WorkGiver_MaintainGrower.cs" />
+    <Compile Include="AI\WorkGiver_GrowerExtractProduct.cs" />
+    <Compile Include="AI\WorkGiver_GrowerOrderProcessor.cs" />
+    <Compile Include="Alerts\Alert_GrowerMaintence.cs" />
+    <Compile Include="CompatibilityTracker.cs" />
+    <Compile Include="Compatibility\AlienRaceCompat.cs" />
+    <Compile Include="Compatibility\GeneralCompatibility.cs" />
+    <Compile Include="Compatibility\Properties\RaceExclusionProperties.cs" />
+    <Compile Include="DefOfs\QEHediffDefOf.cs" />
+    <Compile Include="DefOfs\QEJobDefOf.cs" />
+    <Compile Include="DefOfs\QERecipeDefOf.cs" />
+    <Compile Include="DefOfs\QESoundDefOf.cs" />
+    <Compile Include="DefOfs\QEThingDefOf.cs" />
+    <Compile Include="DefOfs\QEWorkTypeDefOf.cs" />
+    <Compile Include="Defs\BackstoryDef.cs" />
+    <Compile Include="Defs\GrowerRecipeDef.cs" />
+    <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="Logic\ExposedTraitEntry.cs" />
+    <Compile Include="Logic\IMaintainableGrower.cs" />
+    <Compile Include="Logic\ThingOrderProcessor.cs" />
+    <Compile Include="Logic\ThingOrderRequest.cs" />
+    <Compile Include="PostDefFixer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThingComps\CustomNameComp.cs" />
+    <Compile Include="ThingComps\GenomeSalvagerComp.cs" />
+    <Compile Include="ThingComps\Properties\CompProperties_CustomName.cs" />
+    <Compile Include="ThingComps\Properties\CompProperties_GenomeSalvager.cs" />
+    <Compile Include="Things\BrainScanTemplate.cs" />
+    <Compile Include="Things\Building_GrowerBase.cs" />
+    <Compile Include="Things\Building_PawnVatGrower.cs" />
+    <Compile Include="Things\Building_VatGrower.cs" />
+    <Compile Include="Things\GenomeSequence.cs" />
+    <Compile Include="Things\Properties\RecipeOutcomeProperties.cs" />
+    <Compile Include="Things\Properties\GrowerProperties.cs" />
+    <Compile Include="Things\Properties\VatGrowerProperties.cs" />
+    <Compile Include="UI\Dialog_RenameCustomNameComp.cs" />
+    <Compile Include="Utilities\BrainManipUtility.cs" />
+    <Compile Include="Utilities\GenomeUtility.cs" />
+    <Compile Include="Utilities\IngredientUtility.cs" />
+    <Compile Include="Utilities\ThingFilterUtility.cs" />
+    <Compile Include="Workers\RecipeWorker_CreateBrainScan.cs" />
+    <Compile Include="Workers\RecipeWorker_GenomeSequencing.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
