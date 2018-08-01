@@ -77,6 +77,7 @@
     <Compile Include="Defs\BackstoryDef.cs" />
     <Compile Include="Defs\GrowerRecipeDef.cs" />
     <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="Hediffs\Hediff_LifeSupport.cs" />
     <Compile Include="Logic\ExposedTraitEntry.cs" />
     <Compile Include="Logic\IMaintainableGrower.cs" />
     <Compile Include="Logic\ThingOrderProcessor.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Utilities\BrainManipUtility.cs" />
     <Compile Include="Utilities\GenomeUtility.cs" />
     <Compile Include="Utilities\IngredientUtility.cs" />
+    <Compile Include="Utilities\LifeSupportUtility.cs" />
     <Compile Include="Utilities\ThingFilterUtility.cs" />
     <Compile Include="Workers\RecipeWorker_CreateBrainScan.cs" />
     <Compile Include="Workers\RecipeWorker_GenomeSequencing.cs" />

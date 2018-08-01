@@ -6,6 +6,7 @@ using Verse;
 using RimWorld;
 using Harmony;
 using System.Reflection;
+using Verse.AI;
 
 namespace QEthics
 {
@@ -38,14 +39,23 @@ namespace QEthics
                     null);
             }
 
+            {
+                Type type = typeof(Toils_LayDown);
+                MethodInfo originalMethod = AccessTools.Method(type, "LayDown");
+                HarmonyMethod patchMethod = new HarmonyMethod(typeof(HarmonyPatches).GetMethod(nameof(Patch_LayDown)));
+                harmony.Patch(
+                    originalMethod,
+                    null,
+                    patchMethod);
+            }
+
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
 
         public static bool Patch_ShouldBeDeadFromRequiredCapacity(PawnCapacityDef __result, Pawn ___pawn)
         {
             Pawn pawn = ___pawn;
-            if(pawn.CurrentBed() is Building_Bed bed && 
-                GenAdj.CellsAdjacent8Way(bed).Any(cell => cell.GetThingList(bed.Map).Any(cellThing => cellThing.TryGetComp<LifeSupportComp>() is LifeSupportComp lifeSupport && lifeSupport.Active)))
+            if(pawn.health.hediffSet.HasHediff(QEHediffDefOf.QE_LifeSupport) && pawn.ValidLifeSupportNearby())
             {
                 //Check if consciousness is there. If it is then its okay.
                 PawnCapacityDef pawnCapacityDef = PawnCapacityDefOf.Consciousness;
@@ -61,6 +71,61 @@ namespace QEthics
             }
 
             return true;
+        }
+
+        public static void Patch_LayDown(ref Toil __result)
+        {
+            Toil toil = __result;
+            if (toil == null)
+                return;
+            /*toil.AddPreInitAction(delegate()
+            {
+                Pawn actor = toil.actor;
+                if(actor.ValidLifeSupportNearby())
+                {
+                    actor.health.AddHediff(QEHediffDefOf.QE_LifeSupport);
+                }
+            });*/
+            toil.AddPreTickAction(delegate()
+            {
+                Pawn actor = toil.actor;
+                if(actor != null && !actor.Dead)
+                {
+                    if (actor.ValidLifeSupportNearby())
+                    {
+                        if (!actor.health.hediffSet.HasHediff(QEHediffDefOf.QE_LifeSupport))
+                        {
+                            actor.health.AddHediff(QEHediffDefOf.QE_LifeSupport);
+                        }
+                    }
+                    else
+                    {
+                        if (actor.health.hediffSet.GetFirstHediffOfDef(QEHediffDefOf.QE_LifeSupport, false) is Hediff hediff)
+                        {
+                            actor.health.RemoveHediff(hediff);
+                        }
+                    }
+                }
+            });
+            /*toil.AddFinishAction(delegate()
+            {
+                if(toil == null)
+                {
+                    Log.Message("wtf, the toil is null somehow.");
+                    return;
+                }
+
+                Pawn actor = toil.actor;
+                if(actor != null && !actor.Dead)
+                {
+                    if (actor.health.hediffSet.GetFirstHediffOfDef(QEHediffDefOf.QE_LifeSupport, false) is Hediff hediff)
+                    {
+                        actor.health.RemoveHediff(hediff);
+                    }
+
+                    //actor.health.CheckForStateChange(null, null);
+                }
+            });*/
         }
     }
 }
