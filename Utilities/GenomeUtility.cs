@@ -181,7 +181,7 @@ namespace QEthics
         {
             return !def.race.IsMechanoid &&
                 def.GetStatValueAbstract(StatDefOf.MeatAmount) > 0f &&
-                def.GetStatValueAbstract(StatDefOf.LeatherAmount) > 0f &&
+                //def.GetStatValueAbstract(StatDefOf.LeatherAmount) > 0f &&
                 !GeneralCompatibility.excludedRaces.Contains(def);
         }
 

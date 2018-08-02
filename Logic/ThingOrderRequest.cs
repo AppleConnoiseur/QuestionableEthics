@@ -19,7 +19,7 @@ namespace QEthics
         /// <summary>
         /// Thing being requested.
         /// </summary>
-        public Thing thing = null;
+        public Thing thing;
 
         /// <summary>
         /// How many are being requested.
@@ -64,7 +64,7 @@ namespace QEthics
                     return thingFilter.Summary;
                 }
 
-                return null;
+                return "<null>";
             }
         }
 
@@ -85,17 +85,18 @@ namespace QEthics
                     return thingFilter.Summary.CapitalizeFirst();
                 }
 
-                return null;
+                return "<null>";
             }
         }
 
         public ThingOrderRequest()
         {
-            Initialize();
+            
         }
 
         public ThingOrderRequest(ThingOrderRequest other)
         {
+            customLabel = other.customLabel;
             thing = other.thing;
             amount = other.amount;
             if(other.HasThingFilter)
@@ -109,6 +110,7 @@ namespace QEthics
 
         public ThingOrderRequest(ThingOrderRequest other, int amount)
         {
+            customLabel = other.customLabel;
             thing = other.thing;
             this.amount = amount;
             if (other.HasThingFilter)
@@ -129,6 +131,16 @@ namespace QEthics
         public ThingOrderRequest(Thing thing, int amount = 1)
         {
             this.thing = thing;
+            this.amount = amount;
+            Initialize();
+        }
+
+        public ThingOrderRequest(Thing thing, ThingDef thingDef, int amount = 1)
+        {
+            this.thing = thing;
+            ThingFilter filter = new ThingFilter();
+            filter.SetAllow(thingDef, true);
+            thingFilter = filter;
             this.amount = amount;
             Initialize();
         }
@@ -162,8 +174,9 @@ namespace QEthics
 
         public void ExposeData()
         {
+            Scribe_Values.Look(ref customLabel, "customLabel");
             Scribe_Deep.Look(ref thingFilter, "thingFilter");
-            Scribe_References.Look(ref thing, "thing");
+            Scribe_References.Look<Thing>(ref thing, "thing", false);
             Scribe_Values.Look(ref amount, "amount", 1);
         }
 

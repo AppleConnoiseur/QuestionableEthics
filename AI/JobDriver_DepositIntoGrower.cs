@@ -39,7 +39,17 @@ namespace QEthics
 
             //Go and get the thing to carry.
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.OnCell);
-            yield return Toils_Haul.StartCarryThing(TargetIndex.B, subtractNumTakenFromJobCount: true);
+            Toil carryThing = Toils_Haul.StartCarryThing(TargetIndex.B, subtractNumTakenFromJobCount: true);
+            carryThing.AddFinishAction(
+                delegate()
+                {
+                    Building_GrowerBase grower = TargetThingA as Building_GrowerBase;
+                    if (grower != null)
+                    {
+                        grower.Notify_StartedCarryThing(GetActor());
+                    }
+                });
+            yield return carryThing;
 
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell);
             yield return Toils_General.WaitWith(TargetIndex.A, 100, true);
@@ -50,8 +60,7 @@ namespace QEthics
                     Building_GrowerBase grower = TargetThingA as Building_GrowerBase;
                     if (grower != null)
                     {
-                        Pawn actor = GetActor();
-                        grower.FillThing(TargetThingB);
+                        grower.FillThing(GetActor().carryTracker.CarriedThing);
                     }
                 }
             };

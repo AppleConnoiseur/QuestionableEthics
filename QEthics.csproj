@@ -91,6 +91,7 @@
     <Compile Include="ThingComps\Properties\CompProperties_GenomeSalvager.cs" />
     <Compile Include="ThingComps\Properties\CompProperties_LifeSupport.cs" />
     <Compile Include="Things\BrainScanTemplate.cs" />
+    <Compile Include="Things\Building_AutoDoctor.cs" />
     <Compile Include="Things\Building_GrowerBase.cs" />
     <Compile Include="Things\Building_PawnVatGrower.cs" />
     <Compile Include="Things\Building_VatGrower.cs" />

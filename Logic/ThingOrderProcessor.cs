@@ -57,7 +57,7 @@ namespace QEthics
         //Functions
         public void Cleanup()
         {
-            desiredIngredients.RemoveAll(orderRequest => orderRequest == null || (orderRequest.HasThing && !orderRequest.thing.Spawned));
+            desiredIngredients.RemoveAll(orderRequest => orderRequest == null /*|| (orderRequest.HasThing && !orderRequest.thing.Spawned)*/);
         }
 
         public void Reset()
@@ -94,7 +94,7 @@ namespace QEthics
                 //Desired other things.
                 foreach (ThingOrderRequest desiredIngredient in desiredIngredients)
                 {
-                    int countDifference = (int)desiredIngredient.amount - desiredIngredient.thingFilter.TotalStackCountForFilterInContainer(ObservedThingOwner);
+                    int countDifference = (int)desiredIngredient.amount - desiredIngredient.TotalStackCountForOrderRequestInContainer(ObservedThingOwner);
                     //Log.Message(desiredIngredient.Summary + "; countDifference: " + countDifference);
                     if (countDifference > 0)
                     {
@@ -108,6 +108,10 @@ namespace QEthics
         public void ExposeData()
         {
             Scribe_Collections.Look(ref desiredIngredients, "desiredThings", LookMode.Deep);
+            if(Scribe.mode == LoadSaveMode.PostLoadInit)
+            {
+                Notify_ContentsChanged();
+            }
         }
     }
 }

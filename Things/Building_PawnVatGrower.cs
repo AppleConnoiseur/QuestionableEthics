@@ -330,6 +330,20 @@ namespace QEthics
             status = CrafterStatus.Filling;
         }
 
+        public override void Notify_StartedCarryThing(Pawn pawn)
+        {
+            if(pawn.carryTracker.CarriedThing is GenomeSequence genome)
+            {
+                ThingOrderRequest genomeRequest = orderProcessor.desiredIngredients.FirstOrDefault(req => req.HasThing && req.thing is GenomeSequence);
+                if(genomeRequest != null)
+                {
+                    //Update Thing we got a request for.
+                    genomeRequest.thing = genome;
+                    //orderProcessor.Notify_ContentsChanged();
+                }
+            }
+        }
+
         public override IEnumerable<Gizmo> GetGizmos()
         {
             foreach (Gizmo gizmo in base.GetGizmos())
@@ -349,7 +363,16 @@ namespace QEthics
                     {
                         List<FloatMenuOption> options = new List<FloatMenuOption>();
 
-                        IEnumerable<Thing> validGenomes = Map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableEver)?.Where(thing => !thing.Position.Fogged(Map) && thing is GenomeSequence && !thing.IsForbidden(Faction.OfPlayer));
+                        List<Building_PawnVatGrower> otherVats = new List<Building_PawnVatGrower>();
+                        IEnumerable<Building_PawnVatGrower> otherVatGrowers = Map.listerBuildings.allBuildingsColonist.Where(building => building is Building_PawnVatGrower)?.Select(bldng => bldng as Building_PawnVatGrower);
+                        if(otherVatGrowers != null)
+                        {
+                            otherVats.AddRange(otherVatGrowers);
+                        }
+
+                        IEnumerable<Thing> validGenomes = Map.listerThings.ThingsInGroup(ThingRequestGroup.HaulableEver)?.
+                        Where(thing => !thing.Position.Fogged(Map) && thing is GenomeSequence && !thing.IsForbidden(Faction.OfPlayer) &&
+                        (thing.stackCount - otherVats.Count(vat => vat.status == CrafterStatus.Filling && vat.orderProcessor.desiredIngredients.FirstOrDefault(req => req.HasThing && req.thing == thing) != null) > 0));
                         if(validGenomes != null)
                         {
                             foreach (Thing genomeThing in validGenomes)

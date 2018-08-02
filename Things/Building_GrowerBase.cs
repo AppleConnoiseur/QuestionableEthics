@@ -122,10 +122,10 @@ namespace QEthics
             Scribe_Values.Look(ref status, "status");
             Scribe_Deep.Look(ref innerContainer, "innerContainer", this, false, LookMode.Deep);
             Scribe_Deep.Look(ref orderProcessor, "orderProcessor", this);
-            if(Scribe.mode == LoadSaveMode.LoadingVars)
+            /*if(Scribe.mode == LoadSaveMode.LoadingVars)
             {
                 orderProcessor.Notify_ContentsChanged();
-            }
+            }*/
         }
 
         public void GetChildHolders(List<IThingHolder> outChildren)
@@ -219,6 +219,11 @@ namespace QEthics
                 status = CrafterStatus.Crafting;
                 Notify_CraftingStarted();
             }
+        }
+
+        public virtual void Notify_StartedCarryThing(Pawn pawn)
+        {
+
         }
 
         public virtual void Notify_CraftingStarted()
