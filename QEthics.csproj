@@ -72,7 +72,9 @@
     <Compile Include="DefOfs\QEJobDefOf.cs" />
     <Compile Include="DefOfs\QERecipeDefOf.cs" />
     <Compile Include="DefOfs\QESoundDefOf.cs" />
+    <Compile Include="DefOfs\QETaleDefOf.cs" />
     <Compile Include="DefOfs\QEThingDefOf.cs" />
+    <Compile Include="DefOfs\QEThoughtDefOf.cs" />
     <Compile Include="DefOfs\QEWorkTypeDefOf.cs" />
     <Compile Include="Defs\BackstoryDef.cs" />
     <Compile Include="Defs\GrowerRecipeDef.cs" />

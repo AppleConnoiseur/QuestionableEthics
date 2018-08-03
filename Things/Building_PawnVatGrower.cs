@@ -102,6 +102,13 @@ namespace QEthics
 
             Pawn tempPawn = pawnBeingGrown;
             pawnBeingGrown = null;
+
+            if(tempPawn.RaceProps.Humanlike)
+            {
+                Find.LetterStack.ReceiveLetter("QE_LetterHumanlikeGrownLabel".Translate(), "QE_LetterHumanlikeGrownDescription".Translate(tempPawn.Name.ToStringShort), LetterDefOf.PositiveEvent, new LookTargets(tempPawn));
+                TaleRecorder.RecordTale(QETaleDefOf.QE_Vatgrown, tempPawn);
+                tempPawn.needs.mood.thoughts.memories.TryGainMemory(QEThoughtDefOf.QE_VatGrownCloneConfusion);
+            }
             return tempPawn;
         }
 
@@ -131,6 +138,7 @@ namespace QEthics
                 pawnBeingGrown.Drawer.renderer.graphics.ResolveAllGraphics();
                 PortraitsCache.SetDirty(pawnBeingGrown);
                 PortraitsCache.PortraitsCacheUpdate();
+                Messages.Message("QE_MessageGrowingDone".Translate(pawnBeingGrown.LabelCap), new LookTargets(this), MessageTypeDefOf.PositiveEvent);
             }
         }
 

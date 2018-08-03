@@ -158,6 +158,11 @@ namespace QEthics
             innerContainer.ClearAndDestroyContents();
         }
 
+        public override void Notify_CraftingFinished()
+        {
+            Messages.Message("QE_MessageGrowingDone".Translate(activeRecipe.productDef.LabelCap), new LookTargets(this), MessageTypeDefOf.PositiveEvent, false);
+        }
+
         public override void Tick_Crafting()
         {
             base.Tick_Crafting();
@@ -207,6 +212,11 @@ namespace QEthics
 
             activeRecipe = recipeDef;
             status = CrafterStatus.Filling;
+        }
+
+        public override void Notify_ThingLostInOrderProcessor()
+        {
+            StopCrafting();
         }
 
         public void StopCrafting()

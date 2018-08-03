@@ -185,6 +185,16 @@ namespace QEthics
                     break;
                 case CrafterStatus.Filling:
                     {
+                        //Check if any Things are lost in the order processor.
+                        orderProcessor.Cleanup();
+
+                        if (orderProcessor.requestsLost)
+                        {
+                            //Abort if any of the requests were lost.
+                            Reset();
+                            Notify_ThingLostInOrderProcessor();
+                            orderProcessor.requestsLost = false;
+                        }
                         Tick_Filling();
                     }
                     break;
@@ -219,6 +229,11 @@ namespace QEthics
                 status = CrafterStatus.Crafting;
                 Notify_CraftingStarted();
             }
+        }
+
+        public virtual void Notify_ThingLostInOrderProcessor()
+        {
+
         }
 
         public virtual void Notify_StartedCarryThing(Pawn pawn)

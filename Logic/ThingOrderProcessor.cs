@@ -27,6 +27,8 @@ namespace QEthics
         /// </summary>
         public IThingHolder observedThingHolder;
 
+        public bool requestsLost;
+
         public ThingOwner ObservedThingOwner
         {
             get
@@ -57,7 +59,14 @@ namespace QEthics
         //Functions
         public void Cleanup()
         {
-            desiredIngredients.RemoveAll(orderRequest => orderRequest == null /*|| (orderRequest.HasThing && !orderRequest.thing.Spawned)*/);
+            int elementsRemoved = desiredIngredients.RemoveAll(orderRequest => orderRequest == null || 
+            (orderRequest.HasThing && 
+                //                               Check if not spawned in a valid container.
+                (orderRequest.thing.Destroyed || !(orderRequest.thing.ParentHolder is Pawn_CarryTracker || orderRequest.thing.ParentHolder is Map || orderRequest.thing.ParentHolder is IThingHolder))));
+            if(elementsRemoved > 0)
+            {
+                requestsLost = true;
+            }
         }
 
         public void Reset()
