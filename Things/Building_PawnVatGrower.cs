@@ -214,6 +214,11 @@ namespace QEthics
 
         public override string GetInspectString()
         {
+            if (!(ParentHolder is Map))
+            {
+                return null;
+            }
+
             StringBuilder builder = new StringBuilder(base.GetInspectString());
 
             if (status == CrafterStatus.Crafting)
