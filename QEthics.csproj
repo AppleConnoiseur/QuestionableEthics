@@ -109,6 +109,7 @@
     <Compile Include="Utilities\ThingFilterUtility.cs" />
     <Compile Include="Workers\RecipeWorker_CreateBrainScan.cs" />
     <Compile Include="Workers\RecipeWorker_GenomeSequencing.cs" />
+    <Compile Include="Workers\RecipeWorker_NerveStapling.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
