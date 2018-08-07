@@ -406,6 +406,15 @@ namespace QEthics
                         {
                             Find.WindowStack.Add(new FloatMenu(options));
                         }
+                        else
+                        {
+                            //Give a hint.
+                            FloatMenuOption option = new FloatMenuOption("QE_VatGrowerGenomesHint".Translate(), null);
+                            option.Disabled = true;
+                            options.Add(option);
+
+                            Find.WindowStack.Add(new FloatMenu(options));
+                        }
                     }
                 };
             }

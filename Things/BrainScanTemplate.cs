@@ -252,7 +252,7 @@ namespace QEthics
                     new TargetingParameters()
                     {
                         canTargetPawns = true,
-                        validator = (target) => target.HasThing && target.Thing is Pawn pawn && pawn.IsValidBrainTemplatingTarget()
+                        validator = (target) => target.HasThing && target.Thing is Pawn pawn && pawn != selPawn && pawn.IsValidBrainTemplatingTarget()
                     };
 
                     Find.Targeter.BeginTargeting(targetParams, 

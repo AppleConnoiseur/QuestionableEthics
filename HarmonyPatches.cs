@@ -49,7 +49,29 @@ namespace QEthics
                     patchMethod);
             }
 
+            {
+                Type type = typeof(Pawn_EquipmentTracker);
+                MethodInfo originalMethod = AccessTools.Method(type, "DropAllEquipment");
+                HarmonyMethod patchMethod = new HarmonyMethod(typeof(HarmonyPatches).GetMethod(nameof(Patch_DropAllEquipment)));
+                harmony.Patch(
+                    originalMethod,
+                    patchMethod,
+                    null);
+            }
+
             harmony.PatchAll(Assembly.GetExecutingAssembly());
+        }
+
+        public static bool Patch_DropAllEquipment(Pawn ___pawn, ThingOwner<ThingWithComps> ___equipment)
+        {
+            Pawn pawn = ___pawn;
+            if(pawn.health.Downed && pawn.health.hediffSet.hediffs.Any(hediff => hediff is Hediff_AddedPart addedPart && addedPart.comps.Any(comp => comp.props is HediffCompProperties_WeaponsPlatform)) &&
+                ___equipment.InnerListForReading.Any(thing => thing.def.IsRangedWeapon))
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public static bool Patch_ShouldBeDeadFromRequiredCapacity(PawnCapacityDef __result, Pawn ___pawn)

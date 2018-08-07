@@ -79,6 +79,10 @@
     <Compile Include="Defs\BackstoryDef.cs" />
     <Compile Include="Defs\GrowerRecipeDef.cs" />
     <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="HediffComps\HediffComp_NullTwo.cs" />
+    <Compile Include="HediffComps\HediffComp_Null.cs" />
+    <Compile Include="HediffComps\Properties\HediffCompProperties_WeaponsPlatform.cs" />
+    <Compile Include="HediffComps\Properties\HediffCompProperties_CrudeAddedPart.cs" />
     <Compile Include="Hediffs\Hediff_LifeSupport.cs" />
     <Compile Include="Logic\ExposedTraitEntry.cs" />
     <Compile Include="Logic\IMaintainableGrower.cs" />
@@ -110,6 +114,7 @@
     <Compile Include="Workers\RecipeWorker_CreateBrainScan.cs" />
     <Compile Include="Workers\RecipeWorker_GenomeSequencing.cs" />
     <Compile Include="Workers\RecipeWorker_NerveStapling.cs" />
+    <Compile Include="Workers\ThoughtWorker_HasCrudeAddedBodyPart.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
