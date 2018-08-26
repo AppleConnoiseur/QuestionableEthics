@@ -110,6 +110,7 @@
     <Compile Include="Utilities\GenomeUtility.cs" />
     <Compile Include="Utilities\IngredientUtility.cs" />
     <Compile Include="Utilities\LifeSupportUtility.cs" />
+    <Compile Include="Utilities\PawnUtility.cs" />
     <Compile Include="Utilities\ThingFilterUtility.cs" />
     <Compile Include="Workers\RecipeWorker_CreateBrainScan.cs" />
     <Compile Include="Workers\RecipeWorker_GenomeSequencing.cs" />

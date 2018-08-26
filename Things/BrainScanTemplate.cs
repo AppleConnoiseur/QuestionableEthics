@@ -261,8 +261,8 @@ namespace QEthics
                             Pawn pawn = target.Thing as Pawn;
                             if(pawn != null)
                             {
-                                Building_Bed validBed = RestUtility.FindPatientBedFor(pawn);
-                                if(validBed != null && selPawn.CanReserveAndReach(pawn, PathEndMode.OnCell, Danger.Deadly) && selPawn.CanReserveAndReach(this, PathEndMode.OnCell, Danger.Deadly) && selPawn.CanReserveAndReach(validBed, PathEndMode.OnCell, Danger.Deadly))
+                                Building_Bed validBed = pawn.FindSuitableSurgeryBed(selPawn);
+                                if (validBed != null && selPawn.CanReserveAndReach(pawn, PathEndMode.OnCell, Danger.Deadly) && selPawn.CanReserveAndReach(this, PathEndMode.OnCell, Danger.Deadly) && selPawn.CanReserveAndReach(validBed, PathEndMode.OnCell, Danger.Deadly))
                                 {
                                     selPawn.jobs.TryTakeOrderedJob(new Job(QEJobDefOf.QE_ApplyBrainScanTemplate, pawn, this, validBed)
                                     {
@@ -271,7 +271,7 @@ namespace QEthics
                                 }
                                 else
                                 {
-                                    Messages.Message("QE_BrainScanningRejectInput".Translate(), MessageTypeDefOf.RejectInput, false);
+                                    Messages.Message("QE_BrainScanningRejectInput".Translate(pawn.Name), MessageTypeDefOf.RejectInput, false);
                                     SoundDefOf.ClickReject.PlayOneShot(SoundInfo.OnCamera());
                                 }
                             }

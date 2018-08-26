@@ -41,32 +41,42 @@ namespace QEthics
                 return false;
             }
 
-            if((maintanable.ScientistMaintence > 0.35f) && def.workType == QEWorkTypeDefOf.Research)
+            bool maintainScience = true;
+
+            if(maintanable.ScientistMaintence > 0.49f)
             {
                 if (maintanable.ScientistMaintence > 0.90f)
-                    return false;
-                return forced;
+                    maintainScience = false;
+                maintainScience = forced;
             }
 
-            if ((maintanable.DoctorMaintence > 0.35f) && def.workType == WorkTypeDefOf.Doctor)
+            bool maintainDoctor = true;
+
+            if (maintanable.DoctorMaintence > 0.49f)
             {
                 if (maintanable.DoctorMaintence > 0.90f)
-                    return false;
-                return forced;
+                    maintainDoctor = false;
+                maintainDoctor = forced;
             }
 
-            return true;
+            bool maintainAtAll = maintainScience || maintainDoctor;
+
+            return maintainAtAll;
         }
 
         public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
             //Building_GrowerBase grower = t as Building_GrowerBase;
             Job job = null;
-            if(def.workType == QEWorkTypeDefOf.Research)
+
+            IMaintainableGrower maintanable = t as IMaintainableGrower;
+
+            if (maintanable.ScientistMaintence < 0.49f)
             {
                 job = new Job(QEJobDefOf.QE_MaintainGrowerJob_Intellectual, t);
             }
-            else if(def.workType == WorkTypeDefOf.Doctor)
+
+            if (maintanable.DoctorMaintence < 0.49f)
             {
                 job = new Job(QEJobDefOf.QE_MaintainGrowerJob_Medicine, t);
             }

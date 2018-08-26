@@ -11,9 +11,15 @@ namespace QEthics
     {
         protected override ThoughtState CurrentStateInternal(Pawn p)
         {
+            //Make Painstoppers being able to nullify the thought. 
+            if (p.health?.hediffSet.hediffs.Any(hediff => hediff.CurStage?.painFactor == 0f) ?? false)
+            {
+                return false;
+            }
+
             int num = CountCrudeAddedParts(p.health.hediffSet);
             ThoughtState result;
-            if (num > 0)
+            if (num != -1)
             {
                 result = ThoughtState.ActiveAtStage(num);
             }
@@ -27,7 +33,7 @@ namespace QEthics
 
         public static int CountCrudeAddedParts(HediffSet hs)
         {
-            int num = 0;
+            int num = -1;
             List<Hediff> hediffs = hs.hediffs;
             for (int i = 0; i < hediffs.Count; i++)
             {
