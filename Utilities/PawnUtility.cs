@@ -40,10 +40,18 @@ namespace QEthics
                         Building_Bed building_Bed = (Building_Bed)GenClosest.ClosestThingReachable(sleeper.Position, sleeper.Map, ThingRequest.ForDef(thingDef), PathEndMode.OnCell, TraverseParms.For(traveler, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, delegate (Thing b)
                         {
                             //Log.Message("Bed=" + b.ThingID + "; def=" + thingDef.defName);
+                            Building_Bed bed = b as Building_Bed;
 
                             bool result;
                             if (/*((Building_Bed)b).Medical &&*/ b.Position.GetDangerFor(sleeper, sleeper.Map) <= maxDanger)
                             {
+                                /*result = 
+                                RestUtility.CanUseBedEver(sleeper, thingDef) && 
+                                traveler.CanReserveAndReach(bed, PathEndMode.OnCell, Danger.Deadly) &&
+                                bed.AnyUnoccupiedSleepingSlot && 
+                                !bed.IsForbidden(sleeper) && 
+                                !bed.IsBurning() && 
+                                (sleeperWillBePrisoner ? bed.ForPrisoners : bed.Faction == null || bed.Faction == sleeper.Faction);*/
                                 result = RestUtility.IsValidBedFor(b, sleeper, traveler, sleeperWillBePrisoner, false);
                             }
                             else
