@@ -164,6 +164,8 @@ namespace QEthics
                     PortraitsCache.PortraitsCacheUpdate();
                     lastLifestageAge = pawnBeingGrown.ageTracker.CurLifeStageRace;
                     renderTexture = null;
+
+                    //Log.Message("Tick_Crafting: New lifestage texture.");
                 }
             }
 
@@ -262,6 +264,8 @@ namespace QEthics
                         MaterialRequest req2 = new MaterialRequest(tempTexture);
                         req2.shader = ShaderDatabase.Mote;
                         renderMaterial = MaterialPool.MatFrom(req2);
+
+                        //Log.Message("DrawAt: New render texture");
                     }
 
                     float scale = (0.2f + (CraftingProgressPercent * 0.8f)) * 1.75f;

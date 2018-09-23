@@ -30,13 +30,20 @@ namespace QEthics
             }*/
 
             {
-                Type type = typeof(Pawn_HealthTracker);
-                MethodInfo originalMethod = AccessTools.Method(type, "ShouldBeDeadFromRequiredCapacity");
-                HarmonyMethod patchMethod = new HarmonyMethod(typeof(HarmonyPatches).GetMethod(nameof(Patch_ShouldBeDeadFromRequiredCapacity)));
-                harmony.Patch(
-                    originalMethod,
-                    patchMethod,
-                    null);
+                if(!CompatibilityTracker.DeathRattleActive)
+                {
+                    Type type = typeof(Pawn_HealthTracker);
+                    MethodInfo originalMethod = AccessTools.Method(type, "ShouldBeDeadFromRequiredCapacity");
+                    HarmonyMethod patchMethod = new HarmonyMethod(typeof(HarmonyPatches).GetMethod(nameof(Patch_ShouldBeDeadFromRequiredCapacity)));
+                    harmony.Patch(
+                        originalMethod,
+                        patchMethod,
+                        null);
+                }
+                else
+                {
+                    Log.Message("Questionable Ethics, Compatibility with Death Rattle: Not patching Pawn_HealthTracker.ShouldBeDeadFromRequiredCapacity");
+                }
             }
 
             {

@@ -21,6 +21,16 @@ namespace QEthics
             }
         }
 
+        private static bool deathRattleActiveInt = false;
+
+        public static bool DeathRattleActive
+        {
+            get
+            {
+                return deathRattleActiveInt;
+            }
+        }
+
         static CompatibilityTracker()
         {
             //Check for Alien Races Compatiblity.
@@ -29,6 +39,18 @@ namespace QEthics
             if(GenTypes.AllTypes.Any(type => type.FullName == "AlienRace.ThingDef_AlienRace"))
             {
                 alienRacesActiveInt = true;
+                Log.Message("Is OK.");
+            }
+            else
+            {
+                Log.Message("No compatibility.");
+            }
+
+            //Check for Death Rattle Compatiblity.
+            Log.Message("Checking for compatibility for: Death Rattle...");
+            if (GenTypes.AllTypes.Any(type => type.FullName == "DeathRattle.DeathRattleBase"))
+            {
+                deathRattleActiveInt = true;
                 Log.Message("Is OK.");
             }
             else
