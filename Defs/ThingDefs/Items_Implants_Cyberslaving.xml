@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef Name="QEImplantBase" Abstract="True">
+		<label>implant</label>
+		<thingClass>ThingWithComps</thingClass>
+		<category>Item</category>
+		<useHitPoints>true</useHitPoints>
+		<selectable>true</selectable>
+		<statBases>
+			<MaxHitPoints>50</MaxHitPoints>
+			<Flammability>0.7</Flammability>
+			<DeteriorationRate>2.0</DeteriorationRate>
+			<Beauty>-4</Beauty>
+		</statBases>
+		<altitudeLayer>Item</altitudeLayer>
+		<tickerType>Never</tickerType>
+		<alwaysHaulable>true</alwaysHaulable>
+		<isTechHediff>true</isTechHediff>
+		<techLevel>Spacer</techLevel>
+		<tradeTags>
+			<li>TechHediff</li>
+		</tradeTags>
+		<comps>
+			<li Class="CompProperties_Forbiddable"/>
+		</comps>
+		<thingCategories>
+			<li>BodyPartsArtificial</li>
+		</thingCategories>
+		<pathCost>10</pathCost>
+	</ThingDef>
+
+	<ThingDef ParentName="QEImplantBase">
+		<defName>QE_NerveStaple</defName>
+		<label>nerve staples</label>
+		<description>A brain implant that stimulates the brain's pleasure centers for control. Considered an atrocitiy among civilized worlds, it has been used to great effect on frontier planets to subdue rebellious elements by factions from a glitterworld colony ship.</description>
+		<graphicData>
+			<texPath>Things/Item/Health/HealthItemBionic</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.80</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>300</MarketValue>
+			<Mass>0.2</Mass>
+		</statBases>
+	</ThingDef>
+</Defs>

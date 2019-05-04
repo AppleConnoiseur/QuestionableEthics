@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<JobDef>
+		<defName>QE_ApplyBrainScanTemplate</defName>
+		<driverClass>QEthics.JobDriver_UseBrainTemplate</driverClass>
+		<reportString>applying TargetB to TargetA.</reportString>
+		<suspendable>false</suspendable>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
+
+	<JobDef>
+		<defName>QE_SalvageCropseGenome</defName>
+		<driverClass>QEthics.JobDriver_SalvageGenome</driverClass>
+		<reportString>salvaging genome from TargetA.</reportString>
+		<suspendable>false</suspendable>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+		<modExtensions>
+			<li Class="QEthics.RecipeOutcomeProperties">
+				<outputThingDef>QE_GenomeSequencerFilled</outputThingDef>
+			</li>
+		</modExtensions>
+	</JobDef>
+</Defs>

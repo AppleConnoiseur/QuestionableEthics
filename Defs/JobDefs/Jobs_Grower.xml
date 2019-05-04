@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<JobDef>
+		<defName>QE_DepositIntoGrowerJob</defName>
+		<driverClass>QEthics.JobDriver_DepositIntoGrower</driverClass>
+		<reportString>filling TargetB into TargetA.</reportString>
+		<suspendable>false</suspendable>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
+
+	<JobDef>
+		<defName>QE_ExtractFromGrowerJob</defName>
+		<driverClass>QEthics.JobDriver_ExtractGrowerProduct</driverClass>
+		<reportString>extracting from TargetA.</reportString>
+		<suspendable>false</suspendable>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
+
+	<JobDef>
+		<defName>QE_MaintainGrowerJob_Intellectual</defName>
+		<driverClass>QEthics.JobDriver_MaintainGrower</driverClass>
+		<reportString>monitoring and adjusting TargetA.</reportString>
+		<suspendable>false</suspendable>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+		<modExtensions>
+			<li Class="QEthics.MaintainVatProperties">
+				<maintainingSkill>Intellectual</maintainingSkill>
+			</li>
+		</modExtensions>
+	</JobDef>
+
+	<JobDef>
+		<defName>QE_MaintainGrowerJob_Medicine</defName>
+		<driverClass>QEthics.JobDriver_MaintainGrower</driverClass>
+		<reportString>regulating values for TargetA.</reportString>
+		<suspendable>false</suspendable>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+		<modExtensions>
+			<li Class="QEthics.MaintainVatProperties">
+				<maintainingSkill>Medicine</maintainingSkill>
+			</li>
+		</modExtensions>
+	</JobDef>
+</Defs>

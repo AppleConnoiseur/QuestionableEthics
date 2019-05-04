@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<RecipeDef ParentName="SurgeryFlesh">
+		<defName>QE_BrainScanning</defName>
+		<label>brain scanning</label>
+		<description>Scans the brain of the target deeply. The patient will become really dizzy afterwards. Beware that performing it on beings in neutral or allied factions will be considered a violation.</description>
+		<workerClass>QEthics.RecipeWorker_CreateBrainScan</workerClass>
+		<jobString>Scanning brain.</jobString>
+		<workAmount>2000</workAmount>
+		<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+		<effectWorking>Research</effectWorking>
+		<soundWorking>Interact_Research</soundWorking>
+		<anesthetize>false</anesthetize>
+		<isViolation>true</isViolation>
+		<!--targetsBodyPart>false</targetsBodyPart-->
+		<hideBodyPartNames>true</hideBodyPartNames>
+		<skillRequirements>
+			<Medicine>10</Medicine>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>QE_BrainScanner</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>QE_BrainScanner</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<researchPrerequisite>QE_BrainScanning</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef>
+		<defName>QE_Make_BrainScanner</defName>
+		<label>make brain scanner</label>
+		<description>Make a brain scanner.</description>
+		<jobString>Making brain scanner.</jobString>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<workAmount>8500</workAmount>
+		<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>55</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentSpacer</li>
+					</thingDefs>
+				</filter>
+				<count>2</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>ComponentSpacer</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<QE_BrainScanner>1</QE_BrainScanner>
+		</products>
+		<skillRequirements>
+			<Crafting>8</Crafting>
+		</skillRequirements>
+		<workSkill>Crafting</workSkill>
+		<recipeUsers>
+			<li>FabricationBench</li>
+		</recipeUsers>
+		<researchPrerequisite>QE_BrainScanning</researchPrerequisite>
+	</RecipeDef>
+</Defs>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<TaleDef>
+		<defName>QE_Vatgrown</defName>
+		<label>vatgrown clone</label>
+		<taleClass>Tale_SinglePawn</taleClass>
+		<type>PermanentHistorical</type>
+		<baseInterest>12</baseInterest>
+		<rulePack>
+			<rulesStrings>
+				<li>tale_noun->[PAWN_nameDef] being born in a cloning vat</li>
+				<li>image->[PAWN_nameFull] rise out of the cloning vat [circumstance_group]</li>
+				<li>image->[PAWN_nameFull] is artifically born out of the cloning vat [circumstance_group]</li>
+				<li>circumstance_phrase->with a blank look</li>
+				<li>circumstance_phrase->with a look of wonder</li>
+				<li>circumstance_phrase->and [PAWN_pronoun] starts crying</li>
+				<li>circumstance_phrase->with a confident look</li>
+				<li>desc_sentence->[PAWN_pronoun] seems totally unaware of what is around [PAWN_objective].</li>
+				<li>desc_sentence->[PAWN_pronoun] is incredibly confused of life outside the cloning vat.</li>
+				<li>desc_sentence->[PAWN_pronoun] want back into the safety of the cloning vat.</li>
+				<li>desc_sentence->[PAWN_pronoun] can barely figure out what is going on.</li>
+				<li>desc_sentence->[PAWN_pronoun] make a few jumbled words of speech.</li>
+				<li>desc_sentence->A [Animal] looks on curiously.</li>
+				<li>desc_sentence->A [Animal] looks on with disgust.</li>
+				<li>desc_sentence->A [PersonJob] watches with awe of what's going on.</li>
+				<li>desc_sentence->A [PersonJob] watches on with a look of fear.</li>
+				<li>desc_sentence->A [PersonJob] watches on with a look of lust.</li>
+			</rulesStrings>
+		</rulePack>
+	</TaleDef>
+</Defs>

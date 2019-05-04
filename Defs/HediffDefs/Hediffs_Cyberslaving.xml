@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HediffDef Name="QEImplantHediffBase" Abstract="True">
+		<hediffClass>Hediff_Implant</hediffClass>
+		<defaultLabelColor>(0.65, 0.3, 0.9)</defaultLabelColor>
+		<isBad>false</isBad>
+	</HediffDef>
+
+	<HediffDef ParentName="QEImplantHediffBase">
+		<defName>QE_NerveStaple</defName>
+		<label>nerve stapled</label>
+		<labelNoun>a nerve stapling</labelNoun>
+		<defaultLabelColor>(0.85, 0.15, 0.35)</defaultLabelColor>
+		<stages>
+			<li>
+				<partEfficiencyOffset>-0.1</partEfficiencyOffset>
+				<statOffsets>
+					<GlobalLearningFactor>-0.8</GlobalLearningFactor>
+				</statOffsets>
+			</li>
+		</stages>
+		<spawnThingOnRemoved>QE_NerveStaple</spawnThingOnRemoved>
+	</HediffDef>
+</Defs>

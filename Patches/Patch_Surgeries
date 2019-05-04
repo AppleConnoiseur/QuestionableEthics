@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!-- Add recipes XML tag if needed. -->
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+				<xpath>/Defs/ThingDef[@Name="BasePawn"]/recipes</xpath>
+				<success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef[@Name="BasePawn"]</xpath>
+				<order>Append</order>
+				<value>
+					<recipes></recipes>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<!-- Surgeries -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThingDef[@Name="BasePawn"]/recipes</xpath>
+		<order>Prepend</order>
+		<value>
+			<li>QE_GenomeSequencing</li>
+		</value>
+	</Operation>
+</Patch>

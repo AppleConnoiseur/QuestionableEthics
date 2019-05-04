@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Natural -->
+	<ThingDef ParentName="BodyPartNaturalBase">
+		<defName>Eye</defName>
+		<label>eye</label>
+		<description>A biological human eye. Collects light and transmits it to the brain.</description>
+		<statBases>
+			<MarketValue>300</MarketValue>
+			<Mass>1</Mass>
+		</statBases>
+	</ThingDef>
+
+	<ThingDef ParentName="BodyPartNaturalBase">
+		<defName>Ear</defName>
+		<label>ear</label>
+		<description>A biological human ear. Catches soundwaves from the air and transforms them into audible sound.</description>
+		<statBases>
+			<MarketValue>100</MarketValue>
+			<Mass>1</Mass>
+		</statBases>
+	</ThingDef>
+
+	<ThingDef ParentName="BodyPartNaturalBase">
+		<defName>Nose</defName>
+		<label>nose</label>
+		<description>A biological human nose. Looks pretty and allows you to smell and taste.</description>
+		<statBases>
+			<MarketValue>100</MarketValue>
+			<Mass>1</Mass>
+		</statBases>
+	</ThingDef>
+
+	<ThingDef ParentName="BodyPartNaturalBase">
+		<defName>Jaw</defName>
+		<label>jaw</label>
+		<description>A biological human jaw. A jaw complete with a tongue and teeth. Allows for adequate chewing and tasting.</description>
+		<statBases>
+			<MarketValue>100</MarketValue>
+			<Mass>1</Mass>
+		</statBases>
+	</ThingDef>
+
+	<ThingDef ParentName="BodyPartNaturalBase">
+		<defName>Stomach</defName>
+		<label>stomach</label>
+		<description>A biological human stomach. Breaks down food into nutrition with the help of acids and enzymes.</description>
+		<statBases>
+			<MarketValue>400</MarketValue>
+			<Mass>1</Mass>
+		</statBases>
+	</ThingDef>
+
+	<ThingDef ParentName="BodyPartNaturalBase">
+		<defName>Spine</defName>
+		<label>spine</label>
+		<description>A biological human spine. Supports the back and contains the muscle memory.</description>
+		<statBases>
+			<MarketValue>300</MarketValue>
+			<Mass>1</Mass>
+		</statBases>
+	</ThingDef>
+
+	<ThingDef ParentName="BodyPartNaturalBase">
+		<defName>Pelvis</defName>
+		<label>pelvis</label>
+		<description>A biological human pelvis. Legs and the spine are attached to this.</description>
+		<statBases>
+			<MarketValue>200</MarketValue>
+			<Mass>1</Mass>
+		</statBases>
+	</ThingDef>
+
+	<ThingDef ParentName="BodyPartNaturalBase">
+		<defName>Arm</defName>
+		<label>arm</label>
+		<description>A biological human arm. Attached to the shoulder this let you carry things.</description>
+		<statBases>
+			<MarketValue>200</MarketValue>
+			<Mass>1</Mass>
+		</statBases>
+	</ThingDef>
+
+	<ThingDef ParentName="BodyPartNaturalBase">
+		<defName>Hand</defName>
+		<label>hand</label>
+		<description>A biological human hand. Great for holding weapons and do surgery with.</description>
+		<statBases>
+			<MarketValue>100</MarketValue>
+			<Mass>1</Mass>
+		</statBases>
+	</ThingDef>
+
+	<ThingDef ParentName="BodyPartNaturalBase">
+		<defName>Leg</defName>
+		<label>leg</label>
+		<description>A biological human leg. Attached to the pelvis it let you do locomotion.</description>
+		<statBases>
+			<MarketValue>200</MarketValue>
+			<Mass>1</Mass>
+		</statBases>
+	</ThingDef>
+
+	<ThingDef ParentName="BodyPartNaturalBase">
+		<defName>Foot</defName>
+		<label>foot</label>
+		<description>A biological human arm. Dampens downward going motions and are great for foot baths.</description>
+		<statBases>
+			<MarketValue>100</MarketValue>
+			<Mass>1</Mass>
+		</statBases>
+	</ThingDef>
+
+	<!-- Crude -->
+	<ThingDef ParentName="BodyPartBionicBase">
+		<defName>QE_CrudeBionicEye</defName>
+		<label>crude bionic eye</label>
+		<description>An advanced but crude artificial eyes. Is a bit better than a biological eye but is uncomfortable. A lattice-dust healing system allows it to recover from damage.</description>
+		<techLevel>Industrial</techLevel>
+		<costList>
+			<Steel>20</Steel>
+			<ComponentIndustrial>6</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MarketValue>400</MarketValue>
+			<WorkToMake>19000</WorkToMake>
+			<Mass>0.3</Mass>
+		</statBases>
+		<recipeMaker>
+			<recipeUsers Inherit="False">
+				<li>TableMachining</li>
+			</recipeUsers>
+			<researchPrerequisite>QE_CrudeBionics</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<ThingDef ParentName="BodyPartBionicBase">
+		<defName>QE_CrudeBionicArm</defName>
+		<label>crude bionic arm</label>
+		<description>An advanced but crude artificial arm. Noisy and strong this arm works better than a biological arm in every way. A lattice-dust healing system allows it to recover from damage. It is better than a biological arm in almost every way.</description>
+		<techLevel>Spacer</techLevel>
+		<costList>
+			<Steel>30</Steel>
+			<ComponentIndustrial>5</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MarketValue>300</MarketValue>
+			<WorkToMake>13000</WorkToMake>
+			<Mass>5</Mass>
+		</statBases>
+		<recipeMaker>
+			<recipeUsers Inherit="False">
+				<li>TableMachining</li>
+			</recipeUsers>
+			<researchPrerequisite>QE_CrudeBionics</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<ThingDef ParentName="BodyPartBionicBase">
+		<defName>QE_CrudeBionicLeg</defName>
+		<label>crude bionic leg</label>
+		<description>An advanced but crude artificial leg. Noisy and strong this leg let its host run fast, and lattice-dust healing system, it is better than a biological leg in almost every way.</description>
+		<techLevel>Spacer</techLevel>
+		<costList>
+			<Steel>30</Steel>
+			<ComponentIndustrial>5</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MarketValue>300</MarketValue>
+			<WorkToMake>13000</WorkToMake>
+			<Mass>8</Mass>
+		</statBases>
+		<recipeMaker>
+			<recipeUsers Inherit="False">
+				<li>TableMachining</li>
+			</recipeUsers>
+			<researchPrerequisite>QE_CrudeBionics</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<ThingDef ParentName="BodyPartBionicBase">
+		<defName>QE_CrudeBionicSpine</defName>
+		<label>crude bionic spine</label>
+		<description>An advanced but crude artificial spine. A biogel nerve bundle runs down an articulated steel core, surrounded by a lattice-dust healing system. It is better than a biological spine.</description>
+		<techLevel>Spacer</techLevel>
+		<costList>
+			<Steel>30</Steel>
+			<ComponentIndustrial>6</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MarketValue>400</MarketValue>
+			<WorkToMake>13000</WorkToMake>
+			<Mass>2</Mass>
+		</statBases>
+		<recipeMaker>
+			<recipeUsers Inherit="False">
+				<li>TableMachining</li>
+			</recipeUsers>
+			<researchPrerequisite>QE_CrudeBionics</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<!-- Integrated weapons -->
+	<ThingDef ParentName="BodyPartBionicBase">
+		<defName>QE_CrudeBionicArm_Bludgeon</defName>
+		<label>crude bionic bludgeon</label>
+		<description>An advanced but crude artificial arm turned into a potent bludgeon weapon. Works much like a normal crude bionic arm but its now a deadly weapon.</description>
+		<techLevel>Spacer</techLevel>
+		<costList>
+			<Steel>100</Steel>
+			<ComponentIndustrial>7</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MarketValue>1000</MarketValue>
+			<WorkToMake>13000</WorkToMake>
+			<Mass>5</Mass>
+		</statBases>
+		<recipeMaker>
+			<recipeUsers Inherit="False">
+				<li>TableMachining</li>
+			</recipeUsers>
+			<researchPrerequisite>QE_IntegratedWeaponry</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<ThingDef ParentName="BodyPartBionicBase">
+		<defName>QE_CrudeBionicArm_Spike</defName>
+		<label>crude bionic spike</label>
+		<description>An advanced but crude artificial arm turned into a potent piercing weapon. Works much like a normal crude bionic arm but its now a deadly weapon.</description>
+		<techLevel>Spacer</techLevel>
+		<costList>
+			<Steel>120</Steel>
+			<ComponentIndustrial>8</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MarketValue>1000</MarketValue>
+			<WorkToMake>18000</WorkToMake>
+			<Mass>8</Mass>
+		</statBases>
+		<recipeMaker>
+			<recipeUsers Inherit="False">
+				<li>TableMachining</li>
+			</recipeUsers>
+			<researchPrerequisite>QE_IntegratedWeaponry</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+
+	<ThingDef ParentName="BodyPartBionicBase">
+		<defName>QE_CrudeBionicArm_RangedWeaponPlatform</defName>
+		<label>crude bionic ranged weapon platform</label>
+		<description>An advanced but crude artificial arm turned into a platform for ranged weapons. Equipped items won't be dropped when downed. Works much like a normal crude bionic arm but its now a deadly weapon.</description>
+		<techLevel>Spacer</techLevel>
+		<costList>
+			<Steel>50</Steel>
+			<ComponentIndustrial>6</ComponentIndustrial>
+		</costList>
+		<statBases>
+			<MarketValue>800</MarketValue>
+			<WorkToMake>13000</WorkToMake>
+			<Mass>5</Mass>
+		</statBases>
+		<recipeMaker>
+			<recipeUsers Inherit="False">
+				<li>TableMachining</li>
+			</recipeUsers>
+			<researchPrerequisite>QE_IntegratedWeaponry</researchPrerequisite>
+		</recipeMaker>
+	</ThingDef>
+</Defs>

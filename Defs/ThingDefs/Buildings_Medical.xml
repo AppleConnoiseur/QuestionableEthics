@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="BuildingBase">
+		<defName>QE_LifeSupportSystem</defName>
+		<label>life support system</label>
+		<description>This machine let the surgeon easily bypass the need for vital organs through a plug &amp; play system. Can give your colonist extra time they need, or be used to harvest everything from a hapless victim. It substitutes the need for any organ except for the brain as long as its powered and the patient is in bed.</description>
+		<graphicData>
+			<texPath>Things/Building/Misc/VitalsMonitor</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shadowData>
+				<volume>(0.55, 0.30, 0.40)</volume>
+			</shadowData>
+			<damageData>
+				<rectN>(0.078125,0.46875,0.859375,0.53125)</rectN>
+				<rectS>(0.078125,0.46875,0.859375,0.53125)</rectS>
+				<rectE>(0.125,0.46875,0.625,0.296875)</rectE>
+				<rectW>(0.25,0.46875,0.625,0.296875)</rectW>
+				<cornerTR>Damage/Corner</cornerTR>
+			</damageData>
+		</graphicData>
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<researchPrerequisites>
+			<li>QE_LifeSupportSystem</li>
+		</researchPrerequisites>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<fillPercent>0.2</fillPercent>
+		<statBases>
+			<MaxHitPoints>175</MaxHitPoints>
+			<WorkToBuild>8000</WorkToBuild>
+			<Mass>30</Mass>
+			<Flammability>0.7</Flammability>
+		</statBases>
+		<size>(1,1)</size>
+		<costList>
+			<Steel>75</Steel>
+			<ComponentIndustrial>12</ComponentIndustrial>
+		</costList>
+		<designationCategory>Misc</designationCategory>
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<thingCategories>
+			<li>BuildingsMisc</li>
+		</thingCategories>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<shortCircuitInRain>true</shortCircuitInRain>
+				<basePowerConsumption>200</basePowerConsumption>
+			</li>
+			<li Class="CompProperties_Flickable"/>
+			<li Class="QEthics.CompProperties_LifeSupport"/>
+		</comps>
+		<designationHotKey>Misc5</designationHotKey>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<uiIconScale>0.85</uiIconScale>
+	</ThingDef>
+
+	<!--ThingDef ParentName="BedWithQualityBase">
+		<defName>QE_AutoDoc</defName>
+		<label>automatic doctor bed</label>
+		<description>A development of the hospital bed, this is outfitted with the most cutting edge technology that let it perform surgeries and first aid without any help.</description>
+		<thingClass>QEthics.Building_AutoDoctor</thingClass>
+		<graphicData>
+			<texPath>Things/Building/Furniture/Bed/HospitalBed</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<castEdgeShadows>True</castEdgeShadows>
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>2800</WorkToBuild>
+			<Mass>65</Mass>
+			<Flammability>1.0</Flammability>
+			<BedRestEffectiveness>1</BedRestEffectiveness>
+			<Comfort>0.80</Comfort>
+			<ImmunityGainSpeedFactor>1.11</ImmunityGainSpeedFactor>
+			<MedicalTendQualityOffset>0.10</MedicalTendQualityOffset>
+			<SurgerySuccessChanceFactor>1.1</SurgerySuccessChanceFactor>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li Class="CompProperties_AffectedByFacilities">
+				<linkableFacilities>
+					<li>VitalsMonitor</li>
+					<li>EndTable</li>
+					<li>Dresser</li>
+				</linkableFacilities>
+			</li>
+			<li Class="CompProperties_Refuelable">
+				<fuelLabel>Medicine until auto doctoring won't work</fuelLabel>
+				<fuelGizmoLabel>Automatic doctor medicine</fuelGizmoLabel>
+				<fuelFilter>
+					<thingDefs>
+						<li>MedicineIndustrial</li>
+					</thingDefs>
+				</fuelFilter>
+				<fuelCapacity>25</fuelCapacity>
+				<initialFuelPercent>0</initialFuelPercent>
+				<autoRefuelPercent>0.2</autoRefuelPercent>
+				<showFuelGizmo>true</showFuelGizmo>
+				<minimumFueledThreshold>1</minimumFueledThreshold>
+				<fuelMultiplier>1</fuelMultiplier>
+				<factorByDifficulty>false</factorByDifficulty>
+				<consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+				<outOfFuelMessage>Cannot automatically doctor: Needs Medicine.</outOfFuelMessage>
+				<fuelIconPath>Things/Item/Resource/Medicine/MedicineIndustrial</fuelIconPath>
+			</li>
+		</comps>
+		<size>(1,2)</size>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<costStuffCount>40</costStuffCount>
+		<costList>
+			<Steel>80</Steel>
+			<ComponentIndustrial>5</ComponentIndustrial>
+		</costList>
+		<building>
+			<bed_showSleeperBody>False</bed_showSleeperBody>
+			<bed_healPerDay>10</bed_healPerDay>
+			<bed_defaultMedical>true</bed_defaultMedical>
+		</building>
+		<fillPercent>0.4</fillPercent>
+		<pathCost>60</pathCost>
+		<leaveResourcesWhenKilled>True</leaveResourcesWhenKilled>
+		<staticSunShadowHeight>0.17</staticSunShadowHeight>
+		<designationHotKey>Misc5</designationHotKey>
+		<researchPrerequisites>
+			<li>QE_AutoDoc</li>
+		</researchPrerequisites>
+		<specialDisplayRadius>5.0</specialDisplayRadius>
+		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+		<techLevel>Industrial</techLevel>
+		<uiIconScale>0.90</uiIconScale>
+	</ThingDef-->
+</Defs>

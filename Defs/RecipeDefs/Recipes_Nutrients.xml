@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Distillation -->
+	<RecipeDef>
+		<defName>Make_NutrientSolutionFromOrganics</defName>
+		<label>make nutrient solution from organics</label>
+		<description>Make a batch of nutrient solution by extracting nutrients from organic feedstocks.</description>
+		<jobString>Refining nutrient solution from organics.</jobString>
+		<effectWorking>Cremate</effectWorking>
+		<soundWorking>Recipe_Cremate</soundWorking>
+		<workAmount>2500</workAmount>
+		<workSpeedStat>UnskilledLaborSpeed</workSpeedStat>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>Foods</li>
+						<li>PlantMatter</li>
+					</categories>
+					<disallowedThingDefs>
+						<li>Hay</li>
+					</disallowedThingDefs>
+				</filter>
+				<count>3.5</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>Foods</li>
+				<li>PlantMatter</li>
+			</categories>
+			<disallowedThingDefs>
+				<li>Hay</li>
+			</disallowedThingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>FoodRaw</li>
+			</categories>
+			<disallowedCategories>
+				<li>MeatRaw</li>
+				<li>AnimalProductRaw</li>
+			</disallowedCategories>
+		</defaultIngredientFilter>
+		<products>
+			<QE_NutrientSolution>35</QE_NutrientSolution>
+		</products>
+		<recipeUsers>
+			<li>BiofuelRefinery</li>
+		</recipeUsers>
+		<researchPrerequisite>QE_Distillation</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef>
+		<defName>Make_ProteinMashFromOrganics</defName>
+		<label>make protein mash from organics</label>
+		<description>Make a batch of protein mash by extracting protein from protein rich feedstocks.</description>
+		<jobString>Refining protein mash from organics.</jobString>
+		<effectWorking>Cremate</effectWorking>
+		<soundWorking>Recipe_Cremate</soundWorking>
+		<workAmount>2500</workAmount>
+		<workSpeedStat>UnskilledLaborSpeed</workSpeedStat>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>MeatRaw</li>
+					</categories>
+				</filter>
+				<count>3.5</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<categories>
+				<li>MeatRaw</li>
+			</categories>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>MeatRaw</li>
+			</categories>
+		</defaultIngredientFilter>
+		<products>
+			<QE_ProteinMash>35</QE_ProteinMash>
+		</products>
+		<recipeUsers>
+			<li>BiofuelRefinery</li>
+		</recipeUsers>
+		<researchPrerequisite>QE_Distillation</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef>
+		<defName>Make_ProteinMashFromNutrientSolution</defName>
+		<label>make protein mash from nutrient solution</label>
+		<description>Make a batch of protein mash by further refining the nutrient solution. A process that is slow and nutrient intensive because of the enzymes needed to synthesize protein.</description>
+		<jobString>Synthesizing protein mash from nutrient solution.</jobString>
+		<effectWorking>Cremate</effectWorking>
+		<soundWorking>Recipe_Cremate</soundWorking>
+		<workAmount>7500</workAmount>
+		<workSpeedStat>UnskilledLaborSpeed</workSpeedStat>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>QE_NutrientSolution</li>
+					</thingDefs>
+				</filter>
+				<count>140</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>QE_NutrientSolution</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>QE_NutrientSolution</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<products>
+			<QE_ProteinMash>35</QE_ProteinMash>
+		</products>
+		<recipeUsers>
+			<li>BiofuelRefinery</li>
+		</recipeUsers>
+		<researchPrerequisite>QE_AdvancedRefining</researchPrerequisite>
+	</RecipeDef>
+
+	<!-- Cooking -->
+	<RecipeDef>
+		<defName>Make_QESynthMeat</defName>
+		<label>make synthetic meat from protein mash</label>
+		<description>Make a batch of raw synthetic meat.</description>
+		<jobString>Synthesizing synthetic meat from protein mash.</jobString>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<workAmount>500</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>QE_ProteinMash</li>
+					</thingDefs>
+				</filter>
+				<count>70</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>QE_ProteinMash</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>QE_ProteinMash</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<products>
+			<Meat_QESynthMeat>60</Meat_QESynthMeat>
+		</products>
+		<recipeUsers>
+			<li>ElectricStove</li>
+			<li>FueledStove</li>
+		</recipeUsers>
+		<researchPrerequisite>QE_Edibles</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef>
+		<defName>Make_QENutrientPaste</defName>
+		<label>make nutrient paste meal from nutrient solution</label>
+		<description>Makes a nutrient paste meal.</description>
+		<jobString>Synthesizing nutrient paste meal from nutrient solution.</jobString>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<workAmount>60</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>QE_NutrientSolution</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>QE_NutrientSolution</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>QE_NutrientSolution</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<products>
+			<MealNutrientPaste>1</MealNutrientPaste>
+		</products>
+		<recipeUsers>
+			<li>ElectricStove</li>
+			<li>FueledStove</li>
+		</recipeUsers>
+		<researchPrerequisite>QE_Edibles</researchPrerequisite>
+	</RecipeDef>
+
+	<!-- Drugs -->
+	<RecipeDef>
+		<defName>Make_QENeutroamine</defName>
+		<label>make neutroamine from nutrient solution and protein mash</label>
+		<description>Makes neutroamine.</description>
+		<jobString>Synthesizing neutroamine from nutrient solution and protein mash.</jobString>
+		<effectWorking>Cremate</effectWorking>
+		<soundWorking>Recipe_Cremate</soundWorking>
+		<workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+		<workSkill>Medicine</workSkill>
+		<workAmount>300</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>QE_NutrientSolution</li>
+					</thingDefs>
+				</filter>
+				<count>9</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>QE_ProteinMash</li>
+					</thingDefs>
+				</filter>
+				<count>9</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>QE_NutrientSolution</li>
+				<li>QE_ProteinMash</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<thingDefs>
+				<li>QE_NutrientSolution</li>
+				<li>QE_ProteinMash</li>
+			</thingDefs>
+		</defaultIngredientFilter>
+		<products>
+			<Neutroamine>1</Neutroamine>
+		</products>
+		<recipeUsers>
+			<li>DrugLab</li>
+		</recipeUsers>
+		<researchPrerequisite>QE_Neutroamine</researchPrerequisite>
+	</RecipeDef>
+</Defs>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Tiberium Rim</li>
+		</mods>
+		<success>Always</success>
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<!-- Human -->
+				<li Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationTest">
+							<xpath>/Defs/ThingDef[defName='VisceralHorror_Human']/modExtensions</xpath>
+							<success>Invert</success>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/ThingDef[defName='VisceralHorror_Human']/</xpath>
+							<order>Append</order>
+							<value>
+								<modExtensions/>
+							</value>
+						</li>
+					</operations>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThingDef[defName='VisceralHorror_Human']/modExtensions</xpath>
+					<order>Append</order>
+					<value>
+						<li Class="QEthics.RaceExclusionProperties">
+							<excludeThisRace>true</excludeThisRace>
+						</li>
+					</value>
+				</li>
+				<!-- Animal -->
+				<li Class="PatchOperationSequence">
+					<success>Always</success>
+					<operations>
+						<li Class="PatchOperationTest">
+							<xpath>/Defs/ThingDef[defName='VisceralHorror_Animal']/modExtensions</xpath>
+							<success>Invert</success>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/ThingDef[defName='VisceralHorror_Animal']/</xpath>
+							<order>Append</order>
+							<value>
+								<modExtensions/>
+							</value>
+						</li>
+					</operations>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThingDef[defName='VisceralHorror_Animal']/modExtensions</xpath>
+					<order>Append</order>
+					<value>
+						<li Class="QEthics.RaceExclusionProperties">
+							<excludeThisRace>true</excludeThisRace>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

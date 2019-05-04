@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<!-- Grower Building -->
+	<QE_GrowerCraftingProgress>Status</QE_GrowerCraftingProgress>
+	<!-- Status -->
+	<QE_GrowerStatus>Status</QE_GrowerStatus>
+	<QE_GrowerStatus_Idle>Idle</QE_GrowerStatus_Idle>
+	<QE_GrowerStatus_Filling>Filling for</QE_GrowerStatus_Filling>
+	<QE_GrowerStatus_Crafting>Growing</QE_GrowerStatus_Crafting>
+	<QE_GrowerStatus_Finished>Finished</QE_GrowerStatus_Finished>
+	<!-- Ingredients -->
+	<QE_GrowerIngredientsNeeded>Need</QE_GrowerIngredientsNeeded>
+	<QE_GrowerIngredientsFilled>Filled</QE_GrowerIngredientsFilled>
+
+	<!-- Vat grower -->
+	<QE_VatGrowerProduct>Product</QE_VatGrowerProduct>
+	<QE_VatGrowerScientistMaintence>Researcher maintence</QE_VatGrowerScientistMaintence>
+	<QE_VatGrowerDoctorMaintence>Doctoring maintence</QE_VatGrowerDoctorMaintence>
+	<!-- Gizmos -->
+	<QE_VatGrowerStartCraftingGizmoLabel>Start growing</QE_VatGrowerStartCraftingGizmoLabel>
+	<QE_VatGrowerStartCraftingGizmoDescription>Selects a organ to grow and then start filling the vat with the needed ingredients.</QE_VatGrowerStartCraftingGizmoDescription>
+	<QE_VatGrowerStartCraftingFloatMenuDisabled>{0} (Require research: {1})</QE_VatGrowerStartCraftingFloatMenuDisabled>
+	<QE_VatGrowerStopCraftingGizmoLabel>Stop growing</QE_VatGrowerStopCraftingGizmoLabel>
+	<QE_VatGrowerStopCraftingGizmoDescription>Stops the growing process. Refunds inserted ingredients if the process was not started.</QE_VatGrowerStopCraftingGizmoDescription>
+	<QE_CustomNameCompGizmoLabel>Set custom name</QE_CustomNameCompGizmoLabel>
+	<QE_CustomNameCompGizmoDescription>Sets a custom name which can be easily indentifiable.</QE_CustomNameCompGizmoDescription>
+	<QE_VatGrowerGenomesHint>No available genomes. Get them by making 'Genome Sequencers' in machining tables, then use them.</QE_VatGrowerGenomesHint>
+	<!-- UI -->
+	<QE_CustomNameCompDialogTitle>Set custom name for {0}</QE_CustomNameCompDialogTitle>
+	<!-- Genome Sequencer -->
+	<QE_GenomeSequencerDescription_Name>Source name</QE_GenomeSequencerDescription_Name>
+	<QE_GenomeSequencerDescription_Race>Race</QE_GenomeSequencerDescription_Race>
+	<QE_GenomeSequencerDescription_Gender>Gender</QE_GenomeSequencerDescription_Gender>
+	<QE_GenomeSequencerDescription_Traits>Traits</QE_GenomeSequencerDescription_Traits>
+	<QE_GenomeSequencerSalvage>Salvage genome from corpse ({0} chance)</QE_GenomeSequencerSalvage>
+	<!-- Alerts -->
+	<QE_AlertMaintenceRequiredLabel>Vat maintence required</QE_AlertMaintenceRequiredLabel>
+	<QE_AlertMaintenceRequiredExplanation>These growers require maintence or they will lose what they are growing and materials will be wasted!\n\nSend a doctor or researcher to maintain at once.</QE_AlertMaintenceRequiredExplanation>
+	<!-- Messages -->
+	<QE_MessageGrowingDone>Growing {0} is done.</QE_MessageGrowingDone>
+	<!-- Letters -->
+	<QE_LetterHumanlikeGrownLabel>Vatgrown clone made</QE_LetterHumanlikeGrownLabel>
+	<QE_LetterHumanlikeGrownDescription>Welcome vatgrown clone {0} to the colony!\n\nYou can either train them up from scratch with the help of their natural affinities or apply a Brain scan template on them to give them a skillset right away.</QE_LetterHumanlikeGrownDescription>
+
+	<!-- Brain scanning -->
+	<QE_BrainScanningRejectInput>{0} was rejected due to no valid bed could be found.</QE_BrainScanningRejectInput>
+	<QE_BrainScanningApplyTemplate>Apply brain scan template</QE_BrainScanningApplyTemplate>
+	<QE_BrainScanningFloatMenuLabel>Apply brain scan template to {0}</QE_BrainScanningFloatMenuLabel>
+	<QE_BrainScanningFloatMenuLabelDisabled>{0} (No bed)</QE_BrainScanningFloatMenuLabelDisabled>
+	<QE_BrainScanDescription_BackshortChild>Childhood backstory</QE_BrainScanDescription_BackshortChild>
+	<QE_BrainScanDescription_BackshortAdult>Adulthood backstory</QE_BrainScanDescription_BackshortAdult>
+	<QE_BrainScanDescription_Skills>Stored skills</QE_BrainScanDescription_Skills>
+	<QE_BrainScanDescription_Training>Stored training</QE_BrainScanDescription_Training>
+</LanguageData>

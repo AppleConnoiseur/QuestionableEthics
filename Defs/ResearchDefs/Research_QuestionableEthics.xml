@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Research Tabs -->
+	<ResearchTabDef>
+		<defName>QE_ResearchTab</defName>
+		<label>Questionable Ethics</label>
+	</ResearchTabDef>
+
+	<!-- Main research path to cloning -->
+	<ResearchProjectDef>
+		<defName>QE_Distillation</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>biological distillation</label>
+		<description>Allows the distillation of nutrient solution and protein mash. Both are vital in the pursuits of growing living tissue in vats. Allows creation of em at the Biofuel refinery.</description>
+		<baseCost>500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>BiofuelRefining</li>
+			<li>NutrientPaste</li>
+		</prerequisites>
+		<researchViewX>0</researchViewX>
+		<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>QE_OrganVat</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>organ vat</label>
+		<description>The first step to understanding how to grow full living beings is by growing parts of them. Allows the building of the Organ vat.</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>QE_Distillation</li>
+			<li>SterileMaterials</li>
+			<li>Hydroponics</li>
+			<li>Prosthetics</li>
+		</prerequisites>
+		<researchViewX>1</researchViewX>
+		<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>QE_GenomeSequencing</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>genome sequencing</label>
+		<description>Organs are simple enough to grow from stem cells and carefully regulated nutrient flows. Quite a different thing to grow a animal or humanoid from scratch. To that end you need tools to sequence their genetic makeup, in which you can do it in two ways: Extract it from a living being as surgery operation or right-click it with a colonist select and target a valid corpse. Allows creation of it at the machining table.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>QE_OrganVat</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<researchViewX>3</researchViewX>
+		<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>QE_VatGrownBeings</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>cloning vat</label>
+		<description>The final piece in the puzzle. By combining a genome, sufficent nutrients and proteins living beings can be grown. Bigger things need more nutrients and proteins to grow. For humanoids you still need to either train them manually, or use a brain scan template to transfer some of the skills and all affinities to them.</description>
+		<baseCost>3000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>QE_GenomeSequencing</li>
+			<li>VitalsMonitor</li>
+		</prerequisites>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<researchViewX>4</researchViewX>
+		<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+
+	<!-- Medical -->
+	<ResearchProjectDef>
+		<defName>QE_LifeSupportSystem</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>life support system</label>
+		<description>Allows the living being resting in a bed to cheat death temporarily with the life support system.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>HospitalBed</li>
+			<li>MedicineProduction</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<researchViewX>3</researchViewX>
+		<researchViewY>3</researchViewY>
+	</ResearchProjectDef>
+
+	<!--ResearchProjectDef>
+		<defName>QE_AutoDoc</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>automatic doctor bed</label>
+		<description>This marvel of science will automatically tend wounds and perform surgeries as long as its supplied with medicine and power!</description>
+		<baseCost>3000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>QE_LifeSupportSystem</li>
+		</prerequisites>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<researchViewX>1</researchViewX>
+		<researchViewY>6</researchViewY>
+	</ResearchProjectDef-->
+
+	<!-- Chemistry -->
+	<ResearchProjectDef>
+		<defName>QE_AdvancedRefining</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>advanced refining</label>
+		<description>With further chemistry and biological knowledge it is possible to hijack biological processes to synthesize proteins from nutrient solution.</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>QE_Distillation</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<researchViewX>3</researchViewX>
+		<researchViewY>1</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>QE_Neutroamine</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>neutroamine synthesizing</label>
+		<description>By cleverly using stem cells and bio engineered organisms you can now synthesize neutroamine from nutrient solution and protein mash. Neutroamine can now be made at the drug lab.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>QE_AdvancedRefining</li>
+			<li>DrugProduction</li>
+		</prerequisites>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<researchViewX>4</researchViewX>
+		<researchViewY>1</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>QE_Edibles</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>edibles</label>
+		<description>With clever application of refining and distilling techniques the process can be reversed. Allows the production of synthetic meat and nutrient paste at the cooking stoves.</description>
+		<baseCost>500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>QE_Distillation</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<researchViewX>3</researchViewX>
+		<researchViewY>0</researchViewY>
+	</ResearchProjectDef>
+
+	<!-- All natural organs -->
+	<ResearchProjectDef>
+		<defName>QE_OrganVat_InternalOrgans</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>natural internal organs</label>
+		<description>Unlocks the ability to grow natural internal organs.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>QE_OrganVat</li>
+		</prerequisites>
+		<researchViewX>1</researchViewX>
+		<researchViewY>3</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>QE_OrganVat_SensoryOrgans</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>natural sensory organs</label>
+		<description>Unlocks the ability to grow natural eyes, ears and noses.</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>QE_OrganVat_InternalOrgans</li>
+		</prerequisites>
+		<researchViewX>1</researchViewX>
+		<researchViewY>4</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>QE_OrganVat_Bones</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>natural bones</label>
+		<description>Unlocks the ability to grow natural bones.</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>QE_OrganVat</li>
+		</prerequisites>
+		<researchViewX>2</researchViewX>
+		<researchViewY>3</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>QE_OrganVat_Limbs</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>natural limbs</label>
+		<description>Unlocks the ability to grow natural arms, hands, legs and feet.</description>
+		<baseCost>1200</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>QE_OrganVat_Bones</li>
+		</prerequisites>
+		<researchViewX>2</researchViewX>
+		<researchViewY>4</researchViewY>
+	</ResearchProjectDef>
+
+	<!-- Brain manipulation -->
+	<ResearchProjectDef>
+		<defName>QE_BrainScanning</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>brain scanning</label>
+		<description>While being able to grow humanoids is all fine and dandy, their accelerated growth still leaves them at a childlike stage in development. It can be remedied by scanning the brain of another humanoid in order to translate some or all of their skills to them. It is performed as a surgery operation in order to carefully map out the entire brain. Allows creation of it at the fabrication bench.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>QE_VatGrownBeings</li>
+			<li>Fabrication</li>
+		</prerequisites>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<researchViewX>5</researchViewX>
+		<researchViewY>3</researchViewY>
+	</ResearchProjectDef>
+
+	<!-- Cyber enslaving -->
+	<ResearchProjectDef>
+		<defName>QE_NerveStapling</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>nerve stapling</label>
+		<description>Considered an atrocity by many civilized societies this implant into the brain stimulates the pleasure and pain centers for control. This can turn the most unruly prisoner into a willing slave. The cost is steep though, being robbed of free will their learning ability is severly hampered. Could be used with great effect on clones to make them easily controllable. Allows creation of it at the machining table.</description>
+		<baseCost>3000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>Prosthetics</li>
+		</prerequisites>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<researchViewX>4</researchViewX>
+		<researchViewY>3</researchViewY>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>QE_CrudeBionics</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>crude bionics</label>
+		<description>Bionics can augment humanoids to new heights, but they pose one issue: They require expensive materials and components to make. Not ideal for a army. This can be remedied by making more crude versions which work almost as well but just require common materials like steel and industrial era components. This comes with a big downside though; they irritate the skin and flesh wherever they are attached to and are not hygienical. Should not be a issue though for people who do not find ethics practical. Allows creation of crude bionics at the machining table.</description>
+		<baseCost>3000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>Prosthetics</li>
+		</prerequisites>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<researchViewX>4</researchViewX>
+		<researchViewY>4</researchViewY>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>QE_IntegratedWeaponry</defName>
+		<tab>QE_ResearchTab</tab>
+		<label>integrated weaponry</label>
+		<description>Outfitting a army or even a squad with weapons can be bothersome. And when they get downed they drop their weapons. To fix this problem why not integrate the weapons into them? Allows the creation of blades, bludgeons and ranged weapon platforms at the machining table. Allows creation of integrated weaponry at the machining table.</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>QE_CrudeBionics</li>
+		</prerequisites>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<researchViewX>5</researchViewX>
+		<researchViewY>4</researchViewY>
+	</ResearchProjectDef>
+</Defs>

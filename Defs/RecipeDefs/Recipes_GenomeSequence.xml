@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<RecipeDef ParentName="SurgeryFlesh">
+		<defName>QE_GenomeSequencing</defName>
+		<label>sequence genome</label>
+		<description>Sequences the genome of a living being. Beware that performing it on beings in neutral or allied factions will be considered a violation.</description>
+		<workerClass>QEthics.RecipeWorker_GenomeSequencing</workerClass>
+		<jobString>Sequencing genome.</jobString>
+		<workAmount>600</workAmount>
+		<dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+		<effectWorking>Research</effectWorking>
+		<soundWorking>Interact_Research</soundWorking>
+		<anesthetize>false</anesthetize>
+		<isViolation>true</isViolation>
+		<!--targetsBodyPart>false</targetsBodyPart-->
+		<hideBodyPartNames>true</hideBodyPartNames>
+		<skillRequirements>
+			<Medicine>8</Medicine>
+		</skillRequirements>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>QE_GenomeSequencer</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>QE_GenomeSequencer</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<researchPrerequisite>QE_GenomeSequencing</researchPrerequisite>
+	</RecipeDef>
+
+	<RecipeDef>
+		<defName>QE_Make_GenomeSequencer</defName>
+		<label>make genome sequencer</label>
+		<description>Make a genome sequencer.</description>
+		<jobString>Making genome sequencer.</jobString>
+		<workSpeedStat>SmithingSpeed</workSpeedStat>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Machining</soundWorking>
+		<workAmount>5000</workAmount>
+		<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>35</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>ComponentIndustrial</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+				<li>ComponentIndustrial</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<QE_GenomeSequencer>1</QE_GenomeSequencer>
+		</products>
+		<skillRequirements>
+			<Crafting>8</Crafting>
+		</skillRequirements>
+		<workSkill>Crafting</workSkill>
+		<recipeUsers>
+			<li>TableMachining</li>
+		</recipeUsers>
+		<researchPrerequisite>QE_GenomeSequencing</researchPrerequisite>
+	</RecipeDef>
+</Defs>

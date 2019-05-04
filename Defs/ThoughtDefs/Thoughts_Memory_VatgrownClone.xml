@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThoughtDef>
+		<defName>QE_VatGrownCloneConfusion</defName>
+		<durationDays>3</durationDays>
+		<stackLimit>1</stackLimit>
+		<nextThought>QE_VatGrownCloneAcceptance</nextThought>
+		<stages>
+			<li>
+				<label>vatgrown clone</label>
+				<description>What is this? Who am I? Who are these people? Why am I here? Why do I look like someone else?</description>
+				<baseMoodEffect>-20</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>QE_VatGrownCloneAcceptance</defName>
+		<durationDays>17</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>vatgrown clone (acceptance)</label>
+				<description>I don't have any choice but to live on, I guess. Nothing makes sense.</description>
+				<baseMoodEffect>-3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+</Defs>

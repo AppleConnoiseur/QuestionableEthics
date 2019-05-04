@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Organ Vat -->
+	<WorkGiverDef>
+		<defName>QE_OrderProcessor_OrganVat</defName>
+		<label>process order for organ vat</label>
+		<giverClass>QEthics.WorkGiver_GrowerOrderProcessor</giverClass>
+		<workType>Hauling</workType>
+		<verb>fill</verb>
+		<gerund>filling</gerund>
+		<priorityInType>20</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<fixedBillGiverDefs>
+			<li>QE_OrganVat</li>
+		</fixedBillGiverDefs>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>QE_OrganVat_Extract</defName>
+		<label>extract product from organ vat</label>
+		<giverClass>QEthics.WorkGiver_GrowerExtractProduct</giverClass>
+		<workType>Hauling</workType>
+		<verb>extract</verb>
+		<gerund>extracting</gerund>
+		<priorityInType>20</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<fixedBillGiverDefs>
+			<li>QE_OrganVat</li>
+		</fixedBillGiverDefs>
+	</WorkGiverDef>
+
+	<WorkGiverDef Name="OrganVatMaintainBase" Abstract="True">
+		<label>maintains a organ vat</label>
+		<giverClass>QEthics.WorkGiver_MaintainGrower</giverClass>
+		<verb>maintain</verb>
+		<gerund>maintaining</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+			<li>Sight</li>
+		</requiredCapacities>
+		<fixedBillGiverDefs>
+			<li>QE_OrganVat</li>
+		</fixedBillGiverDefs>
+	</WorkGiverDef>
+
+	<WorkGiverDef ParentName="OrganVatMaintainBase">
+		<defName>QE_OrganGrower_Maintain</defName>
+		<workType>QE_MaintainVat</workType>
+		<priorityInType>1</priorityInType>
+	</WorkGiverDef>
+
+	<!-- WorkGiverDef ParentName="OrganVatMaintainBase">
+		<defName>QE_OrganGrower_Maintain_Doctor</defName>
+		<workType>QE_MaintainVat</workType>
+		<priorityInType>2</priorityInType>
+	</WorkGiverDef-->
+
+	<!-- Pawn Grower -->
+	<WorkGiverDef>
+		<defName>QE_OrderProcessor_PawnVat</defName>
+		<label>process order for clone vat</label>
+		<giverClass>QEthics.WorkGiver_GrowerOrderProcessor</giverClass>
+		<workType>Hauling</workType>
+		<verb>fill</verb>
+		<gerund>filling</gerund>
+		<priorityInType>20</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<fixedBillGiverDefs>
+			<li>QE_PawnVat</li>
+		</fixedBillGiverDefs>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>QE_PawnVat_Extract</defName>
+		<label>extract product from clone vat</label>
+		<giverClass>QEthics.WorkGiver_GrowerExtractProduct</giverClass>
+		<workType>Hauling</workType>
+		<verb>extract</verb>
+		<gerund>extracting</gerund>
+		<priorityInType>20</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<fixedBillGiverDefs>
+			<li>QE_PawnVat</li>
+		</fixedBillGiverDefs>
+	</WorkGiverDef>
+
+	<WorkGiverDef Name="PawnVatMaintainBase" Abstract="True">
+		<label>maintains a clone vat</label>
+		<giverClass>QEthics.WorkGiver_MaintainGrower</giverClass>
+		<verb>maintain</verb>
+		<gerund>maintaining</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+			<li>Sight</li>
+		</requiredCapacities>
+		<fixedBillGiverDefs>
+			<li>QE_PawnVat</li>
+		</fixedBillGiverDefs>
+	</WorkGiverDef>
+
+	<WorkGiverDef ParentName="PawnVatMaintainBase">
+		<defName>QE_PawnGrower_Maintain</defName>
+		<workType>QE_MaintainVat</workType>
+		<priorityInType>1</priorityInType>
+	</WorkGiverDef>
+
+	<!-- WorkGiverDef ParentName="PawnVatMaintainBase">
+		<defName>QE_PawnGrower_Maintain_Doctor</defName>
+		<workType>QE_MaintainVat</workType>
+		<priorityInType>2</priorityInType>
+	</WorkGiverDef-->
+</Defs>

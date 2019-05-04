@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<QEthics.BackstoryDef>
+		<defName>Backstory_ColonyVatgrown</defName>
+		<title>colony vatgrown</title>
+		<titleShort>vatgrown</titleShort>
+		<titleFemale>colony vatgrown</titleFemale>
+		<titleShortFemale>vatgrown</titleShortFemale>
+		<bodyTypeFemale>Female</bodyTypeFemale>
+		<bodyTypeMale>Male</bodyTypeMale>
+		<baseDesc>[PAWN_nameDef] is grown and raised in a colony. Neither educated or skilled but gifted with great learning ability the universe is their oyster.</baseDesc>
+	</QEthics.BackstoryDef>
+
+	<!--QEthics.BackstoryDef>
+		<defName>Backstory_ColonyVatgrown_Love</defName>
+		<title>vatgrown lover</title>
+		<titleShort>lover</titleShort>
+		<titleFemale>vatgrown lover</titleFemale>
+		<titleShortFemale>lover</titleShortFemale>
+		<bodyTypeFemale>Female</bodyTypeFemale>
+		<bodyTypeMale>Male</bodyTypeMale>
+		<baseDesc>[PAWN_nameDef] is grown and raised in a colony, they was made to be perfect lover to a colonist.</baseDesc>
+	</QEthics.BackstoryDef-->
+</Defs>

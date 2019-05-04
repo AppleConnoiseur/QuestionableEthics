@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThoughtDef>
+		<defName>QE_NerveStapled</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>QE_NerveStaple</hediff>
+		<validWhileDespawned>true</validWhileDespawned>
+		<stages>
+			<li>
+				<label>nerve stapled</label>
+				<description>I feel weird. I must obey.</description>
+				<baseMoodEffect>50</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>QE_RecentlyNerveStapled</defName>
+		<durationDays>1</durationDays>
+		<stackLimit>1</stackLimit>
+		<nextThought>QE_NerveStapledResistance</nextThought>
+		<stages>
+			<li>
+				<label>recently nerve stapled</label>
+				<description>AHHH! What is happening to me!?</description>
+				<baseMoodEffect>-100</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>QE_NerveStapledResistance</defName>
+		<durationDays>6</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>nerve stapled (resistance)</label>
+				<description>Ugh! I must resist. Somehow...</description>
+				<baseMoodEffect>-70</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>QE_NerveStapledPawn</defName>
+		<durationDays>8</durationDays>
+		<stackLimit>3</stackLimit>
+		<nullifyingTraits>
+			<li>Psychopath</li>
+		</nullifyingTraits>
+		<stages>
+			<li>
+				<label>nerve stapled someone</label>
+				<description>This is horrible. We just robbed someone of their free will.</description>
+				<baseMoodEffect>-8</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>QE_NerveStapledColonist</defName>
+		<durationDays>8</durationDays>
+		<stackLimit>3</stackLimit>
+		<nullifyingTraits>
+			<li>Psychopath</li>
+		</nullifyingTraits>
+		<stages>
+			<li>
+				<label>nerve stapled colonist</label>
+				<description>This is horrible. We just robbed one of our own of their free will.</description>
+				<baseMoodEffect>-12</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>QE_NerveStapledMe</defName>
+		<thoughtClass>Thought_MemorySocial</thoughtClass>
+		<durationDays>180</durationDays>
+		<stackLimit>1</stackLimit>
+		<stackLimitForSameOtherPawn>1</stackLimitForSameOtherPawn>
+		<stackedEffectMultiplier>1.0</stackedEffectMultiplier>
+		<stages>
+			<li>
+				<label>nerve stapled me</label>
+				<baseOpinionOffset>-80</baseOpinionOffset>
+			</li>
+		</stages>
+	</ThoughtDef>
+</Defs>
