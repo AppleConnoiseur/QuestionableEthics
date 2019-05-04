@@ -4,10 +4,10 @@ Questionable Ethics Enhanced is a fork of the Questionable Ethics mod created by
 License: Feel free to use any code as long as you credit me somewhere.
 
 ## Credits ## 
-KongMD - XML & C#
+* KongMD - XML & C#
 
 ## Questionable Ethics Credits ##
-ChJees - Concept, XML & C#
-Shotgunfrenzy - Art, Vats and associated items
-Shinzy - Art, Organs
-Edmund - Art, Organ
+* ChJees - Concept, XML & C#
+* Shotgunfrenzy - Art, Vats and associated items
+* Shinzy - Art, Organs
+* Edmund - Art, Organ

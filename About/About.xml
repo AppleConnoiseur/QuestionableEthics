@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>Questionable Ethics</name>
-	<author>ChJees</author>
-	<targetVersion>1.0.0</targetVersion>
-	<description>Organ growing, organ extraction, animal and humanoid cloning and growing in vats. And all manner of ethically questionable stuff!
+	<name>Questionable Ethics Enhanced</name>
+	<author>KongMD</author>
+	<supportedVersions>
+		<li>1.0</li>
+	</supportedVersions>
+	<description>Contains organ growing, organ extraction, animal/humanoid cloning, brain reprogramming... and all manner of ethically questionable stuff!
 
-If you ever thought that making human leather hats were too mundane then this mod will spice things up.
+If you think that making human leather hats is too mundane, then this mod will spice things up.
 
 *Grow organs in vats to replace or profit from it!
 *Clone and grow animals and humanoids! They take on the traits of their "parent".
@@ -16,6 +18,9 @@ If you ever thought that making human leather hats were too mundane then this mo
 Supports Alien Races out of the box.
 
 Credits:
+KongMD - C# &amp; XML
+
+Questionable Ethics Credits:
 ChJees - Concept, XML &amp; C#
 Shotgunfrenzy - Art, Vats and associated items
 Shinzy - Art, Organs
