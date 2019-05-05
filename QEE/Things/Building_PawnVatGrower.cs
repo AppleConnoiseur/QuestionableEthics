@@ -183,9 +183,9 @@ namespace QEthics
 
             if (scientistMaintence < 0f || doctorMaintence < 0f)
             {
-                //Fail the craft and waste all ingredients
+                //Fail the cloning process and return the genome template
                 //Reset();
-                StopCrafting(false);
+                StopCrafting(true);
             }
         }
 
