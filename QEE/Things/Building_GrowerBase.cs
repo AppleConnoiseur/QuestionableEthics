@@ -194,8 +194,12 @@ namespace QEthics
                             Reset();
                             Notify_ThingLostInOrderProcessor();
                             orderProcessor.requestsLost = false;
+                            Tick_Idle();
                         }
-                        Tick_Filling();
+                        else
+                        {
+                            Tick_Filling();
+                        }
                     }
                     break;
                 case CrafterStatus.Crafting:
@@ -226,6 +230,7 @@ namespace QEthics
         {
             if(orderProcessor.PendingRequests.Count() <= 0)
             {
+                //Log.Message("PendingRequests is 0. Starting crafting...");
                 status = CrafterStatus.Crafting;
                 Notify_CraftingStarted();
             }

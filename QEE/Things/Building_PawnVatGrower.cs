@@ -183,8 +183,9 @@ namespace QEthics
 
             if (scientistMaintence < 0f || doctorMaintence < 0f)
             {
-                //Fail the craft and spawn a abomination.
-                Reset();
+                //Fail the craft and waste all ingredients
+                //Reset();
+                StopCrafting(false);
             }
         }
 
@@ -305,7 +306,7 @@ namespace QEthics
             }
         }
 
-        public void StopCrafting()
+        public void StopCrafting(bool keepIngredients = true)
         {
             craftingProgress = 0;
             orderProcessor.Reset();
@@ -321,9 +322,13 @@ namespace QEthics
             }
 
             status = CrafterStatus.Idle;
-            if (innerContainer.Count > 0)
+            if (innerContainer.Count > 0 && keepIngredients)
             {
                 innerContainer.TryDropAll(InteractionCell, Map, ThingPlaceMode.Near);
+            }
+            else
+            {
+                innerContainer.ClearAndDestroyContents();
             }
         }
 
@@ -359,6 +364,11 @@ namespace QEthics
                     //orderProcessor.Notify_ContentsChanged();
                 }
             }
+        }
+
+        public override void Notify_ThingLostInOrderProcessor()
+        {
+            StopCrafting(true);
         }
 
         public override IEnumerable<Gizmo> GetGizmos()

@@ -57,13 +57,48 @@ namespace QEthics
         }
 
         //Functions
+        //this function checks if any Things are lost in the order processor
         public void Cleanup()
         {
+            int elementsRemoved = 0;
+
+            //expand the lamda from the original QE mod, to allow better debug logging
+            foreach (ThingOrderRequest orderRequest in desiredIngredients)
+            {
+                if (orderRequest != null)
+                {
+                    if (orderRequest.HasThing)
+                    { 
+                        if(orderRequest.thing.Destroyed)
+                        {
+                            Log.Message("QEE: ABORTING CLONE! " + orderRequest.Label + " was destroyed");
+                            elementsRemoved++;
+                            desiredIngredients.Remove(orderRequest);
+                        }
+                        else if (!(orderRequest.thing.ParentHolder is Pawn_CarryTracker ||
+                      orderRequest.thing.ParentHolder is Map || orderRequest.thing.ParentHolder is IThingHolder))
+                        {
+                            Log.Message("QEE: ABORTING CLONE! " + orderRequest.Label + " did not spawn in valid container");
+                            elementsRemoved++;
+                            desiredIngredients.Remove(orderRequest);
+                        }
+                    }
+                }
+                else
+                {
+                    //Log.Message("QEE: orderRequest is null");
+                }
+            }
+            /*
             int elementsRemoved = desiredIngredients.RemoveAll(orderRequest => orderRequest == null || 
-            (orderRequest.HasThing && 
-                //                               Check if not spawned in a valid container.
-                (orderRequest.thing.Destroyed || !(orderRequest.thing.ParentHolder is Pawn_CarryTracker || orderRequest.thing.ParentHolder is Map || orderRequest.thing.ParentHolder is IThingHolder))));
-            if(elementsRemoved > 0)
+               (orderRequest.HasThing && 
+                  //                               Check if not spawned in a valid container.
+                  (orderRequest.thing.Destroyed || !(orderRequest.thing.ParentHolder is Pawn_CarryTracker || 
+                  orderRequest.thing.ParentHolder is Map || orderRequest.thing.ParentHolder is IThingHolder))
+               )
+            );*/
+
+            if (elementsRemoved > 0)
             {
                 requestsLost = true;
             }
@@ -71,6 +106,7 @@ namespace QEthics
 
         public void Reset()
         {
+            //Log.Message("QEE: Resetting cached and desired ingredients...");
             cachedRequests.Clear();
             desiredIngredients.Clear();
         }
@@ -89,6 +125,11 @@ namespace QEthics
             if(desiredRequests != null)
             {
                 cachedRequests.AddRange(desiredRequests);
+                //Log.Message("QEE: cachedRequest count:" + PendingRequests.Count());
+            }
+            else
+            {
+                //Log.Message("QEE: Notify_ContentsChanged() desiredRequests is null!");
             }
         }
 
@@ -104,12 +145,16 @@ namespace QEthics
                 foreach (ThingOrderRequest desiredIngredient in desiredIngredients)
                 {
                     int countDifference = (int)desiredIngredient.amount - desiredIngredient.TotalStackCountForOrderRequestInContainer(ObservedThingOwner);
-                    //Log.Message(desiredIngredient.Summary + "; countDifference: " + countDifference);
+                    //Log.Message("QEE: " + desiredIngredient.Label + "; countDifference: " + countDifference);
                     if (countDifference > 0)
                     {
                         yield return new ThingOrderRequest(desiredIngredient, countDifference);
                     }
                 }
+            }
+            else
+            {
+                //Log.Message("QEE: GetDesiredRequests() observedThingHolder is null!");
             }
         }
 
