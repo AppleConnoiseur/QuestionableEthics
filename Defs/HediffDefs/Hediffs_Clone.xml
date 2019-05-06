@@ -5,6 +5,7 @@
 		<label>clone</label>
 		<defaultLabelColor>(0.2, 0.8, 0.2)</defaultLabelColor>
 		<initialSeverity>1.0</initialSeverity>
+		<isBad>false</isBad>
 		<stages>
 			<li>
 				<becomeVisible>true</becomeVisible>
