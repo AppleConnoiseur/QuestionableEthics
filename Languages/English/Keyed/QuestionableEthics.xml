@@ -14,8 +14,8 @@
 
 	<!-- Vat grower -->
 	<QE_VatGrowerProduct>Product</QE_VatGrowerProduct>
-	<QE_VatGrowerScientistMaintence>Researcher maintence</QE_VatGrowerScientistMaintence>
-	<QE_VatGrowerDoctorMaintence>Doctoring maintence</QE_VatGrowerDoctorMaintence>
+	<QE_VatGrowerScientistMaintenance>Researcher maintenance</QE_VatGrowerScientistMaintenance>
+	<QE_VatGrowerDoctorMaintenance>Doctoring maintenance</QE_VatGrowerDoctorMaintenance>
 	<!-- Gizmos -->
 	<QE_VatGrowerStartCraftingGizmoLabel>Start growing</QE_VatGrowerStartCraftingGizmoLabel>
 	<QE_VatGrowerStartCraftingGizmoDescription>Select an organ to grow. Colonists will begin filling the vat with the required ingredients.</QE_VatGrowerStartCraftingGizmoDescription>
@@ -34,8 +34,8 @@
 	<QE_GenomeSequencerDescription_Traits>Traits</QE_GenomeSequencerDescription_Traits>
 	<QE_GenomeSequencerSalvage>Salvage genome from corpse ({0} chance)</QE_GenomeSequencerSalvage>
 	<!-- Alerts -->
-	<QE_AlertMaintenceRequiredLabel>Vat maintence required</QE_AlertMaintenceRequiredLabel>
-	<QE_AlertMaintenceRequiredExplanation>These growers require maintence or they will lose what they are growing and materials will be wasted!\n\nSend a doctor or researcher to maintain at once.</QE_AlertMaintenceRequiredExplanation>
+	<QE_AlertMaintenanceRequiredLabel>Vat maintenance required</QE_AlertMaintenanceRequiredLabel>
+	<QE_AlertMaintenanceRequiredExplanation>These growers require maintenance or they will lose what they are growing and materials will be wasted!\n\nSend a doctor or researcher to maintain at once.</QE_AlertMaintenanceRequiredExplanation>
 	<!-- Messages -->
 	<QE_MessageGrowingDone>Growing {0} is done.</QE_MessageGrowingDone>
 	<!-- Letters -->
