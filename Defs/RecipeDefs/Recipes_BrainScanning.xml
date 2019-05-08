@@ -2,8 +2,8 @@
 <Defs>
 	<RecipeDef ParentName="SurgeryFlesh">
 		<defName>QE_BrainScanning</defName>
-		<label>brain scanning</label>
-		<description>Scans the brain of the target deeply. The patient will become really dizzy afterwards. Beware that performing it on beings in neutral or allied factions will be considered a violation.</description>
+		<label>scan brain</label>
+		<description>Exhaustively scans the brain of the patient. They will become quite dizzy after surgery. Doing this on beings in neutral or allied factions will be considered a violation.</description>
 		<workerClass>QEthics.RecipeWorker_CreateBrainScan</workerClass>
 		<jobString>Scanning brain.</jobString>
 		<workAmount>2000</workAmount>

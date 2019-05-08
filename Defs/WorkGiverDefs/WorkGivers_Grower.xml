@@ -3,7 +3,7 @@
 	<!-- Organ Vat -->
 	<WorkGiverDef>
 		<defName>QE_OrderProcessor_OrganVat</defName>
-		<label>process order for organ vat</label>
+		<label>fill organ vat</label>
 		<giverClass>QEthics.WorkGiver_GrowerOrderProcessor</giverClass>
 		<workType>Hauling</workType>
 		<verb>fill</verb>
@@ -34,7 +34,7 @@
 	</WorkGiverDef>
 
 	<WorkGiverDef Name="OrganVatMaintainBase" Abstract="True">
-		<label>maintains a organ vat</label>
+		<label>maintain organ vat</label>
 		<giverClass>QEthics.WorkGiver_MaintainGrower</giverClass>
 		<verb>maintain</verb>
 		<gerund>maintaining</gerund>
@@ -62,7 +62,7 @@
 	<!-- Pawn Grower -->
 	<WorkGiverDef>
 		<defName>QE_OrderProcessor_PawnVat</defName>
-		<label>process order for clone vat</label>
+		<label>fill clone vat</label>
 		<giverClass>QEthics.WorkGiver_GrowerOrderProcessor</giverClass>
 		<workType>Hauling</workType>
 		<verb>fill</verb>
@@ -78,7 +78,7 @@
 
 	<WorkGiverDef>
 		<defName>QE_PawnVat_Extract</defName>
-		<label>extract product from clone vat</label>
+		<label>extract clone from clone vat</label>
 		<giverClass>QEthics.WorkGiver_GrowerExtractProduct</giverClass>
 		<workType>Hauling</workType>
 		<verb>extract</verb>
@@ -93,7 +93,7 @@
 	</WorkGiverDef>
 
 	<WorkGiverDef Name="PawnVatMaintainBase" Abstract="True">
-		<label>maintains a clone vat</label>
+		<label>maintain a clone vat</label>
 		<giverClass>QEthics.WorkGiver_MaintainGrower</giverClass>
 		<verb>maintain</verb>
 		<gerund>maintaining</gerund>

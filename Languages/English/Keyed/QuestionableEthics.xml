@@ -18,7 +18,7 @@
 	<QE_VatGrowerDoctorMaintence>Doctoring maintence</QE_VatGrowerDoctorMaintence>
 	<!-- Gizmos -->
 	<QE_VatGrowerStartCraftingGizmoLabel>Start growing</QE_VatGrowerStartCraftingGizmoLabel>
-	<QE_VatGrowerStartCraftingGizmoDescription>Selects a organ to grow and then start filling the vat with the needed ingredients.</QE_VatGrowerStartCraftingGizmoDescription>
+	<QE_VatGrowerStartCraftingGizmoDescription>Select an organ to grow. Colonists will begin filling the vat with the required ingredients.</QE_VatGrowerStartCraftingGizmoDescription>
 	<QE_VatGrowerStartCraftingFloatMenuDisabled>{0} (Require research: {1})</QE_VatGrowerStartCraftingFloatMenuDisabled>
 	<QE_VatGrowerStopCraftingGizmoLabel>Stop growing</QE_VatGrowerStopCraftingGizmoLabel>
 	<QE_VatGrowerStopCraftingGizmoDescription>Stops the growing process. Refunds inserted ingredients if the process was not started.</QE_VatGrowerStopCraftingGizmoDescription>
@@ -43,7 +43,7 @@
 	<QE_LetterHumanlikeGrownDescription>Welcome vatgrown clone {0} to the colony!\n\nYou can either train them up from scratch with the help of their natural affinities or apply a Brain scan template on them to give them a skillset right away.</QE_LetterHumanlikeGrownDescription>
 
 	<!-- Brain scanning -->
-	<QE_BrainScanningRejectInput>{0} was rejected due to no valid bed could be found.</QE_BrainScanningRejectInput>
+	<QE_BrainScanningRejectInput>{0} was rejected because no valid bed could be found.</QE_BrainScanningRejectInput>
 	<QE_BrainScanningApplyTemplate>Apply brain scan template</QE_BrainScanningApplyTemplate>
 	<QE_BrainScanningFloatMenuLabel>Apply brain scan template to {0}</QE_BrainScanningFloatMenuLabel>
 	<QE_BrainScanningFloatMenuLabelDisabled>{0} (No bed)</QE_BrainScanningFloatMenuLabelDisabled>

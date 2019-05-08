@@ -21,7 +21,7 @@
 	<ThingDef ParentName="QEGenomeSequencerBase">
 		<defName>QE_GenomeSequencer</defName>
 		<label>genome sequencer</label>
-		<description>A set of tools used for sequencing genomes of living or dead beings. There is chance to botch the data acquisition on dead organisms if the Medicine skill is not high enough. It is used in a surgery operation in order to sequence the genome or right-click with a selected colonist and then target a valid corpse.</description>
+		<description>A set of tools used for sequencing genomes of living or dead beings. With a pawn selected, right-click this and select another pawn to sequence their genome. The chance of success scales with the surgeon's Medicine skill.</description>
 		<graphicData>
 			<texPath>Things/Item/Manufactured/GenomeSequencer</texPath>
 		</graphicData>
@@ -40,7 +40,7 @@
 	<ThingDef ParentName="QEGenomeSequencerBase">
 		<defName>QE_GenomeSequencerFilled</defName>
 		<label>genome sequence template</label>
-		<description>A slab of data filled with the full genome of a living being.</description>
+		<description>A slab of data filled with the full genome of a living being. It is used during cloning to apply the characteristics you see below to a newly-grown clone.</description>
 		<graphicData>
 			<texPath>Things/Item/Manufactured/DataSlab</texPath>
 		</graphicData>

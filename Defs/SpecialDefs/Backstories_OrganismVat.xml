@@ -8,7 +8,7 @@
 		<titleShortFemale>vatgrown</titleShortFemale>
 		<bodyTypeFemale>Female</bodyTypeFemale>
 		<bodyTypeMale>Male</bodyTypeMale>
-		<baseDesc>[PAWN_nameDef] is grown and raised in a colony. Neither educated or skilled but gifted with great learning ability the universe is their oyster.</baseDesc>
+		<baseDesc>[PAWN_nameDef] was grown in a cloning vat. [PAWN_pronoun] emerged from the vat with no skills, but has great learning potential.</baseDesc>
 	</QEthics.BackstoryDef>
 
 	<!--QEthics.BackstoryDef>

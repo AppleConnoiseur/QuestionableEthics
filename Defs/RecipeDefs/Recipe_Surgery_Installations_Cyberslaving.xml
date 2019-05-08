@@ -3,7 +3,7 @@
 	<RecipeDef ParentName="SurgeryFlesh">
 		<defName>QE_InstallNerveStaple</defName>
 		<label>install nerve staple</label>
-		<description>Install a nerve staple making the victim forcefully join the colony.</description>
+		<description>Install a nerve staple, forcing the victim to join the colony.</description>
 		<workerClass>QEthics.RecipeWorker_NerveStapling</workerClass>
 		<jobString>Nerve stapling.</jobString>
 		<workAmount>3700</workAmount>

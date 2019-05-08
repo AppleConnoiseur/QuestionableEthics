@@ -9,20 +9,23 @@
 		<rulePack>
 			<rulesStrings>
 				<li>tale_noun->[PAWN_nameDef] being born in a cloning vat</li>
-				<li>image->[PAWN_nameFull] rise out of the cloning vat [circumstance_group]</li>
-				<li>image->[PAWN_nameFull] is artifically born out of the cloning vat [circumstance_group]</li>
+				<li>image->[PAWN_nameFull] rising out of the cloning vat [circumstance_group]</li>
+				<li>image->[PAWN_nameFull] being artifically born in a cloning vat [circumstance_group]</li>
 				<li>circumstance_phrase->with a blank look</li>
-				<li>circumstance_phrase->with a look of wonder</li>
-				<li>circumstance_phrase->and [PAWN_pronoun] starts crying</li>
-				<li>circumstance_phrase->with a confident look</li>
+				<li>circumstance_phrase->with an expression of wonder</li>
+				<li>circumstance_phrase->with a confident glare</li>
+				<li>circumstance_phrase->completely naked</li>
+				<li>circumstance_phrase->covered in nutrient goop</li>
+				<li>circumstance_phrase->tentatively touching [PAWN_possessive] face</li>
 				<li>desc_sentence->[PAWN_pronoun] seems totally unaware of what is around [PAWN_objective].</li>
-				<li>desc_sentence->[PAWN_pronoun] is incredibly confused of life outside the cloning vat.</li>
-				<li>desc_sentence->[PAWN_pronoun] want back into the safety of the cloning vat.</li>
-				<li>desc_sentence->[PAWN_pronoun] can barely figure out what is going on.</li>
-				<li>desc_sentence->[PAWN_pronoun] make a few jumbled words of speech.</li>
-				<li>desc_sentence->A [Animal] looks on curiously.</li>
+				<li>desc_sentence->[PAWN_pronoun] is incredibly confused about [PAWN_possessive] new surroundings.</li>
+				<li>desc_sentence->[PAWN_pronoun] wants to return to the safety of the cloning vat.</li>
+				<li>desc_sentence->[PAWN_pronoun] has no idea what is going on.</li>
+				<li>desc_sentence->[PAWN_pronoun] makes a few jumbled attempts at speech.</li>
+				<li>desc_sentence->[PAWN_pronoun] starts crying hysterically upon seeing a [Animal] for the first time.</li>
+				<li>desc_sentence->A [Animal] looks on with curiosity.</li>
 				<li>desc_sentence->A [Animal] looks on with disgust.</li>
-				<li>desc_sentence->A [PersonJob] watches with awe of what's going on.</li>
+				<li>desc_sentence->A [PersonJob] watches in awe at the sight.</li>
 				<li>desc_sentence->A [PersonJob] watches on with a look of fear.</li>
 				<li>desc_sentence->A [PersonJob] watches on with a look of lust.</li>
 			</rulesStrings>

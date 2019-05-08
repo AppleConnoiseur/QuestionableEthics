@@ -14,7 +14,7 @@
 	<ThingDef ParentName="BodyPartNaturalBase">
 		<defName>Ear</defName>
 		<label>ear</label>
-		<description>A biological human ear. Catches soundwaves from the air and transforms them into audible sound.</description>
+		<description>A biological human ear. Catches soundwaves from the air and transforms them into electrical signals for the brain.</description>
 		<statBases>
 			<MarketValue>100</MarketValue>
 			<Mass>1</Mass>
@@ -34,7 +34,7 @@
 	<ThingDef ParentName="BodyPartNaturalBase">
 		<defName>Jaw</defName>
 		<label>jaw</label>
-		<description>A biological human jaw. A jaw complete with a tongue and teeth. Allows for adequate chewing and tasting.</description>
+		<description>A biological human jaw. Complete with a tongue and teeth, it allows for adequate chewing and tasting.</description>
 		<statBases>
 			<MarketValue>100</MarketValue>
 			<Mass>1</Mass>
@@ -44,7 +44,7 @@
 	<ThingDef ParentName="BodyPartNaturalBase">
 		<defName>Stomach</defName>
 		<label>stomach</label>
-		<description>A biological human stomach. Breaks down food into nutrition with the help of acids and enzymes.</description>
+		<description>A biological human stomach. Breaks down food into nutrients, with the help of acids and enzymes.</description>
 		<statBases>
 			<MarketValue>400</MarketValue>
 			<Mass>1</Mass>
@@ -74,7 +74,7 @@
 	<ThingDef ParentName="BodyPartNaturalBase">
 		<defName>Arm</defName>
 		<label>arm</label>
-		<description>A biological human arm. Attached to the shoulder this let you carry things.</description>
+		<description>A biological human arm. Attached to the shoulder, this let you carry and manipulate things.</description>
 		<statBases>
 			<MarketValue>200</MarketValue>
 			<Mass>1</Mass>
@@ -84,7 +84,7 @@
 	<ThingDef ParentName="BodyPartNaturalBase">
 		<defName>Hand</defName>
 		<label>hand</label>
-		<description>A biological human hand. Great for holding weapons and do surgery with.</description>
+		<description>A biological human hand. Great for holding weapons and performing surgeries with.</description>
 		<statBases>
 			<MarketValue>100</MarketValue>
 			<Mass>1</Mass>
@@ -94,7 +94,7 @@
 	<ThingDef ParentName="BodyPartNaturalBase">
 		<defName>Leg</defName>
 		<label>leg</label>
-		<description>A biological human leg. Attached to the pelvis it let you do locomotion.</description>
+		<description>A biological human leg. Attached to the pelvis, it gives you locomotion.</description>
 		<statBases>
 			<MarketValue>200</MarketValue>
 			<Mass>1</Mass>
@@ -115,7 +115,7 @@
 	<ThingDef ParentName="BodyPartBionicBase">
 		<defName>QE_CrudeBionicEye</defName>
 		<label>crude bionic eye</label>
-		<description>An advanced but crude artificial eyes. Is a bit better than a biological eye but is uncomfortable. A lattice-dust healing system allows it to recover from damage.</description>
+		<description>An advanced but crude artificial eye. Is a bit better than a biological eye, but is uncomfortable. A lattice-dust healing system allows it to recover from damage.</description>
 		<techLevel>Industrial</techLevel>
 		<costList>
 			<Steel>20</Steel>
@@ -137,7 +137,7 @@
 	<ThingDef ParentName="BodyPartBionicBase">
 		<defName>QE_CrudeBionicArm</defName>
 		<label>crude bionic arm</label>
-		<description>An advanced but crude artificial arm. Noisy and strong this arm works better than a biological arm in every way. A lattice-dust healing system allows it to recover from damage. It is better than a biological arm in almost every way.</description>
+		<description>An advanced but crude artificial arm. Noisy but strong, this arm works better than a biological arm in every way. A lattice-dust healing system allows it to recover from damage.</description>
 		<techLevel>Spacer</techLevel>
 		<costList>
 			<Steel>30</Steel>
@@ -159,7 +159,7 @@
 	<ThingDef ParentName="BodyPartBionicBase">
 		<defName>QE_CrudeBionicLeg</defName>
 		<label>crude bionic leg</label>
-		<description>An advanced but crude artificial leg. Noisy and strong this leg let its host run fast, and lattice-dust healing system, it is better than a biological leg in almost every way.</description>
+		<description>An advanced but crude artificial leg. Noisy but strong, this leg works better than a biological leg in every way. A lattice-dust healing system allows it to recover from damage.</description>
 		<techLevel>Spacer</techLevel>
 		<costList>
 			<Steel>30</Steel>
@@ -181,7 +181,7 @@
 	<ThingDef ParentName="BodyPartBionicBase">
 		<defName>QE_CrudeBionicSpine</defName>
 		<label>crude bionic spine</label>
-		<description>An advanced but crude artificial spine. A biogel nerve bundle runs down an articulated steel core, surrounded by a lattice-dust healing system. It is better than a biological spine.</description>
+		<description>An advanced but crude artificial spine. A bio-gel nerve bundle runs down an articulated steel core, surrounded by a lattice-dust healing system. It is better than a biological spine.</description>
 		<techLevel>Spacer</techLevel>
 		<costList>
 			<Steel>30</Steel>
@@ -204,7 +204,7 @@
 	<ThingDef ParentName="BodyPartBionicBase">
 		<defName>QE_CrudeBionicArm_Bludgeon</defName>
 		<label>crude bionic bludgeon</label>
-		<description>An advanced but crude artificial arm turned into a potent bludgeon weapon. Works much like a normal crude bionic arm but its now a deadly weapon.</description>
+		<description>An advanced but crude artificial arm turned into a potent bludgeon weapon. Works much like a normal crude bionic arm, but now it's a deadly weapon.</description>
 		<techLevel>Spacer</techLevel>
 		<costList>
 			<Steel>100</Steel>
@@ -226,7 +226,7 @@
 	<ThingDef ParentName="BodyPartBionicBase">
 		<defName>QE_CrudeBionicArm_Spike</defName>
 		<label>crude bionic spike</label>
-		<description>An advanced but crude artificial arm turned into a potent piercing weapon. Works much like a normal crude bionic arm but its now a deadly weapon.</description>
+		<description>An advanced but crude artificial arm turned into a potent piercing weapon. Works much like a normal crude bionic arm, but now it's a deadly weapon.</description>
 		<techLevel>Spacer</techLevel>
 		<costList>
 			<Steel>120</Steel>
@@ -248,7 +248,7 @@
 	<ThingDef ParentName="BodyPartBionicBase">
 		<defName>QE_CrudeBionicArm_RangedWeaponPlatform</defName>
 		<label>crude bionic ranged weapon platform</label>
-		<description>An advanced but crude artificial arm turned into a platform for ranged weapons. Equipped items won't be dropped when downed. Works much like a normal crude bionic arm but its now a deadly weapon.</description>
+		<description>An advanced but crude artificial arm turned into a platform for ranged weapons. Equipped items won't be dropped when downed. Works much like a normal crude bionic arm, but now it's a deadly weapon.</description>
 		<techLevel>Spacer</techLevel>
 		<costList>
 			<Steel>50</Steel>

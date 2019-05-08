@@ -56,7 +56,7 @@
 	<RecipeDef>
 		<defName>Make_ProteinMashFromOrganics</defName>
 		<label>make protein mash from organics</label>
-		<description>Make a batch of protein mash by extracting protein from protein rich feedstocks.</description>
+		<description>Make a batch of protein mash by extracting protein from protein-rich feedstocks.</description>
 		<jobString>Refining protein mash from organics.</jobString>
 		<effectWorking>Cremate</effectWorking>
 		<soundWorking>Recipe_Cremate</soundWorking>
@@ -96,7 +96,7 @@
 	<RecipeDef>
 		<defName>Make_ProteinMashFromNutrientSolution</defName>
 		<label>make protein mash from nutrient solution</label>
-		<description>Make a batch of protein mash by further refining the nutrient solution. A process that is slow and nutrient intensive because of the enzymes needed to synthesize protein.</description>
+		<description>Make a batch of protein mash by further refining the nutrient solution. This process is slow and nutrient-intensive because of the enzymes needed to synthesize protein.</description>
 		<jobString>Synthesizing protein mash from nutrient solution.</jobString>
 		<effectWorking>Cremate</effectWorking>
 		<soundWorking>Recipe_Cremate</soundWorking>

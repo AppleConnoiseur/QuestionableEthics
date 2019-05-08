@@ -12,7 +12,7 @@
 		<defName>QE_Distillation</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>biological distillation</label>
-		<description>Allows the distillation of nutrient solution and protein mash. Both are vital in the pursuits of growing living tissue in vats. Allows creation of em at the Biofuel refinery.</description>
+		<description>Distill nutrient solution and protein mash at the Biofuel Refinery. Both are vitally important when growing living tissue in vats.</description>
 		<baseCost>500</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -27,7 +27,7 @@
 		<defName>QE_OrganVat</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>organ vat</label>
-		<description>The first step to understanding how to grow full living beings is by growing parts of them. Allows the building of the Organ vat.</description>
+		<description>Build Organ Vats that grow organs with nutrient solution and protein mash. The first step to understanding how to grow full living beings is by growing parts of them.</description>
 		<baseCost>1500</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -44,7 +44,7 @@
 		<defName>QE_GenomeSequencing</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>genome sequencing</label>
-		<description>Organs are simple enough to grow from stem cells and carefully regulated nutrient flows. Quite a different thing to grow a animal or humanoid from scratch. To that end you need tools to sequence their genetic makeup, in which you can do it in two ways: Extract it from a living being as surgery operation or right-click it with a colonist select and target a valid corpse. Allows creation of it at the machining table.</description>
+		<description>Create Genome Sequencers at the Machining Table. Right-click the sequencer and choose a living or dead pawn to sequence their genetic makeup via surgery.</description>
 		<baseCost>2000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -59,7 +59,7 @@
 		<defName>QE_VatGrownBeings</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>cloning vat</label>
-		<description>The final piece in the puzzle. By combining a genome, sufficent nutrients and proteins living beings can be grown. Bigger things need more nutrients and proteins to grow. For humanoids you still need to either train them manually, or use a brain scan template to transfer some of the skills and all affinities to them.</description>
+		<description>Grow a living being in a Clone Vat. Larger beings need more nutrients and proteins to grow. Clones will be created with no skill points and random passions, but future research can modify that without training.</description>
 		<baseCost>3000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
@@ -79,7 +79,7 @@
 		<defName>QE_LifeSupportSystem</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>life support system</label>
-		<description>Allows the living being resting in a bed to cheat death temporarily with the life support system.</description>
+		<description>Create the Life Support System, allowing living beings to temporarily cheat death.</description>
 		<baseCost>2000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -114,7 +114,7 @@
 		<defName>QE_AdvancedRefining</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>advanced refining</label>
-		<description>With further chemistry and biological knowledge it is possible to hijack biological processes to synthesize proteins from nutrient solution.</description>
+		<description>Synthesize protein mash from nutrient solution at the Biofuel Refinery. Advances in chemistry have made it possible to hijack natural biological processes in this way.</description>
 		<baseCost>1000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -129,7 +129,7 @@
 		<defName>QE_Neutroamine</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>neutroamine synthesizing</label>
-		<description>By cleverly using stem cells and bio engineered organisms you can now synthesize neutroamine from nutrient solution and protein mash. Neutroamine can now be made at the drug lab.</description>
+		<description>Synthesize neutroamine from nutrient solution and protein mash by cleverly combining stem cells with bio-engineered organisms. Neutroamine can now be made at the drug lab.</description>
 		<baseCost>2000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -148,7 +148,7 @@
 		<defName>QE_Edibles</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>edibles</label>
-		<description>With clever application of refining and distilling techniques the process can be reversed. Allows the production of synthetic meat and nutrient paste at the cooking stoves.</description>
+		<description>Create synthetic meat and nutrient paste at cooking stoves.</description>
 		<baseCost>500</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -164,7 +164,7 @@
 		<defName>QE_OrganVat_InternalOrgans</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>natural internal organs</label>
-		<description>Unlocks the ability to grow natural internal organs.</description>
+		<description>Grow natural internal organs at the organ vat.</description>
 		<baseCost>2000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -178,7 +178,7 @@
 		<defName>QE_OrganVat_SensoryOrgans</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>natural sensory organs</label>
-		<description>Unlocks the ability to grow natural eyes, ears and noses.</description>
+		<description>Grow natural eyes, ears and noses at the organ vat.</description>
 		<baseCost>1500</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -192,7 +192,7 @@
 		<defName>QE_OrganVat_Bones</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>natural bones</label>
-		<description>Unlocks the ability to grow natural bones.</description>
+		<description>Grow bones at the organ vat.</description>
 		<baseCost>1500</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -206,7 +206,7 @@
 		<defName>QE_OrganVat_Limbs</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>natural limbs</label>
-		<description>Unlocks the ability to grow natural arms, hands, legs and feet.</description>
+		<description>Grow natural arms, hands, legs and feet at the organ vat.</description>
 		<baseCost>1200</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -220,8 +220,8 @@
 	<ResearchProjectDef>
 		<defName>QE_BrainScanning</defName>
 		<tab>QE_ResearchTab</tab>
-		<label>brain scanning</label>
-		<description>While being able to grow humanoids is all fine and dandy, their accelerated growth still leaves them at a childlike stage in development. It can be remedied by scanning the brain of another humanoid in order to translate some or all of their skills to them. It is performed as a surgery operation in order to carefully map out the entire brain. Allows creation of it at the fabrication bench.</description>
+		<label>brainwave scanning</label>
+		<description>Create a brain scanner at the fabrication bench that can map the brainwaves of a pawn. The template preserves the pawn's skill proficiencies and passions. Apply the template on newly-created clones to quickly get them up-to-speed, or use it on other pawns to increase their effectiveness.</description>
 		<baseCost>2000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
@@ -241,7 +241,7 @@
 		<defName>QE_NerveStapling</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>nerve stapling</label>
-		<description>Considered an atrocity by many civilized societies this implant into the brain stimulates the pleasure and pain centers for control. This can turn the most unruly prisoner into a willing slave. The cost is steep though, being robbed of free will their learning ability is severly hampered. Could be used with great effect on clones to make them easily controllable. Allows creation of it at the machining table.</description>
+		<description>Create a high-cost brain implant at the machining table that stimulates the control centers of the brain, allowing a pawn to be easily controlled. It can turn the most unruly prisoner into a willing slave, but is considered atrocious by many civilized societies. As a side effect, the pawn's learning ability is severly hampered.</description>
 		<baseCost>3000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -259,7 +259,7 @@
 		<defName>QE_CrudeBionics</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>crude bionics</label>
-		<description>Bionics can augment humanoids to new heights, but they pose one issue: They require expensive materials and components to make. Not ideal for a army. This can be remedied by making more crude versions which work almost as well but just require common materials like steel and industrial era components. This comes with a big downside though; they irritate the skin and flesh wherever they are attached to and are not hygienical. Should not be a issue though for people who do not find ethics practical. Allows creation of crude bionics at the machining table.</description>
+		<description>Create crude bionics at the machining table that work almost as well as the real thing. They require common materials like steel and industrial era components. Crude bionics irritate the skin and are not hygienic in the slightest.</description>
 		<baseCost>3000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -277,7 +277,7 @@
 		<defName>QE_IntegratedWeaponry</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>integrated weaponry</label>
-		<description>Outfitting a army or even a squad with weapons can be bothersome. And when they get downed they drop their weapons. To fix this problem why not integrate the weapons into them? Allows the creation of blades, bludgeons and ranged weapon platforms at the machining table. Allows creation of integrated weaponry at the machining table.</description>
+		<description>Create blades, bludgeons, ranged weapon platforms, and other weaponry at the machining table that can be attached directly to your pawns. Why use traditional weapons when your body is a killing machine?</description>
 		<baseCost>1500</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>

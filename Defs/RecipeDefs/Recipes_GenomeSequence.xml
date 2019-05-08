@@ -3,7 +3,7 @@
 	<RecipeDef ParentName="SurgeryFlesh">
 		<defName>QE_GenomeSequencing</defName>
 		<label>sequence genome</label>
-		<description>Sequences the genome of a living being. Beware that performing it on beings in neutral or allied factions will be considered a violation.</description>
+		<description>Sequences the genome of a living being. Doing this on beings in neutral or allied factions will be considered a violation.</description>
 		<workerClass>QEthics.RecipeWorker_GenomeSequencing</workerClass>
 		<jobString>Sequencing genome.</jobString>
 		<workAmount>600</workAmount>

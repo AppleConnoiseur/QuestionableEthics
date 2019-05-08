@@ -7,12 +7,12 @@
 		<stages>
 			<li>
 				<label>one crude bionic</label>
-				<description>This... Thing put into me itches and chafes.</description>
+				<description>The chafing from this bionic is pretty uncomfortable.</description>
 				<baseMoodEffect>-5</baseMoodEffect>
 			</li>
 			<li>
 				<label>two crude bionics</label>
-				<description>I do not like these chafing bionics..</description>
+				<description>I do not like these chafing bionics.</description>
 				<baseMoodEffect>-10</baseMoodEffect>
 			</li>
 			<li>
@@ -27,17 +27,17 @@
 			</li>
 			<li>
 				<label>five crude bionics</label>
-				<description>The pain, itching and chafing won't stop...</description>
+				<description>The pain, itching and chafing never ends!</description>
 				<baseMoodEffect>-25</baseMoodEffect>
 			</li>
 			<li>
 				<label>six crude bionics</label>
-				<description>I am going mad by these bionics!</description>
+				<description>These bionics are driving me mad!</description>
 				<baseMoodEffect>-30</baseMoodEffect>
 			</li>
 			<li>
 				<label>seven crude bionics</label>
-				<description>AHHH! Take the bionics out! TAKE THE BIONICS OUT!</description>
+				<description>AHHH! Take them out! TAKE THEM OUT!</description>
 				<baseMoodEffect>-40</baseMoodEffect>
 			</li>
 		</stages>

@@ -3,7 +3,7 @@
 	<JobDef>
 		<defName>QE_DepositIntoGrowerJob</defName>
 		<driverClass>QEthics.JobDriver_DepositIntoGrower</driverClass>
-		<reportString>filling TargetB into TargetA.</reportString>
+		<reportString>filling TargetA with TargetB.</reportString>
 		<suspendable>false</suspendable>
 		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	</JobDef>

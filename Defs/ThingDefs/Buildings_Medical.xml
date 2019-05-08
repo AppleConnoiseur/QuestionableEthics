@@ -3,7 +3,7 @@
 	<ThingDef ParentName="BuildingBase">
 		<defName>QE_LifeSupportSystem</defName>
 		<label>life support system</label>
-		<description>This machine let the surgeon easily bypass the need for vital organs through a plug &amp; play system. Can give your colonist extra time they need, or be used to harvest everything from a hapless victim. It substitutes the need for any organ except for the brain as long as its powered and the patient is in bed.</description>
+		<description>This machine lets the surgeon easily bypass the need for vital organs. Can give your colonist extra time they need, or be used to harvest everything from a hapless victim. It's a subsitute for any missing organ, except for the brain. Only effective when powered.</description>
 		<graphicData>
 			<texPath>Things/Building/Misc/VitalsMonitor</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>

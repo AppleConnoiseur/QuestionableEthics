@@ -3,7 +3,7 @@
 	<ThingDef ParentName="BuildingBase">
 		<defName>QE_OrganVat</defName>
 		<label>organ vat</label>
-		<description>A vat for growing various natural organs. Requires a clean room to operate efficently and regular maintence by a skilled scientist and doctor. If power goes out it will rapidly lose maintence.</description>
+		<description>A vat for growing various natural organs. Requires a clean room to operate efficiently and regular maintenance by a skilled scientist and doctor. If the vat loses power, it will rapidly lose maintenance.</description>
 		<thingClass>QEthics.Building_VatGrower</thingClass>
 		<tickerType>Normal</tickerType>
 		<graphicData>
@@ -101,7 +101,7 @@
 	<ThingDef ParentName="BuildingBase">
 		<defName>QE_PawnVat</defName>
 		<label>clone vat</label>
-		<description>A enormous vat for growing clones of living organisms from scratch. Requires a clean room to operate efficently and regular maintence by a skilled scientist and doctor. If power goes out it will rapidly lose maintence.</description>
+		<description>An enormous vat for growing clones of organisms from scratch. Requires a clean room to operate efficiently and regular maintenance by a skilled scientist and doctor. If the vat loses power, it will rapidly lose maintenance.</description>
 		<thingClass>QEthics.Building_PawnVatGrower</thingClass>
 		<tickerType>Normal</tickerType>
 		<graphicData>
