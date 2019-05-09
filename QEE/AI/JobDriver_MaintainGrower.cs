@@ -55,19 +55,19 @@ namespace QEthics
                     MaintainVatProperties props = VatJobProperties;
                     if (props.maintainingSkill == SkillDefOf.Intellectual)
                     {
-                        Maintainable.ScientistMaintence += (1f / 600f) * pawn.GetStatValue(StatDefOf.ResearchSpeed);
-                        if (Maintainable.ScientistMaintence >= 1f)
+                        Maintainable.ScientistMaintenance += (1f / 600f) * pawn.GetStatValue(StatDefOf.ResearchSpeed);
+                        if (Maintainable.ScientistMaintenance >= 1f)
                         {
-                            Maintainable.ScientistMaintence = 1f;
+                            Maintainable.ScientistMaintenance = 1f;
                             EndJobWith(JobCondition.Succeeded);
                         }
                     }
                     else if (props.maintainingSkill == SkillDefOf.Medicine)
                     {
-                        Maintainable.DoctorMaintence += (1f / 600f) * pawn.GetStatValue(StatDefOf.MedicalTendSpeed);
-                        if(Maintainable.DoctorMaintence >= 1f)
+                        Maintainable.DoctorMaintenance += (1f / 600f) * pawn.GetStatValue(StatDefOf.MedicalTendSpeed);
+                        if(Maintainable.DoctorMaintenance >= 1f)
                         {
-                            Maintainable.DoctorMaintence = 1f;
+                            Maintainable.DoctorMaintenance = 1f;
                             EndJobWith(JobCondition.Succeeded);
                         }
                     }
@@ -80,11 +80,11 @@ namespace QEthics
                 MaintainVatProperties props = VatJobProperties;
                 if(props.maintainingSkill == SkillDefOf.Intellectual)
                 {
-                    return Maintainable.ScientistMaintence;
+                    return Maintainable.ScientistMaintenance;
                 }
                 else if (props.maintainingSkill == SkillDefOf.Medicine)
                 {
-                    return Maintainable.DoctorMaintence;
+                    return Maintainable.DoctorMaintenance;
                 }
 
                 return 0f;

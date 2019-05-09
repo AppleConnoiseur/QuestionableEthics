@@ -8,26 +8,26 @@ using Verse;
 
 namespace QEthics
 {
-    public class Alert_GrowerMaintence : Alert_Critical
+    public class Alert_GrowerMaintenance : Alert_Critical
     {
-        public Alert_GrowerMaintence()
+        public Alert_GrowerMaintenance()
         {
-            defaultLabel = "QE_AlertMaintenceRequiredLabel".Translate();
-            defaultExplanation = "QE_AlertMaintenceRequiredExplanation".Translate();
+            defaultLabel = "QE_AlertMaintenanceRequiredLabel".Translate();
+            defaultExplanation = "QE_AlertMaintenanceRequiredExplanation".Translate();
         }
 
-        public IEnumerable<Building> GrowersNeedingMaintence()
+        public IEnumerable<Building> GrowersNeedingMaintenance()
         {
-            return Find.CurrentMap.listerBuildings.allBuildingsColonist.Where(building => building is Building_GrowerBase grower && grower.status == CrafterStatus.Crafting && building is IMaintainableGrower maintainable && (maintainable.DoctorMaintence < 0.1f || maintainable.ScientistMaintence < 0.1f));
+            return Find.CurrentMap.listerBuildings.allBuildingsColonist.Where(building => building is Building_GrowerBase grower && grower.status == CrafterStatus.Crafting && building is IMaintainableGrower maintainable && (maintainable.DoctorMaintenance < 0.1f || maintainable.ScientistMaintenance < 0.1f));
         }
 
         public override AlertReport GetReport()
         {
-            IEnumerable<Building> growersNeedingMaintence = GrowersNeedingMaintence();
-            if(growersNeedingMaintence != null)
+            IEnumerable<Building> growersNeedingMaintenance = GrowersNeedingMaintenance();
+            if(growersNeedingMaintenance != null)
             {
                 List<GlobalTargetInfo> culprits = new List<GlobalTargetInfo>();
-                foreach(Building grower in growersNeedingMaintence)
+                foreach(Building grower in growersNeedingMaintenance)
                 {
                     culprits.Add(grower);
                     AlertReport report = new AlertReport();

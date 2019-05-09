@@ -31,20 +31,20 @@ namespace QEthics
         public static SimpleCurve cleanlinessCurve = new SimpleCurve();
 
         /// <summary>
-        /// From 0.0 to 1.0. If the maintence is below 50% there is a chance for failure.
+        /// From 0.0 to 1.0. If the maintenance is below 50% there is a chance for failure.
         /// </summary>
-        public float scientistMaintence;
+        public float scientistMaintenance;
 
         /// <summary>
-        /// From 0.0 to 1.0. If the maintence is below 50% there is a chance for failure.
+        /// From 0.0 to 1.0. If the maintenance is below 50% there is a chance for failure.
         /// </summary>
-        public float doctorMaintence;
+        public float doctorMaintenance;
 
         public override int TicksNeededToCraft => (int)(pawnKindToGrow.RaceProps.lifeStageAges.Last().minAge * pawnKindToGrow.RaceProps.baseBodySize * (float)GenDate.TicksPerDay);
 
-        public float ScientistMaintence { get => scientistMaintence; set => scientistMaintence = value; }
+        public float ScientistMaintenance { get => scientistMaintenance; set => scientistMaintenance = value; }
 
-        public float DoctorMaintence { get => doctorMaintence; set => doctorMaintence = value; }
+        public float DoctorMaintenance { get => doctorMaintenance; set => doctorMaintenance = value; }
 
         private RenderTexture renderTexture;
         private Material renderMaterial;
@@ -169,7 +169,7 @@ namespace QEthics
                 }
             }
 
-            //Deduct maintence, fail if any of them go below 0%.
+            //Deduct maintenance, fail if any of them go below 0%.
             float powerModifier = 1f;
             if (PowerTrader != null && !PowerTrader.PowerOn)
             {
@@ -178,10 +178,10 @@ namespace QEthics
             float cleanlinessModifer = cleanlinessCurve.Evaluate(RoomCleanliness);
             float decayRate = 0.00003f * cleanlinessModifer * powerModifier;
 
-            scientistMaintence -= decayRate;
-            doctorMaintence -= decayRate;
+            scientistMaintenance -= decayRate;
+            doctorMaintenance -= decayRate;
 
-            if (scientistMaintence < 0f || doctorMaintence < 0f)
+            if (scientistMaintenance < 0f || doctorMaintenance < 0f)
             {
                 //Fail the cloning process and return the genome template
                 //Reset();
@@ -194,8 +194,8 @@ namespace QEthics
             base.ExposeData();
 
             Scribe_Defs.Look(ref pawnKindToGrow, "pawnKindToGrow");
-            Scribe_Values.Look(ref scientistMaintence, "scientistMaintence");
-            Scribe_Values.Look(ref doctorMaintence, "doctorMaintence");
+            Scribe_Values.Look(ref scientistMaintenance, "scientistMaintenance");
+            Scribe_Values.Look(ref doctorMaintenance, "doctorMaintenance");
             Scribe_Deep.Look(ref pawnBeingGrown, "pawnBeingGrown");
         }
 
@@ -227,8 +227,8 @@ namespace QEthics
             if (status == CrafterStatus.Crafting)
             {
                 builder.AppendLine();
-                builder.AppendLine("QE_VatGrowerScientistMaintence".Translate() + ": " + scientistMaintence.ToStringPercent());
-                builder.AppendLine("QE_VatGrowerDoctorMaintence".Translate() + ": " + doctorMaintence.ToStringPercent());
+                builder.AppendLine("QE_VatGrowerScientistMaintenance".Translate() + ": " + scientistMaintenance.ToStringPercent());
+                builder.AppendLine("QE_VatGrowerDoctorMaintenance".Translate() + ": " + doctorMaintenance.ToStringPercent());
             }
 
             return builder.ToString().TrimEndNewlines();
@@ -344,9 +344,9 @@ namespace QEthics
             //Reset stuff
             pawnBeingGrown = null;
 
-            //Initialize maintence
-            scientistMaintence = 0.25f;
-            doctorMaintence = 0.25f;
+            //Initialize maintenance
+            scientistMaintenance = 0.25f;
+            doctorMaintenance = 0.25f;
 
             pawnKindToGrow = genome.pawnKindDef;
             status = CrafterStatus.Filling;

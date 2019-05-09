@@ -9,7 +9,7 @@ using UnityEngine;
 namespace QEthics
 {
     /// <summary>
-    /// Building for growing things like organs. Requires constant maintence in order to not botch the crafting. Dirty rooms increase maintence drain even more.
+    /// Building for growing things like organs. Requires constant maintenance in order to not botch the crafting. Dirty rooms increase maintenance drain even more.
     /// </summary>
     public class Building_VatGrower : Building_GrowerBase, IMaintainableGrower
     {
@@ -32,14 +32,14 @@ namespace QEthics
         public override int TicksNeededToCraft => activeRecipe?.craftingTime ?? 0;
 
         /// <summary>
-        /// From 0.0 to 1.0. If the maintence is below 50% there is a chance for failure.
+        /// From 0.0 to 1.0. If the maintenance is below 50% there is a chance for failure.
         /// </summary>
-        public float scientistMaintence;
+        public float scientistMaintenance;
 
         /// <summary>
-        /// From 0.0 to 1.0. If the maintence is below 50% there is a chance for failure.
+        /// From 0.0 to 1.0. If the maintenance is below 50% there is a chance for failure.
         /// </summary>
-        public float doctorMaintence;
+        public float doctorMaintenance;
 
         public float RoomCleanliness
         {
@@ -76,9 +76,9 @@ namespace QEthics
             }
         }
 
-        public float ScientistMaintence { get => scientistMaintence; set => scientistMaintence = value; }
+        public float ScientistMaintenance { get => scientistMaintenance; set => scientistMaintenance = value; }
 
-        public float DoctorMaintence { get => doctorMaintence; set => doctorMaintence = value; }
+        public float DoctorMaintenance { get => doctorMaintenance; set => doctorMaintenance = value; }
 
         public Building_VatGrower() : base()
         {
@@ -90,8 +90,8 @@ namespace QEthics
             base.ExposeData();
 
             Scribe_Defs.Look(ref activeRecipe, "activeRecipe");
-            Scribe_Values.Look(ref scientistMaintence, "scientistMaintence");
-            Scribe_Values.Look(ref doctorMaintence, "doctorMaintence");
+            Scribe_Values.Look(ref scientistMaintenance, "scientistMaintenance");
+            Scribe_Values.Look(ref doctorMaintenance, "doctorMaintenance");
         }
 
         public override string GetInspectString()
@@ -106,8 +106,8 @@ namespace QEthics
             if (status == CrafterStatus.Crafting)
             {
                 builder.AppendLine();
-                builder.AppendLine("QE_VatGrowerScientistMaintence".Translate() + ": " + scientistMaintence.ToStringPercent());
-                builder.AppendLine("QE_VatGrowerDoctorMaintence".Translate() + ": " + doctorMaintence.ToStringPercent());
+                builder.AppendLine("QE_VatGrowerScientistMaintenance".Translate() + ": " + scientistMaintenance.ToStringPercent());
+                builder.AppendLine("QE_VatGrowerDoctorMaintenance".Translate() + ": " + doctorMaintenance.ToStringPercent());
             }
 
             return builder.ToString().TrimEndNewlines();
@@ -172,7 +172,7 @@ namespace QEthics
         {
             base.Tick_Crafting();
 
-            //Deduct maintence, fail if any of them go below 0%.
+            //Deduct maintenance, fail if any of them go below 0%.
             float powerModifier = 1f;
             if (PowerTrader != null && !PowerTrader.PowerOn)
             {
@@ -181,10 +181,10 @@ namespace QEthics
             float cleanlinessModifer = cleanlinessCurve.Evaluate(RoomCleanliness);
             float decayRate = 0.00003f * cleanlinessModifer * powerModifier;
 
-            scientistMaintence -= decayRate;
-            doctorMaintence -= decayRate;
+            scientistMaintenance -= decayRate;
+            doctorMaintenance -= decayRate;
 
-            if(scientistMaintence < 0f || doctorMaintence < 0f)
+            if(scientistMaintenance < 0f || doctorMaintenance < 0f)
             {
                 //Fail the craft, waste all products.
                 Reset();
@@ -211,9 +211,9 @@ namespace QEthics
             IngredientUtility.FillOrderProcessorFromVatGrowerRecipe(orderProcessor, recipeDef);
             orderProcessor.Notify_ContentsChanged();
 
-            //Initialize maintence
-            scientistMaintence = 0.25f;
-            doctorMaintence = 0.25f;
+            //Initialize maintenance
+            scientistMaintenance = 0.25f;
+            doctorMaintenance = 0.25f;
 
             activeRecipe = recipeDef;
             status = CrafterStatus.Filling;

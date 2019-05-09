@@ -43,18 +43,18 @@ namespace QEthics
 
             bool maintainScience = true;
 
-            if(maintanable.ScientistMaintence > 0.49f)
+            if(maintanable.ScientistMaintenance > 0.49f)
             {
-                if (maintanable.ScientistMaintence > 0.90f)
+                if (maintanable.ScientistMaintenance > 0.90f)
                     maintainScience = false;
                 maintainScience = forced;
             }
 
             bool maintainDoctor = true;
 
-            if (maintanable.DoctorMaintence > 0.49f)
+            if (maintanable.DoctorMaintenance > 0.49f)
             {
-                if (maintanable.DoctorMaintence > 0.90f)
+                if (maintanable.DoctorMaintenance > 0.90f)
                     maintainDoctor = false;
                 maintainDoctor = forced;
             }
@@ -71,12 +71,12 @@ namespace QEthics
 
             IMaintainableGrower maintanable = t as IMaintainableGrower;
 
-            if (maintanable.ScientistMaintence < 0.49f)
+            if (maintanable.ScientistMaintenance < 0.49f)
             {
                 job = new Job(QEJobDefOf.QE_MaintainGrowerJob_Intellectual, t);
             }
 
-            if (maintanable.DoctorMaintence < 0.49f)
+            if (maintanable.DoctorMaintenance < 0.49f)
             {
                 job = new Job(QEJobDefOf.QE_MaintainGrowerJob_Medicine, t);
             }

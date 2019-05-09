@@ -10,8 +10,8 @@ namespace QEthics
     /// </summary>
     public interface IMaintainableGrower
     {
-        float ScientistMaintence { get; set; }
-        float DoctorMaintence { get; set; }
+        float ScientistMaintenance { get; set; }
+        float DoctorMaintenance { get; set; }
         float RoomCleanliness { get; }
     }
 }

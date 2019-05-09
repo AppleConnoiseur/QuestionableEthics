@@ -42,9 +42,9 @@ namespace QEthics
         public ResearchProjectDef requiredResearch;
 
         /// <summary>
-        /// How much maintence is drained per tick during crafting.
+        /// How much maintenance is drained per tick during crafting.
         /// </summary>
-        public float maintenceDrain = 0.001f;
+        public float maintenanceDrain = 0.001f;
 
         /// <summary>
         /// Graphic to draw while its being crafted.
