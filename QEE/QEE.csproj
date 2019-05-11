@@ -88,8 +88,10 @@
     <Compile Include="Logic\IMaintainableGrower.cs" />
     <Compile Include="Logic\ThingOrderProcessor.cs" />
     <Compile Include="Logic\ThingOrderRequest.cs" />
+    <Compile Include="ModSettings.cs" />
     <Compile Include="PostDefFixer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsHelper.cs" />
     <Compile Include="ThingComps\CustomNameComp.cs" />
     <Compile Include="ThingComps\GenomeSalvagerComp.cs" />
     <Compile Include="ThingComps\LifeSupportComp.cs" />

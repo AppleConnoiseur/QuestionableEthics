@@ -51,4 +51,16 @@
 	<QE_BrainScanDescription_BackshortAdult>Adulthood backstory</QE_BrainScanDescription_BackshortAdult>
 	<QE_BrainScanDescription_Skills>Stored skills</QE_BrainScanDescription_Skills>
 	<QE_BrainScanDescription_Training>Stored training</QE_BrainScanDescription_Training>
+
+	<!-- Mod settings -->
+	<QE_OrganGrowthDuration>Organ growth duration</QE_OrganGrowthDuration>
+	<QE_OrganGrowthDurationTooltip>Higher values = more time required to grow organs. Default = 100%</QE_OrganGrowthDurationTooltip>
+	<QE_OrganIngredientMult>Organ total ingredient multiplier</QE_OrganIngredientMult>
+	<QE_OrganIngredientMultTooltip>Higher values = more ingredients required to grow organs. Default = 100%</QE_OrganIngredientMultTooltip>
+	<QE_CloneGrowthDuration>Clone growth duration</QE_CloneGrowthDuration>
+	<QE_CloneGrowthDurationTooltip>Higher values = more time required to grow clones. Default = 100%</QE_CloneGrowthDurationTooltip>
+	<QE_CloneIngredientMult>Clone total ingredient multiplier</QE_CloneIngredientMult>
+	<QE_CloneIngredientMultTooltip>Higher values = more ingredients required to grow clones. Default = 100%</QE_CloneIngredientMultTooltip>
+	<QE_VatMaintTime>Time between vat maintenance</QE_VatMaintTime>
+	<QE_VatMaintTimeTooltip>Higher values = maintenance required less frequently. Default = 100%</QE_VatMaintTimeTooltip>
 </LanguageData>

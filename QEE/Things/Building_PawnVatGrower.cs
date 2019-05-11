@@ -40,7 +40,9 @@ namespace QEthics
         /// </summary>
         public float doctorMaintenance;
 
-        public override int TicksNeededToCraft => (int)(pawnKindToGrow.RaceProps.lifeStageAges.Last().minAge * pawnKindToGrow.RaceProps.baseBodySize * (float)GenDate.TicksPerDay);
+        //public override int TicksNeededToCraft => (int)(pawnKindToGrow.RaceProps.lifeStageAges.Last().minAge * pawnKindToGrow.RaceProps.baseBodySize * (float)GenDate.TicksPerDay);
+        public override int TicksNeededToCraft => (int)(pawnKindToGrow.RaceProps.lifeStageAges.Last().minAge * pawnKindToGrow.RaceProps.baseBodySize * 
+            (float)GenDate.TicksPerDay * LoadedModManager.GetMod<QEEMod>().GetSettings<QEESettings>().cloneGrowthRateFloat);
 
         public float ScientistMaintenance { get => scientistMaintenance; set => scientistMaintenance = value; }
 
@@ -176,7 +178,8 @@ namespace QEthics
                 powerModifier = 10f;
             }
             float cleanlinessModifer = cleanlinessCurve.Evaluate(RoomCleanliness);
-            float decayRate = 0.00003f * cleanlinessModifer * powerModifier;
+            //float decayRate = 0.00003f * cleanlinessModifer * powerModifier;
+            float decayRate = 0.00003f * cleanlinessModifer * powerModifier / (LoadedModManager.GetMod<QEEMod>().GetSettings<QEESettings>().maintRateFloat);
 
             scientistMaintenance -= decayRate;
             doctorMaintenance -= decayRate;
