@@ -16,6 +16,10 @@
 	<QE_VatGrowerProduct>Product</QE_VatGrowerProduct>
 	<QE_VatGrowerScientistMaintenance>Researcher maintenance</QE_VatGrowerScientistMaintenance>
 	<QE_VatGrowerDoctorMaintenance>Doctoring maintenance</QE_VatGrowerDoctorMaintenance>
+	<QE_VatGrowerDaysRemaining>days remaining</QE_VatGrowerDaysRemaining>
+	<QE_VatGrowerHoursRemaining>hours remaining</QE_VatGrowerHoursRemaining>
+	<QE_VatGrowerNoLivingBeing>no living being</QE_VatGrowerNoLivingBeing>
+	<QE_VatGrowerNoRecipe>no recipe</QE_VatGrowerNoRecipe>
 	<!-- Gizmos -->
 	<QE_VatGrowerStartCraftingGizmoLabel>Start growing</QE_VatGrowerStartCraftingGizmoLabel>
 	<QE_VatGrowerStartCraftingGizmoDescription>Select an organ to grow. Colonists will begin filling the vat with the required ingredients.</QE_VatGrowerStartCraftingGizmoDescription>

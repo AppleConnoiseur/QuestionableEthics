@@ -107,8 +107,10 @@ namespace QEthics
             if (status == CrafterStatus.Crafting)
             {
                 builder.AppendLine();
-                builder.AppendLine("QE_VatGrowerScientistMaintenance".Translate() + ": " + scientistMaintenance.ToStringPercent());
-                builder.AppendLine("QE_VatGrowerDoctorMaintenance".Translate() + ": " + doctorMaintenance.ToStringPercent());
+                builder.AppendLine("Maintenance: " + String.Format("{0:0%}", scientistMaintenance) +
+                    " Scientist, " + String.Format("{0:0%}", doctorMaintenance) + " Doctor");
+
+                builder.AppendLine("Cleanliness maint. multiplier: " + cleanlinessCurve.Evaluate(RoomCleanliness).ToString("0.00"));
             }
 
             return builder.ToString().TrimEndNewlines();
@@ -241,7 +243,7 @@ namespace QEthics
 
         public override string TransformStatusLabel(string label)
         {
-            string recipeLabel = activeRecipe?.LabelCap ?? "no recipe";
+            string recipeLabel = activeRecipe?.LabelCap ?? "QE_VatGrowerNoRecipe".Translate();
 
             if (status == CrafterStatus.Filling || status == CrafterStatus.Finished)
             {
@@ -249,7 +251,18 @@ namespace QEthics
             }
             if (status == CrafterStatus.Crafting)
             {
-                return label + " " + recipeLabel.CapitalizeFirst() + " (" + CraftingProgressPercent.ToStringPercent() + ")";
+                //return label + " " + recipeLabel.CapitalizeFirst() + " (" + CraftingProgressPercent.ToStringPercent() + ")";
+                float daysRemaining = GenDate.TicksToDays(TicksLeftToCraft);
+                if (daysRemaining > 1.0)
+                {
+                    return recipeLabel.CapitalizeFirst() + " (" + String.Format("{0:0.0}", daysRemaining) +
+                        " " + "QE_VatGrowerDaysRemaining".Translate() + ")";
+                }
+                else
+                {
+                    return " " + recipeLabel.CapitalizeFirst() + " (" + String.Format("{0:0.0}", (TicksLeftToCraft / 2500.0f)) +
+                        " " + "QE_VatGrowerHoursRemaining".Translate() + ")";
+                }
             }
 
             return base.TransformStatusLabel(label);
