@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Verse;
 using RimWorld;
 using Harmony;
-using System.Reflection;
 
 namespace QEthics
 {
@@ -22,11 +19,71 @@ namespace QEthics
             return IsValidBrainScanningDef(def) && !pawn.Dead && !pawn.health.hediffSet.hediffs.Any(hediff => GeneralCompatibility.excludedHediffs.Any(hediffDef => hediff.def == hediffDef));
         }
 
-        public static bool IsValidBrainTemplatingTarget(this Pawn pawn)
+        public static bool IsValidBrainScanningTarget(Pawn targetPawn, ref string failReason)
         {
-            return IsValidBrainScanningTarget(pawn) &&
-                pawn.health.hediffSet.HasHediff(QEHediffDefOf.QE_CloneStatus, false) &&
-                !pawn.health.hediffSet.HasHediff(QEHediffDefOf.QE_BrainTemplated, false);
+            ThingDef def = targetPawn.def;
+
+            if(!IsValidBrainScanningDef(def))
+            {
+                failReason = "QE_BrainScanningRejectExcludedRace".Translate(targetPawn.kindDef.race);
+                return false;
+            }
+
+            else if(targetPawn.Dead)
+            {
+                failReason = "QE_BrainScanningRejectDead".Translate(targetPawn.Named("PAWN"));
+                return false;
+            }
+            //fail if pawn has an excluded hediff
+            else if (targetPawn.health.hediffSet.hediffs.Any(hediff => GeneralCompatibility.excludedHediffs.Any(hediffDef => hediff.def == hediffDef)))
+            {
+                failReason = "QE_BrainScanningRejectExcludedHediff".Translate(targetPawn.Named("PAWN"));
+                return false;
+            }
+
+            else
+            {
+                return true;
+            }
+        }
+
+        public static bool IsValidBrainTemplatingTarget(this Pawn targetPawn, ref string failReason, BrainScanTemplate template)
+        {           
+            if (!IsValidBrainScanningTarget(targetPawn, ref failReason))
+            {
+                return false;
+            }
+
+            //fail if trying to apply animal template to non-animal
+            else if(template.isAnimal && !targetPawn.RaceProps.Animal)
+            {
+                failReason = "QE_BrainScanningRejectNotAnimal".Translate(targetPawn.LabelShort);
+                return false;
+            }
+
+            //fail if trying to apply non-animal template to animal
+            else if (!template.isAnimal && targetPawn.RaceProps.Animal)
+            {
+                failReason = "QE_BrainScanningRejectNotHumanlike".Translate(targetPawn.LabelShort);
+                return false;
+            }
+
+            //fail if pawn doesn't have the Clone hediff
+            else if (!targetPawn.health.hediffSet.HasHediff(QEHediffDefOf.QE_CloneStatus, false))
+            {
+                failReason = "QE_BrainScanningRejectNotClone".Translate(targetPawn.Named("PAWN"));
+                return false;
+            }
+            //fail if they have been templated in the past
+            else if (targetPawn.health.hediffSet.HasHediff(QEHediffDefOf.QE_BrainTemplated, false))
+            {
+                failReason = "QE_BrainScanningRejectAlreadyTemplated".Translate(targetPawn.Named("PAWN"));
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public static Thing MakeBrainScan(Pawn pawn, ThingDef genomeDef)

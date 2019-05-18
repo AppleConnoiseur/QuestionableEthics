@@ -6,29 +6,26 @@ namespace QEthics
 {
     public class QEESettings : ModSettings
     {
-        /// <summary>
-        /// The three settings our mod has.
-        /// </summary>
-        //public bool exampleBool;
         public float maintRateFloat = 1.0f;
         public float organGrowthRateFloat = 1.0f;
         public float cloneGrowthRateFloat = 1.0f;
         public float organTotalResourcesFloat = 1.0f;
         public float cloneTotalResourcesFloat = 1.0f;
         public List<Pawn> exampleListOfPawns = new List<Pawn>();
+        public static bool debugLogging = false;
+        
 
         /// <summary>
         /// The part that writes our settings to file. Note that saving is by ref.
         /// </summary>
         public override void ExposeData()
         {
-            //Scribe_Values.Look(ref exampleBool, "exampleBool");
             Scribe_Values.Look(ref maintRateFloat, "maintRateFloat", 1.0f);
             Scribe_Values.Look(ref organGrowthRateFloat, "organGrowthRateFloat", 1.0f);
             Scribe_Values.Look(ref cloneGrowthRateFloat, "cloneGrowthRateFloat", 1.0f);
             Scribe_Values.Look(ref organTotalResourcesFloat, "organTotalResourcesFloat", 1.0f);
             Scribe_Values.Look(ref cloneTotalResourcesFloat, "cloneTotalResourcesFloat", 1.0f);
-            //Scribe_Collections.Look(ref exampleListOfPawns, "exampleListOfPawns", LookMode.Reference);
+            Scribe_Values.Look(ref debugLogging, "debugLogging", false);
             base.ExposeData();
         }
     }
@@ -62,8 +59,17 @@ namespace QEthics
             listingStandard.SliderLabeled("QE_CloneGrowthDuration".Translate(), ref settings.cloneGrowthRateFloat, settings.cloneGrowthRateFloat.ToStringPercent(), 0.00f, 4.0f, "QE_CloneGrowthDurationTooltip".Translate());
             listingStandard.SliderLabeled("QE_CloneIngredientMult".Translate(), ref settings.cloneTotalResourcesFloat, settings.cloneTotalResourcesFloat.ToStringPercent(), 0.00f, 4.0f, "QE_CloneIngredientMultTooltip".Translate());
             listingStandard.SliderLabeled("QE_VatMaintTime".Translate(), ref settings.maintRateFloat, settings.maintRateFloat.ToStringPercent(), 0.01f, 4.0f, "QE_VatMaintTimeTooltip".Translate());
+            listingStandard.CheckboxLabeled("QE_DebugLogging".Translate(), ref QEESettings.debugLogging, "QE_DebugLoggingTooltip".Translate());
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);
+        }
+
+        public static void TryLog(string message)
+        {
+            if (QEESettings.debugLogging)
+            {
+                Log.Message("QEE: " + message);
+            }
         }
 
         /// <summary>
@@ -73,4 +79,7 @@ namespace QEthics
         /// <returns>The (translated) mod name.</returns>
         public override string SettingsCategory() => "Questionable Ethics Enhanced";
     }
+
+
 }
+

@@ -44,10 +44,17 @@
 	<QE_MessageGrowingDone>Growing {0} is done.</QE_MessageGrowingDone>
 	<!-- Letters -->
 	<QE_LetterHumanlikeGrownLabel>Vatgrown clone made</QE_LetterHumanlikeGrownLabel>
-	<QE_LetterHumanlikeGrownDescription>Welcome vatgrown clone {0} to the colony!\n\nYou can either train them up from scratch with the help of their natural affinities or apply a Brain scan template on them to give them a skillset right away.</QE_LetterHumanlikeGrownDescription>
+	<QE_LetterHumanlikeGrownDescription>Welcome vatgrown clone {PAWN_labelShort} to the colony!\n\n{PAWN_pronoun} has no natural skills, but you can apply a brain scan template on {PAWN_possessive} to give {PAWN_possessive} a skillset right away.</QE_LetterHumanlikeGrownDescription>
 
 	<!-- Brain scanning -->
-	<QE_BrainScanningRejectInput>{0} was rejected because no valid bed could be found.</QE_BrainScanningRejectInput>
+	<QE_BrainScanningRejectNoValidBed>{0} is a valid target, but no available bed could be found.</QE_BrainScanningRejectNoValidBed>
+	<QE_BrainScanningRejectDead>{PAWN_labelShort} was rejected because {PAWN_pronoun} is dead and has no brain activity.</QE_BrainScanningRejectDead>
+	<QE_BrainScanningRejectNotClone>{PAWN_labelShort} was rejected because {PAWN_pronoun} is not a clone.</QE_BrainScanningRejectNotClone>
+	<QE_BrainScanningRejectAlreadyTemplated>{PAWN_labelShort} was rejected because {PAWN_pronoun} already has a brain template.</QE_BrainScanningRejectAlreadyTemplated>
+	<QE_BrainScanningRejectExcludedHediff>{PAWN_labelShort} was rejected because {PAWN_pronoun} has a hediff that excludes {PAWN_objective} from brain scanning.</QE_BrainScanningRejectExcludedHediff>
+	<QE_BrainScanningRejectExcludedRace>{0} is not a valid race for brain scanning.</QE_BrainScanningRejectExcludedRace>
+	<QE_BrainScanningRejectNotAnimal>{0} was rejected because this template can only be applied to animals.</QE_BrainScanningRejectNotAnimal>
+	<QE_BrainScanningRejectNotHumanlike>{0} was rejected because this template can't be applied to an animal.</QE_BrainScanningRejectNotHumanlike>
 	<QE_BrainScanningApplyTemplate>Apply brain scan template</QE_BrainScanningApplyTemplate>
 	<QE_BrainScanningFloatMenuLabel>Apply brain scan template to {0}</QE_BrainScanningFloatMenuLabel>
 	<QE_BrainScanningFloatMenuLabelDisabled>{0} (No bed)</QE_BrainScanningFloatMenuLabelDisabled>
@@ -55,6 +62,22 @@
 	<QE_BrainScanDescription_BackshortAdult>Adulthood backstory</QE_BrainScanDescription_BackshortAdult>
 	<QE_BrainScanDescription_Skills>Stored skills</QE_BrainScanDescription_Skills>
 	<QE_BrainScanDescription_Training>Stored training</QE_BrainScanDescription_Training>
+
+	<!-- Bed validation checks for applying brain templates. Enable debug logging in the Mod Settings to see these in the log. -->
+	<QE_BedInvalid>{0} is not a valid bed</QE_BedInvalid>
+	<QE_BedIsMedical>Invalid bed '{0}'. Reason - medical beds can't be used for brain templating</QE_BedIsMedical>
+	<QE_BedUnreachableBySurgeon>Invalid bed '{0}'. Reason - {SURGEON_labelShort} can't reach or reserve it</QE_BedUnreachableBySurgeon>
+	<QE_BedTooDangerous>Invalid bed '{0}'. Reason - too dangerous for {PATIENT_labelShort}</QE_BedTooDangerous>
+	<QE_BedSurgeonAlreadyReserved>Invalid bed '{0}'. Reason - bed is already reserved by {SURGEON_labelShort}</QE_BedSurgeonAlreadyReserved>
+	<QE_BedOccupied>Invalid bed '{0}'. Reason - bed is already occupied</QE_BedOccupied>
+	<QE_BedForbidden>Invalid bed '{0}'. Reason - bed is forbidden</QE_BedForbidden>
+	<QE_BedIsBurning>Invalid bed '{0}'. Reason - bed is burning</QE_BedIsBurning>
+	<QE_BedImproperForPrisoner>Invalid bed '{0}'. Reason - {PATIENT_labelShort} is prisoner, bed not for prisoners</QE_BedImproperForPrisoner>
+	<QE_BedNotInPrisonCell>Invalid bed '{0}'. Reason - {PATIENT_labelShort} is prisoner, bed not in prison cell</QE_BedNotInPrisonCell>
+	<QE_BedImproperFaction>Invalid bed '{0}'. Reason - bed not owned by {SURGEON_labelShort}'s faction</QE_BedImproperFaction>
+	<QE_PrisonerBedForNonPrisoner>Invalid bed '{0}'. Reason - {PATIENT_labelShort} is not prisoner, bed is for prisoners</QE_PrisonerBedForNonPrisoner>
+	<QE_BedHasAnotherOwner>Invalid bed '{0}'. Reason - bed is owned by another pawn</QE_BedHasAnotherOwner>
+	<QE_BedSelected>{0} has been selected for brain templating operation</QE_BedSelected>
 
 	<!-- Mod settings -->
 	<QE_OrganGrowthDuration>Organ growth duration</QE_OrganGrowthDuration>
@@ -67,4 +90,6 @@
 	<QE_CloneIngredientMultTooltip>Higher values = more ingredients required to grow clones. Default = 100%</QE_CloneIngredientMultTooltip>
 	<QE_VatMaintTime>Time between vat maintenance</QE_VatMaintTime>
 	<QE_VatMaintTimeTooltip>Higher values = maintenance required less frequently. Default = 100%</QE_VatMaintTimeTooltip>
+	<QE_DebugLogging>Debug logging</QE_DebugLogging>
+	<QE_DebugLoggingTooltip>Enable debug logging for the mod. Helpful if you're running into unepected behavior with the mod. Default: Disabled</QE_DebugLoggingTooltip>
 </LanguageData>

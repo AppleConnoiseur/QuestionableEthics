@@ -248,30 +248,69 @@ namespace QEthics
             yield return new FloatMenuOption("QE_BrainScanningApplyTemplate".Translate(),
                 delegate()
                 {
+                    string failReason = "";
                     TargetingParameters targetParams = 
                     new TargetingParameters()
                     {
                         canTargetPawns = true,
-                        validator = (target) => target.HasThing && target.Thing is Pawn pawn && pawn != selPawn && pawn.IsValidBrainTemplatingTarget()
+
+                        //initial target is valid as long as it's a pawn, it's not the one selected
+                        //other checks are less obvious to the player, so inform them with a message in IsValidBrainTemplatingTarget()
+                        validator = (target) => target.HasThing && target.Thing is Pawn pawn && pawn != selPawn
                     };
 
+                    //do all validation here instead of the validator predicate above, because here we 
+                    //can write messages to the player if they select an invalid pawn, telling them *why*
+                    //it's the wrong target
                     Find.Targeter.BeginTargeting(targetParams, 
                         delegate(LocalTargetInfo target)
                         {
-                            Pawn pawn = target.Thing as Pawn;
-                            if(pawn != null)
+                            Pawn targetPawn = target.Thing as Pawn;
+                            if(targetPawn != null)
                             {
-                                Building_Bed validBed = pawn.FindSuitableSurgeryBed(selPawn);
-                                if (validBed != null && selPawn.CanReserveAndReach(pawn, PathEndMode.OnCell, Danger.Deadly) && selPawn.CanReserveAndReach(this, PathEndMode.OnCell, Danger.Deadly) && selPawn.CanReserveAndReach(validBed, PathEndMode.OnCell, Danger.Deadly))
+                                //begin validation
+                                if (targetPawn.IsValidBrainTemplatingTarget(ref failReason, this))
                                 {
-                                    selPawn.jobs.TryTakeOrderedJob(new Job(QEJobDefOf.QE_ApplyBrainScanTemplate, pawn, this, validBed)
+
+                                    //valid target established, time to find a bed.
+                                    //Healthy pawns will get up from medical beds immediately, so skip med beds in search
+                                    Building_Bed validBed = targetPawn.FindAvailNonMedicalBed(selPawn);
+
+                                    string whyFailed = "";
+                                    if (validBed == null)
                                     {
-                                        count = 1
-                                    });
+                                        whyFailed = "No non-medical beds are available";
+                                    }
+                                    else if(!selPawn.CanReserveAndReach(targetPawn, PathEndMode.OnCell, Danger.Deadly))
+                                    {
+                                        whyFailed = selPawn.LabelShort + " can't reach/reserve " + targetPawn.LabelShort;
+                                    }
+                                    else if(!selPawn.CanReserveAndReach(this, PathEndMode.OnCell, Danger.Deadly))
+                                    {
+                                        whyFailed = selPawn.LabelShort + " can't reach/reserve the brain template";
+                                    }
+                                    else if(!selPawn.CanReserveAndReach(validBed, PathEndMode.OnCell, Danger.Deadly))
+                                    {
+                                        whyFailed = selPawn.LabelShort + " can't reach/reserve the " + validBed.def.defName;
+                                    }
+
+                                    if (!String.IsNullOrEmpty(whyFailed))
+                                    {
+                                        Messages.Message(whyFailed, MessageTypeDefOf.RejectInput, false);
+                                        SoundDefOf.ClickReject.PlayOneShot(SoundInfo.OnCamera());
+                                    }
+                                    else
+                                    {
+                                        selPawn.jobs.TryTakeOrderedJob(new Job(QEJobDefOf.QE_ApplyBrainScanTemplate, targetPawn, this, validBed)
+                                        {
+                                            count = 1
+                                        });
+                                    }
+
                                 }
                                 else
                                 {
-                                    Messages.Message("QE_BrainScanningRejectInput".Translate(pawn.Name), MessageTypeDefOf.RejectInput, false);
+                                    Messages.Message(failReason, MessageTypeDefOf.RejectInput, false);
                                     SoundDefOf.ClickReject.PlayOneShot(SoundInfo.OnCamera());
                                 }
                             }
