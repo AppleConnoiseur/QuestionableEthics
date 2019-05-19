@@ -21,7 +21,7 @@
 	<ThingDef ParentName="QEBrainScanningBase">
 		<defName>QE_BrainScanner</defName>
 		<label>brain scanner</label>
-		<description>A set of tools used for mapping the brainwaves of living beings. A surgeon will utilize this to methodically map the patient's brain onto a brain scan template.</description>
+		<description>A set of tools used for mapping the brainwaves of living beings. A surgeon will utilize this to methodically map the patient's brain onto a brain scan template. When used on humans, it will capture their skill proficiencies and passions. When used on animals, it will capture their training.</description>
 		<graphicData>
 			<texPath>Things/Item/Manufactured/BrainScanner</texPath>
 		</graphicData>

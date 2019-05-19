@@ -143,7 +143,23 @@ namespace QEthics
                     builder.AppendLine("QE_BrainScanDescription_Skills".Translate());
                     foreach (SkillRecord skill in skills.OrderBy(skillRecord => skillRecord.def.index))
                     {
-                        builder.AppendLine("    " + skill.def.LabelCap + ": " + skill.levelInt);
+                        builder.Append("    " + skill.def.LabelCap + ": " + skill.levelInt);
+
+                        switch (skill.passion)
+                        {
+                            case Passion.None:
+                                builder.AppendLine("");
+                                break;
+                            case Passion.Minor:
+                                builder.AppendLine("*");
+                                break;
+                            case Passion.Major:
+                                builder.AppendLine("**");
+                                break;
+                            default:
+                                builder.AppendLine("");
+                                break;
+                        }
                     }
                 }
 
