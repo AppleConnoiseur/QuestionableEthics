@@ -76,6 +76,8 @@ namespace QEthics
                     Patient.jobs.EndCurrentJob(JobCondition.Succeeded);
                 }
             });
+            //A - Sleeper   B - Brain template   C - Bed
+
             this.FailOnDestroyedNullOrForbidden(TargetIndex.A);
             this.FailOnDestroyedNullOrForbidden(TargetIndex.B);
             this.FailOnDestroyedNullOrForbidden(TargetIndex.C);
@@ -83,15 +85,25 @@ namespace QEthics
             yield return Toils_Reserve.Reserve(TargetIndex.B);
             yield return Toils_Reserve.Reserve(TargetIndex.C);
 
-            //Go and get the thing to carry.
+            //Go and get the brain template, carry it, then go to bed
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.OnCell);
             yield return Toils_Haul.StartCarryThing(TargetIndex.B);
             yield return Toils_Goto.GotoThing(TargetIndex.C, PathEndMode.ClosestTouch);
-            yield return Toils_Haul.PlaceCarriedThingInCellFacing(TargetIndex.C);
+            
+            //drop the template in-place
+            yield return new Toil
+            {
+                initAction = delegate
+                {
+                    pawn.carryTracker.TryDropCarriedThing(pawn.Position, ThingPlaceMode.Direct, out Thing _);
+                },
+                defaultCompleteMode = ToilCompleteMode.Instant
+            };
 
+            //get the patient and carry them to the bed
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell);
             yield return Toils_Haul.StartCarryThing(TargetIndex.A);
-            yield return Toils_Goto.GotoThing(TargetIndex.C, PathEndMode.ClosestTouch);
+            yield return Toils_Goto.GotoThing(TargetIndex.C, PathEndMode.InteractionCell);
             yield return Toils_Haul.PlaceHauledThingInCell(TargetIndex.C, null, false);
             yield return Toils_Reserve.Release(TargetIndex.C);
             Toil applyBrainTemplateToil = new Toil()
