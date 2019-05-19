@@ -114,6 +114,9 @@
     <Compile Include="Utilities\LifeSupportUtility.cs" />
     <Compile Include="Utilities\PawnUtility.cs" />
     <Compile Include="Utilities\ThingFilterUtility.cs" />
+    <Compile Include="Workers\PawnRelationWorker_ChildCloneCheck.cs" />
+    <Compile Include="Workers\PawnRelationWorker_ParentCloneCheck.cs" />
+    <Compile Include="Workers\PawnRelationWorker_SiblingCloneCheck.cs" />
     <Compile Include="Workers\RecipeWorker_CreateBrainScan.cs" />
     <Compile Include="Workers\RecipeWorker_GenomeSequencing.cs" />
     <Compile Include="Workers\RecipeWorker_NerveStapling.cs" />
