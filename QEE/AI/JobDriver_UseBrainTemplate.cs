@@ -57,7 +57,6 @@ namespace QEthics
             }
 
             return true;
-            //return pawn.Reserve(TargetThingA, job, errorOnFailed: errorOnFailed) && pawn.Reserve(TargetThingB, job, errorOnFailed: errorOnFailed) && pawn.Reserve(job.targetC.Thing, job, errorOnFailed: errorOnFailed);
         }
 
         public override void ExposeData()
@@ -70,22 +69,15 @@ namespace QEthics
 
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            this.AddFinishAction(delegate()
-            {
-                if(Patient.CurrentBed() == Bed && Patient.CurJobDef == JobDefOf.LayDown)
-                {
-                    Patient.jobs.EndCurrentJob(JobCondition.Succeeded);
-                }
-            });
             //A - Sleeper   B - Brain template   C - Bed
 
             this.FailOnDestroyedNullOrForbidden(TargetIndex.A);
             this.FailOnDestroyedNullOrForbidden(TargetIndex.B);
             this.FailOnDestroyedNullOrForbidden(TargetIndex.C);
-            
+
             yield return Toils_Reserve.Reserve(TargetIndex.B);
-            
-            if(Patient.CurJobDef != JobDefOf.LayDown)
+
+            if (Patient.CurJobDef != JobDefOf.LayDown || Patient.CurrentBed() != Bed)
             {
                 QEEMod.TryLog("Patient not in bed, carrying them to bed");
                 //get the patient and carry them to the bed
@@ -98,17 +90,15 @@ namespace QEthics
                 yield return Toils_Reserve.Release(TargetIndex.C);
             }
 
-            //Surgeon gets the brain template, carries it, then travel to bed
-            QEEMod.TryLog("Carrying brain template to bed");
-            yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.OnCell);
-            yield return Toils_Haul.StartCarryThing(TargetIndex.B);
-            yield return Toils_Goto.GotoThing(TargetIndex.C, PathEndMode.ClosestTouch);
-
-            Toil applyBrainTemplateToil = new Toil()
+            //anesthetize the patient
+            Toil anesthetizePatient = new Toil()
             {
-                defaultCompleteMode = ToilCompleteMode.Never,
                 initAction = delegate ()
                 {
+                    Toils_Reserve.Reserve(TargetIndex.A);
+
+                    Patient.health.AddHediff(HediffDefOf.Anesthetic);
+
                     if (Patient.CurJobDef != JobDefOf.LayDown)
                     {
                         Patient.pather.StopDead();
@@ -118,9 +108,21 @@ namespace QEthics
                         });
                     }
 
-                    Toils_Reserve.Reserve(TargetIndex.A);
-
+                    
                 },
+
+            };
+            yield return anesthetizePatient;
+
+            //Surgeon gets the brain template, carries it, then travel to bed
+            QEEMod.TryLog("Carrying brain template to bed");
+            yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.OnCell);
+            yield return Toils_Haul.StartCarryThing(TargetIndex.B);
+            yield return Toils_Goto.GotoThing(TargetIndex.C, PathEndMode.ClosestTouch);
+
+            Toil applyBrainTemplateToil = new Toil()
+            {
+                defaultCompleteMode = ToilCompleteMode.Never,
                 tickAction = delegate()
                 {
                     ticksWork -= 1f * pawn.GetStatValue(StatDefOf.ResearchSpeed);
@@ -128,7 +130,6 @@ namespace QEthics
                     if (ticksWork <= 0)
                     {
                         BrainManipUtility.ApplyBrainScanTemplateOnPawn(Patient, BrainTemplate);
-                        Patient.jobs.EndCurrentJob(JobCondition.Succeeded);
 
                         //Give headache
                         Patient.health.AddHediff(QEHediffDefOf.QE_Headache, Patient.health.hediffSet.GetBrain());

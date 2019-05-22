@@ -9,27 +9,34 @@ namespace QEthics
     [StaticConstructorOnStartup]
     public static class PawnUtility
     {
-        public static Building_Bed FindAvailNonMedicalBed(this Pawn sleeper, Pawn traveler)
+        static PawnUtility()
+        {
+            Reset();
+        }
+
+        public static Building_Bed FindAvailMedicalBed(this Pawn sleeper, Pawn traveler)
         {
             bool sleeperWillBePrisoner = sleeper.IsPrisoner;
 
-            if (sleeper.InBed())
+            if (sleeper.InBed() && sleeper.CurrentBed().Medical)
             {
-                QEEMod.TryLog("Sleeper is in bed");
+                QEEMod.TryLog("Sleeper is in medical bed");
                 return sleeper.CurrentBed();
             }
 
-            QEEMod.TryLog("Count of all BedDefs: " + RestUtility.AllBedDefBestToWorst.Count);
-            for (int i = 0; i < RestUtility.AllBedDefBestToWorst.Count; i++)
+            //QEEMod.TryLog("Count of all BedDefs: " + RestUtility.AllBedDefBestToWorst.Count);
+            //for (int i = 0; i < RestUtility.AllBedDefBestToWorst.Count; i++)
+            QEEMod.TryLog("Count of all BedDefs: " + bedDefsBestToWorst_Medical.Count);
+            for (int i = 0; i < bedDefsBestToWorst_Medical.Count; i++)
             {
-                ThingDef thingDef = RestUtility.AllBedDefBestToWorst[i];
+                ThingDef thingDef = bedDefsBestToWorst_Medical[i];
                 if (RestUtility.CanUseBedEver(sleeper, thingDef))
                 {
                     Building_Bed building_Bed = (Building_Bed)GenClosest.ClosestThingReachable(sleeper.Position, sleeper.Map, 
                         ThingRequest.ForDef(thingDef), PathEndMode.OnCell, TraverseParms.For(traveler, Danger.Deadly, 
                         TraverseMode.ByPawn, false), 9999f, delegate (Thing b)
                     {
-                        return IsValidNonMedicalBed(b, sleeper, traveler, sleeperWillBePrisoner, false);
+                        return IsValidMedicalBed(b, sleeper, traveler, sleeperWillBePrisoner, false);
                     }, null, 0, -1, false, RegionType.Set_Passable, false);
 
                     if (building_Bed != null)
@@ -43,8 +50,8 @@ namespace QEthics
             return null;
         }
 
-        //this is a modified version of vanilla's RestUtility.IsValidBedFor() that excludes medical beds
-        public static bool IsValidNonMedicalBed(Thing bedThing, Pawn sleeper, Pawn traveler, bool sleeperWillBePrisoner, 
+        //this is a modified version of vanilla's RestUtility.IsValidBedFor() that adds medical bed checks
+        public static bool IsValidMedicalBed(Thing bedThing, Pawn sleeper, Pawn traveler, bool sleeperWillBePrisoner, 
             bool checkSocialProperness, bool ignoreOtherReservations = false)
         {
             Building_Bed building_Bed = bedThing as Building_Bed;
@@ -58,9 +65,9 @@ namespace QEthics
             Danger maxDanger = Danger.Some;
             int sleepingSlotsCount = building_Bed.SleepingSlotsCount;
 
-            if (building_Bed.Medical)
+            if (!building_Bed.Medical && !sleeper.RaceProps.Animal)
             {
-                QEEMod.TryLog("QE_BedIsMedical".Translate(building_Bed.def.defName));
+                QEEMod.TryLog("QE_BedIsNotMedical".Translate(building_Bed.def.defName));
                 return false;
             }
             else if (!traveler.CanReserveAndReach(target, peMode, maxDanger, sleepingSlotsCount, -1, null, ignoreOtherReservations))
@@ -132,5 +139,15 @@ namespace QEthics
             }
             return true;
         }
+
+        public static void Reset()
+        {
+            bedDefsBestToWorst_Medical = (from d in DefDatabase<ThingDef>.AllDefs
+                                          where d.IsBed
+                                          orderby d.building.bed_maxBodySize, d.GetStatValueAbstract(StatDefOf.MedicalTendQualityOffset, null) descending, d.GetStatValueAbstract(StatDefOf.BedRestEffectiveness, null) descending
+                                          select d).ToList<ThingDef>();
+        }
+
+        private static List<ThingDef> bedDefsBestToWorst_Medical;
     }
 }

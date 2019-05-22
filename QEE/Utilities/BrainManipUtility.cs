@@ -143,12 +143,12 @@ namespace QEthics
             return brainScanThing;
         }
 
-        public static void ApplyBrainScanTemplateOnPawn(Pawn pawn, BrainScanTemplate brainScan, float efficency = 1f)
+        public static void ApplyBrainScanTemplateOnPawn(Pawn thePawn, BrainScanTemplate brainScan, float efficency = 1f)
         {
-            if(pawn.IsValidBrainScanningTarget())
+            if(thePawn.IsValidBrainScanningTarget())
             {
                 //Backgrounds
-                Pawn_StoryTracker storyTracker = pawn.story;
+                Pawn_StoryTracker storyTracker = thePawn.story;
                 if (storyTracker != null)
                 {
                     //story.childhood = brainScan.backStoryChild;
@@ -156,7 +156,7 @@ namespace QEthics
                 }
 
                 //Skills
-                Pawn_SkillTracker skillTracker = pawn.skills;
+                Pawn_SkillTracker skillTracker = thePawn.skills;
                 if (skillTracker != null)
                 {
                     foreach (SkillRecord skill in brainScan.skills)
@@ -175,7 +175,7 @@ namespace QEthics
                 }
 
                 //Training
-                Pawn_TrainingTracker trainingTracker = pawn.training;
+                Pawn_TrainingTracker trainingTracker = thePawn.training;
                 if (trainingTracker != null)
                 {
                     DefMap<TrainableDef, bool> learned = (DefMap<TrainableDef, bool>)AccessTools.Field(typeof(Pawn_TrainingTracker), "learned").GetValue(trainingTracker);
@@ -193,7 +193,9 @@ namespace QEthics
                 }
 
                 //Apply Hediff
-                pawn.health.AddHediff(QEHediffDefOf.QE_BrainTemplated);
+                thePawn.health.AddHediff(QEHediffDefOf.QE_BrainTemplated);
+
+                Messages.Message("QE_BrainTemplatingComplete".Translate(thePawn.Named("PAWN")), MessageTypeDefOf.PositiveEvent, false);
             }
         }
     }

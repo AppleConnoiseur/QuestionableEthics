@@ -290,12 +290,19 @@ namespace QEthics
 
                                     //valid target established, time to find a bed.
                                     //Healthy pawns will get up from medical beds immediately, so skip med beds in search
-                                    Building_Bed validBed = targetPawn.FindAvailNonMedicalBed(selPawn);
+                                    Building_Bed validBed = targetPawn.FindAvailMedicalBed(selPawn);
 
                                     string whyFailed = "";
                                     if (validBed == null)
                                     {
-                                        whyFailed = "No non-medical beds are available";
+                                        if (targetPawn.RaceProps.Animal)
+                                        {
+                                            whyFailed = "No animal beds are available";
+                                        }
+                                        else
+                                        {
+                                            whyFailed = "No medical beds are available";
+                                        }
                                     }
                                     else if(!selPawn.CanReserveAndReach(targetPawn, PathEndMode.OnCell, Danger.Deadly))
                                     {

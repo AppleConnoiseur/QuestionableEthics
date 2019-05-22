@@ -62,10 +62,11 @@
 	<QE_BrainScanDescription_BackshortAdult>Adulthood backstory</QE_BrainScanDescription_BackshortAdult>
 	<QE_BrainScanDescription_Skills>Stored skills (passions denoted with asterisks)</QE_BrainScanDescription_Skills>
 	<QE_BrainScanDescription_Training>Stored training</QE_BrainScanDescription_Training>
+	<QE_BrainTemplatingComplete>Brain template successfully applied to {PAWN_labelShort}.</QE_BrainTemplatingComplete>
 
 	<!-- Bed validation checks for applying brain templates. Enable debug logging in the Mod Settings to see these in the log. -->
 	<QE_BedInvalid>{0} is not a valid bed</QE_BedInvalid>
-	<QE_BedIsMedical>Invalid bed '{0}'. Reason - medical beds can't be used for brain templating</QE_BedIsMedical>
+	<QE_BedIsNotMedical>Invalid bed '{0}'. Reason - bed is not medical</QE_BedIsNotMedical>
 	<QE_BedUnreachableBySurgeon>Invalid bed '{0}'. Reason - {SURGEON_labelShort} can't reach or reserve it</QE_BedUnreachableBySurgeon>
 	<QE_BedTooDangerous>Invalid bed '{0}'. Reason - too dangerous for {PATIENT_labelShort}</QE_BedTooDangerous>
 	<QE_BedSurgeonAlreadyReserved>Invalid bed '{0}'. Reason - bed is already reserved by {SURGEON_labelShort}</QE_BedSurgeonAlreadyReserved>
