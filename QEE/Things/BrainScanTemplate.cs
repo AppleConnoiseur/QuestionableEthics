@@ -305,7 +305,9 @@ namespace QEthics
                                     {
                                         whyFailed = selPawn.LabelShort + " can't reach/reserve the brain template";
                                     }
-                                    else if(!selPawn.CanReserveAndReach(validBed, PathEndMode.OnCell, Danger.Deadly))
+                                    //check if bed can be reserved, if patient is not already there
+                                    else if(targetPawn.CurrentBed() != validBed && 
+                                        !selPawn.CanReserveAndReach(validBed, PathEndMode.OnCell, Danger.Deadly))
                                     {
                                         whyFailed = selPawn.LabelShort + " can't reach/reserve the " + validBed.def.defName;
                                     }

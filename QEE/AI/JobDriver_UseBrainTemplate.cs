@@ -46,17 +46,18 @@ namespace QEthics
                 return false;
             }
 
-            if (!pawn.CanReserve(TargetThingB))
+            else  if (!pawn.CanReserve(TargetThingB))
             {
                 return false;
             }
 
-            if (!pawn.CanReserve(job.targetC.Thing))
+            else if (!pawn.CanReserve(job.targetC.Thing) && Patient.CurrentBed() != Bed)
             {
                 return false;
             }
 
-            return pawn.Reserve(TargetThingA, job, errorOnFailed: errorOnFailed) && pawn.Reserve(TargetThingB, job, errorOnFailed: errorOnFailed) && pawn.Reserve(job.targetC.Thing, job, errorOnFailed: errorOnFailed);
+            return true;
+            //return pawn.Reserve(TargetThingA, job, errorOnFailed: errorOnFailed) && pawn.Reserve(TargetThingB, job, errorOnFailed: errorOnFailed) && pawn.Reserve(job.targetC.Thing, job, errorOnFailed: errorOnFailed);
         }
 
         public override void ExposeData()
@@ -81,41 +82,44 @@ namespace QEthics
             this.FailOnDestroyedNullOrForbidden(TargetIndex.A);
             this.FailOnDestroyedNullOrForbidden(TargetIndex.B);
             this.FailOnDestroyedNullOrForbidden(TargetIndex.C);
-            yield return Toils_Reserve.Reserve(TargetIndex.A);
+            
             yield return Toils_Reserve.Reserve(TargetIndex.B);
-            yield return Toils_Reserve.Reserve(TargetIndex.C);
+            
+            if(Patient.CurJobDef != JobDefOf.LayDown)
+            {
+                QEEMod.TryLog("Patient not in bed, carrying them to bed");
+                //get the patient and carry them to the bed
+                yield return Toils_Reserve.Reserve(TargetIndex.A);
+                yield return Toils_Reserve.Reserve(TargetIndex.C);
+                yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell);
+                yield return Toils_Haul.StartCarryThing(TargetIndex.A);
+                yield return Toils_Goto.GotoThing(TargetIndex.C, PathEndMode.InteractionCell);
+                yield return Toils_Haul.PlaceHauledThingInCell(TargetIndex.C, null, false);
+                yield return Toils_Reserve.Release(TargetIndex.C);
+            }
 
-            //Go and get the brain template, carry it, then go to bed
+            //Surgeon gets the brain template, carries it, then travel to bed
+            QEEMod.TryLog("Carrying brain template to bed");
             yield return Toils_Goto.GotoThing(TargetIndex.B, PathEndMode.OnCell);
             yield return Toils_Haul.StartCarryThing(TargetIndex.B);
             yield return Toils_Goto.GotoThing(TargetIndex.C, PathEndMode.ClosestTouch);
-            
-            //drop the template in-place
-            yield return new Toil
-            {
-                initAction = delegate
-                {
-                    pawn.carryTracker.TryDropCarriedThing(pawn.Position, ThingPlaceMode.Direct, out Thing _);
-                },
-                defaultCompleteMode = ToilCompleteMode.Instant
-            };
 
-            //get the patient and carry them to the bed
-            yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell);
-            yield return Toils_Haul.StartCarryThing(TargetIndex.A);
-            yield return Toils_Goto.GotoThing(TargetIndex.C, PathEndMode.InteractionCell);
-            yield return Toils_Haul.PlaceHauledThingInCell(TargetIndex.C, null, false);
-            yield return Toils_Reserve.Release(TargetIndex.C);
             Toil applyBrainTemplateToil = new Toil()
             {
                 defaultCompleteMode = ToilCompleteMode.Never,
                 initAction = delegate ()
                 {
-                    Patient.pather.StopDead();
-                    Patient.jobs.StartJob(new Job(JobDefOf.LayDown, TargetC)
+                    if (Patient.CurJobDef != JobDefOf.LayDown)
                     {
-                        forceSleep = true
-                    });
+                        Patient.pather.StopDead();
+                        Patient.jobs.StartJob(new Job(JobDefOf.LayDown, TargetC)
+                        {
+                            forceSleep = true
+                        });
+                    }
+
+                    Toils_Reserve.Reserve(TargetIndex.A);
+
                 },
                 tickAction = delegate()
                 {
@@ -151,6 +155,7 @@ namespace QEthics
             applyBrainTemplateToil.AddFailCondition(() => workStarted && Patient.CurJobDef != JobDefOf.LayDown);
 
             yield return applyBrainTemplateToil;
+
         }
     }
 }
