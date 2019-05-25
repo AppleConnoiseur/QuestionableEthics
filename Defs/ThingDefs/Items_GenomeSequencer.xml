@@ -40,7 +40,7 @@
 	<ThingDef ParentName="QEGenomeSequencerBase">
 		<defName>QE_GenomeSequencerFilled</defName>
 		<label>genome sequence template</label>
-		<description>A slab of data filled with the full genome of a living being. It is used during cloning to apply the characteristics you see below to a newly-grown clone.</description>
+		<description>A slab of data filled with the full genome of a living being. It is used during cloning to apply the characteristics you see below to a newly-grown clone. Select a Cloning Vat, then click the 'Start growing' gizmo to use this template.</description>
 		<graphicData>
 			<texPath>Things/Item/Manufactured/DataSlab</texPath>
 		</graphicData>
