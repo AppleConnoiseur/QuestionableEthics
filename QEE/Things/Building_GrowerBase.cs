@@ -89,7 +89,14 @@ namespace QEthics
         {
             get
             {
-                return (float)craftingProgress / (float)TicksNeededToCraft;
+                if (TicksNeededToCraft == 0)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return (float)craftingProgress / (float)TicksNeededToCraft;
+                }
             }
         }
 

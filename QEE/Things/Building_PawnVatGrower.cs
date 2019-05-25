@@ -142,6 +142,12 @@ namespace QEthics
                 PortraitsCache.PortraitsCacheUpdate();
                 Messages.Message("QE_MessageGrowingDone".Translate(pawnBeingGrown.LabelCap), new LookTargets(this), MessageTypeDefOf.PositiveEvent);
             }
+
+            //set minimum age manually as an extra check against negative ages
+            float minAge = pawnKindToGrow.RaceProps.lifeStageAges.Last().minAge;
+            long calculatedAgeTicks = (long)(minAge * (float)GenDate.TicksPerYear);
+            pawnBeingGrown.ageTracker.AgeBiologicalTicks = calculatedAgeTicks;
+            pawnBeingGrown.ageTracker.AgeChronologicalTicks = calculatedAgeTicks;
         }
 
         public override void Tick_Crafting()
@@ -156,19 +162,23 @@ namespace QEthics
                     pawnBeingGrown.Rotation = Rotation.Opposite;
                 }
 
+                //QEEMod.TryLog("CraftingProgressPercent: " + CraftingProgressPercent);
+                
                 float minAge = pawnKindToGrow.RaceProps.lifeStageAges.Last().minAge;
                 long calculatedAgeTicks = (long)(minAge * CraftingProgressPercent * (float)GenDate.TicksPerYear);
                 pawnBeingGrown.ageTracker.AgeBiologicalTicks = calculatedAgeTicks;
                 pawnBeingGrown.ageTracker.AgeChronologicalTicks = calculatedAgeTicks;
                 if(lastLifestageAge != pawnBeingGrown.ageTracker.CurLifeStageRace)
                 {
+                    QEEMod.TryLog("Drawing updated texture for clone " + pawnBeingGrown.LabelShort);
                     PortraitsCache.SetDirty(pawnBeingGrown);
                     PortraitsCache.PortraitsCacheUpdate();
                     lastLifestageAge = pawnBeingGrown.ageTracker.CurLifeStageRace;
                     renderTexture = null;
-
-                    //Log.Message("Tick_Crafting: New lifestage texture.");
                 }
+
+                //QEEMod.TryLog("BioAge of clone " + pawnBeingGrown.LabelShort + ": " + 
+                //    pawnBeingGrown.ageTracker.AgeBiologicalTicks);
             }
 
             //Deduct maintenance, fail if any of them go below 0%.
