@@ -125,7 +125,7 @@ namespace QEthics
                 defaultCompleteMode = ToilCompleteMode.Never,
                 tickAction = delegate()
                 {
-                    ticksWork -= 1f * pawn.GetStatValue(StatDefOf.ResearchSpeed);
+                    ticksWork -= StatDefOf.ResearchSpeed.Worker.IsDisabledFor(pawn) ? 1f : 1f * pawn.GetStatValue(StatDefOf.ResearchSpeed);
 
                     if (ticksWork <= 0)
                     {
