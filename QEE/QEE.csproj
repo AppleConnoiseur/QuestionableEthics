@@ -25,7 +25,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>C:\Program Files %28x86%29\Steam\steamapps\common\RimWorld\Mods\QEE\Assemblies\</OutputPath>
+    <OutputPath>..\Assemblies\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -83,7 +83,6 @@
     <Compile Include="HediffComps\HediffComp_Null.cs" />
     <Compile Include="HediffComps\Properties\HediffCompProperties_WeaponsPlatform.cs" />
     <Compile Include="HediffComps\Properties\HediffCompProperties_CrudeAddedPart.cs" />
-    <Compile Include="Hediffs\Hediff_LifeSupport.cs" />
     <Compile Include="Logic\ExposedTraitEntry.cs" />
     <Compile Include="Logic\IMaintainableGrower.cs" />
     <Compile Include="Logic\ThingOrderProcessor.cs" />
@@ -94,10 +93,8 @@
     <Compile Include="SettingsHelper.cs" />
     <Compile Include="ThingComps\CustomNameComp.cs" />
     <Compile Include="ThingComps\GenomeSalvagerComp.cs" />
-    <Compile Include="ThingComps\LifeSupportComp.cs" />
     <Compile Include="ThingComps\Properties\CompProperties_CustomName.cs" />
     <Compile Include="ThingComps\Properties\CompProperties_GenomeSalvager.cs" />
-    <Compile Include="ThingComps\Properties\CompProperties_LifeSupport.cs" />
     <Compile Include="Things\BrainScanTemplate.cs" />
     <Compile Include="Things\Building_AutoDoctor.cs" />
     <Compile Include="Things\Building_GrowerBase.cs" />
@@ -111,7 +108,6 @@
     <Compile Include="Utilities\BrainManipUtility.cs" />
     <Compile Include="Utilities\GenomeUtility.cs" />
     <Compile Include="Utilities\IngredientUtility.cs" />
-    <Compile Include="Utilities\LifeSupportUtility.cs" />
     <Compile Include="Utilities\PawnUtility.cs" />
     <Compile Include="Utilities\ThingFilterUtility.cs" />
     <Compile Include="Workers\PawnRelationWorker_ChildCloneCheck.cs" />
