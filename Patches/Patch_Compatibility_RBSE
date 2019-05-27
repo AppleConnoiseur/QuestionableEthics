@@ -21,12 +21,6 @@
 						<li>Anatomy</li>
 					</value>
 				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/ResearchProjectDef[defName='QE_CrudeBionics']/prerequisites/li[text()='Prosthetics']</xpath>
-					<value>
-						<li>Anatomy</li>
-					</value>
-				</li>
 			</operations>
 		</match>
 	</Operation>

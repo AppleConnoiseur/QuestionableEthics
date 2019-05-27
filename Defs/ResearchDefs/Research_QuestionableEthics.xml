@@ -238,39 +238,4 @@
 		<researchViewY>3</researchViewY>
 	</ResearchProjectDef>
 
-	<ResearchProjectDef>
-		<defName>QE_CrudeBionics</defName>
-		<tab>QE_ResearchTab</tab>
-		<label>crude bionics</label>
-		<description>Create crude bionics at the machining table that work almost as well as the real thing. They require common materials like steel and industrial era components. Crude bionics irritate the skin and are not hygienic in the slightest.</description>
-		<baseCost>3000</baseCost>
-		<techLevel>Industrial</techLevel>
-		<prerequisites>
-			<li>Prosthetics</li>
-		</prerequisites>
-		<requiredResearchFacilities>
-			<li>MultiAnalyzer</li>
-		</requiredResearchFacilities>
-		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-		<researchViewX>4</researchViewX>
-		<researchViewY>4</researchViewY>
-	</ResearchProjectDef>
-	
-	<ResearchProjectDef>
-		<defName>QE_IntegratedWeaponry</defName>
-		<tab>QE_ResearchTab</tab>
-		<label>integrated weaponry</label>
-		<description>Create blades, bludgeons, ranged weapon platforms, and other weaponry at the machining table that can be attached directly to your pawns. Why use traditional weapons when your body is a killing machine?</description>
-		<baseCost>1500</baseCost>
-		<techLevel>Industrial</techLevel>
-		<prerequisites>
-			<li>QE_CrudeBionics</li>
-		</prerequisites>
-		<requiredResearchFacilities>
-			<li>MultiAnalyzer</li>
-		</requiredResearchFacilities>
-		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-		<researchViewX>5</researchViewX>
-		<researchViewY>4</researchViewY>
-	</ResearchProjectDef>
 </Defs>
