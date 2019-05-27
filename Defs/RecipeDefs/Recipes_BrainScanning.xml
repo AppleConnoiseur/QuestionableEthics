@@ -77,7 +77,7 @@
 		</skillRequirements>
 		<workSkill>Crafting</workSkill>
 		<recipeUsers>
-			<li>FabricationBench</li>
+			<li>TableMachining</li>
 		</recipeUsers>
 		<researchPrerequisite>QE_BrainScanning</researchPrerequisite>
 	</RecipeDef>
