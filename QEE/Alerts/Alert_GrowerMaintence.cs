@@ -18,7 +18,11 @@ namespace QEthics
 
         public IEnumerable<Building> GrowersNeedingMaintenance()
         {
-            return Find.CurrentMap.listerBuildings.allBuildingsColonist.Where(building => building is Building_GrowerBase grower && grower.status == CrafterStatus.Crafting && building is IMaintainableGrower maintainable && (maintainable.DoctorMaintenance < 0.1f || maintainable.ScientistMaintenance < 0.1f));
+            float maintAlertPercent = 0.20f;
+            return Find.CurrentMap.listerBuildings.allBuildingsColonist.Where(
+                building => building is Building_GrowerBase grower && grower.status == CrafterStatus.Crafting && 
+                building is IMaintainableGrower maintainable && 
+                (maintainable.DoctorMaintenance < maintAlertPercent || maintainable.ScientistMaintenance < maintAlertPercent));
         }
 
         public override AlertReport GetReport()
