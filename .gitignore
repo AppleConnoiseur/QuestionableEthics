@@ -262,3 +262,6 @@ paket-files/
 __pycache__/
 *.pyc
 .vscode/settings.json
+
+# Exclude mod's assembly
+Assemblies/QuestionableEthicsEnhanced.dll
