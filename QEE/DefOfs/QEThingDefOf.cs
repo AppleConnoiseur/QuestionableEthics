@@ -12,5 +12,6 @@ namespace QEthics
     {
         public static ThingDef QE_NutrientSolution;
         public static ThingDef QE_ProteinMash;
+        public static ThingDef Arm;
     }
 }

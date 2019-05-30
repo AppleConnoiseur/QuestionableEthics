@@ -82,6 +82,7 @@
     <Compile Include="Logic\IMaintainableGrower.cs" />
     <Compile Include="Logic\ThingOrderProcessor.cs" />
     <Compile Include="Logic\ThingOrderRequest.cs" />
+    <Compile Include="HarmonyPatches.cs" />
     <Compile Include="ModSettings.cs" />
     <Compile Include="PostDefFixer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
