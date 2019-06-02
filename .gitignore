@@ -265,3 +265,4 @@ __pycache__/
 
 # Exclude mod's assembly
 Assemblies/QuestionableEthicsEnhanced.dll
+Assemblies/PatchOperationWhatHappened.dll
