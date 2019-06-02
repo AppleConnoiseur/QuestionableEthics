@@ -11,7 +11,7 @@
 				<xpath>/Defs/BodyPartDef[defName="Eye"]</xpath>
 				<order>Append</order>
 				<value>
-					<spawnThingOnRemoved>Eye</spawnThingOnRemoved>
+					<spawnThingOnRemoved>QE_Organ_Eye</spawnThingOnRemoved>
 				</value>
 			</li>
 		</operations>
@@ -28,7 +28,7 @@
 				<xpath>/Defs/BodyPartDef[defName="Ear"]</xpath>
 				<order>Append</order>
 				<value>
-					<spawnThingOnRemoved>Ear</spawnThingOnRemoved>
+					<spawnThingOnRemoved>QE_Organ_Ear</spawnThingOnRemoved>
 				</value>
 			</li>
 		</operations>
@@ -45,7 +45,7 @@
 				<xpath>/Defs/BodyPartDef[defName="Nose"]</xpath>
 				<order>Append</order>
 				<value>
-					<spawnThingOnRemoved>Nose</spawnThingOnRemoved>
+					<spawnThingOnRemoved>QE_Organ_Nose</spawnThingOnRemoved>
 				</value>
 			</li>
 		</operations>
@@ -62,7 +62,7 @@
 				<xpath>/Defs/BodyPartDef[defName="Jaw"]</xpath>
 				<order>Append</order>
 				<value>
-					<spawnThingOnRemoved>Jaw</spawnThingOnRemoved>
+					<spawnThingOnRemoved>QE_Organ_Jaw</spawnThingOnRemoved>
 				</value>
 			</li>
 		</operations>
@@ -79,7 +79,7 @@
 				<xpath>/Defs/BodyPartDef[defName="Stomach"]</xpath>
 				<order>Append</order>
 				<value>
-					<spawnThingOnRemoved>Stomach</spawnThingOnRemoved>
+					<spawnThingOnRemoved>QE_Organ_Stomach</spawnThingOnRemoved>
 				</value>
 			</li>
 		</operations>
@@ -96,7 +96,7 @@
 				<xpath>/Defs/BodyPartDef[defName="Spine"]</xpath>
 				<order>Append</order>
 				<value>
-					<spawnThingOnRemoved>Spine</spawnThingOnRemoved>
+					<spawnThingOnRemoved>QE_Organ_Spine</spawnThingOnRemoved>
 				</value>
 			</li>
 		</operations>
@@ -113,7 +113,7 @@
 				<xpath>/Defs/BodyPartDef[defName="Pelvis"]</xpath>
 				<order>Append</order>
 				<value>
-					<spawnThingOnRemoved>Pelvis</spawnThingOnRemoved>
+					<spawnThingOnRemoved>QE_Organ_Pelvis</spawnThingOnRemoved>
 				</value>
 			</li>
 		</operations>
@@ -130,7 +130,7 @@
 				<xpath>/Defs/BodyPartDef[defName="Arm"]</xpath>
 				<order>Append</order>
 				<value>
-					<spawnThingOnRemoved>Arm</spawnThingOnRemoved>
+					<spawnThingOnRemoved>QE_Organ_Arm</spawnThingOnRemoved>
 				</value>
 			</li>
 		</operations>
@@ -147,7 +147,7 @@
 				<xpath>/Defs/BodyPartDef[defName="Hand"]</xpath>
 				<order>Append</order>
 				<value>
-					<spawnThingOnRemoved>Hand</spawnThingOnRemoved>
+					<spawnThingOnRemoved>QE_Organ_Hand</spawnThingOnRemoved>
 				</value>
 			</li>
 		</operations>
@@ -164,7 +164,7 @@
 				<xpath>/Defs/BodyPartDef[defName="Leg"]</xpath>
 				<order>Append</order>
 				<value>
-					<spawnThingOnRemoved>Leg</spawnThingOnRemoved>
+					<spawnThingOnRemoved>QE_Organ_Leg</spawnThingOnRemoved>
 				</value>
 			</li>
 		</operations>
@@ -181,7 +181,7 @@
 				<xpath>/Defs/BodyPartDef[defName="Foot"]</xpath>
 				<order>Append</order>
 				<value>
-					<spawnThingOnRemoved>Foot</spawnThingOnRemoved>
+					<spawnThingOnRemoved>QE_Organ_Foot</spawnThingOnRemoved>
 				</value>
 			</li>
 		</operations>

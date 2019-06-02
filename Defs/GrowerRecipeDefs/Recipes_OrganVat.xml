@@ -58,7 +58,7 @@
 	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
 		<defName>Natural_Stomach</defName>
 		<label>natural stomach</label>
-		<productDef>Stomach</productDef>
+		<productDef>QE_Organ_Stomach</productDef>
 		<requiredResearch>QE_OrganVat_InternalOrgans</requiredResearch>
 		<productGraphic>
 			<texPath>Effects/Organs/Beet_Organ</texPath>
@@ -75,7 +75,7 @@
 	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
 		<defName>Natural_Eye</defName>
 		<label>natural eyes</label>
-		<productDef>Eye</productDef>
+		<productDef>QE_Organ_Eye</productDef>
 		<productAmount>2</productAmount>
 		<requiredResearch>QE_OrganVat_SensoryOrgans</requiredResearch>
 		<productGraphic>
@@ -86,7 +86,7 @@
 	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
 		<defName>Natural_Ear</defName>
 		<label>natural ears</label>
-		<productDef>Ear</productDef>
+		<productDef>QE_Organ_Ear</productDef>
 		<productAmount>2</productAmount>
 		<requiredResearch>QE_OrganVat_SensoryOrgans</requiredResearch>
 	</QEthics.GrowerRecipeDef>
@@ -94,56 +94,56 @@
 	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
 		<defName>Natural_Nose</defName>
 		<label>natural nose</label>
-		<productDef>Nose</productDef>
+		<productDef>QE_Organ_Nose</productDef>
 		<requiredResearch>QE_OrganVat_SensoryOrgans</requiredResearch>
 	</QEthics.GrowerRecipeDef>
 
 	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
 		<defName>Natural_Jaw</defName>
 		<label>natural jaw</label>
-		<productDef>Jaw</productDef>
+		<productDef>QE_Organ_Jaw</productDef>
 		<requiredResearch>QE_OrganVat_Bones</requiredResearch>
 	</QEthics.GrowerRecipeDef>
 
 	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
 		<defName>Natural_Spine</defName>
 		<label>natural spine</label>
-		<productDef>Spine</productDef>
+		<productDef>QE_Organ_Spine</productDef>
 		<requiredResearch>QE_OrganVat_Bones</requiredResearch>
 	</QEthics.GrowerRecipeDef>
 
 	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
 		<defName>Natural_Pelvis</defName>
 		<label>natural pelvis</label>
-		<productDef>Pelvis</productDef>
+		<productDef>QE_Organ_Pelvis</productDef>
 		<requiredResearch>QE_OrganVat_Bones</requiredResearch>
 	</QEthics.GrowerRecipeDef>
 
 	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
 		<defName>Natural_Arm</defName>
 		<label>natural arm</label>
-		<productDef>Arm</productDef>
+		<productDef>QE_Organ_Arm</productDef>
 		<requiredResearch>QE_OrganVat_Limbs</requiredResearch>
 	</QEthics.GrowerRecipeDef>
 
 	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
 		<defName>Natural_Hand</defName>
 		<label>natural hand</label>
-		<productDef>Hand</productDef>
+		<productDef>QE_Organ_Hand</productDef>
 		<requiredResearch>QE_OrganVat_Limbs</requiredResearch>
 	</QEthics.GrowerRecipeDef>
 
 	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
 		<defName>Natural_Leg</defName>
 		<label>natural leg</label>
-		<productDef>Leg</productDef>
+		<productDef>QE_Organ_Leg</productDef>
 		<requiredResearch>QE_OrganVat_Limbs</requiredResearch>
 	</QEthics.GrowerRecipeDef>
 
 	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
 		<defName>Natural_Foot</defName>
 		<label>natural foot</label>
-		<productDef>Foot</productDef>
+		<productDef>QE_Organ_Foot</productDef>
 		<requiredResearch>QE_OrganVat_Limbs</requiredResearch>
 	</QEthics.GrowerRecipeDef>
 </Defs>

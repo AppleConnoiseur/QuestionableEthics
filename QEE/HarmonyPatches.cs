@@ -34,7 +34,7 @@ namespace QEthics
                         if (childPart.def.defName == "Arm" && healthy)
                         {
                             QEEMod.TryLog("Spawn natural arm from shoulder replacement");
-                            __result = GenSpawn.Spawn(QEThingDefOf.Arm, pos, map);
+                            __result = GenSpawn.Spawn(QEThingDefOf.QE_Organ_Arm, pos, map);
                         }
                     }
                 }

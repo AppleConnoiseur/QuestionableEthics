@@ -2,7 +2,7 @@
 <Defs>
 	<!-- Natural -->
 	<ThingDef ParentName="BodyPartNaturalBase">
-		<defName>Eye</defName>
+		<defName>QE_Organ_Eye</defName>
 		<label>eye</label>
 		<description>A biological human eye. Collects light and transmits it to the brain.</description>
 		<statBases>
@@ -12,7 +12,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="BodyPartNaturalBase">
-		<defName>Ear</defName>
+		<defName>QE_Organ_Ear</defName>
 		<label>ear</label>
 		<description>A biological human ear. Catches soundwaves from the air and transforms them into electrical signals for the brain.</description>
 		<statBases>
@@ -22,7 +22,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="BodyPartNaturalBase">
-		<defName>Nose</defName>
+		<defName>QE_Organ_Nose</defName>
 		<label>nose</label>
 		<description>A biological human nose. Looks pretty and allows you to smell and taste.</description>
 		<statBases>
@@ -32,7 +32,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="BodyPartNaturalBase">
-		<defName>Jaw</defName>
+		<defName>QE_Organ_Jaw</defName>
 		<label>jaw</label>
 		<description>A biological human jaw. Complete with a tongue and teeth, it allows for adequate chewing and tasting.</description>
 		<statBases>
@@ -42,7 +42,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="BodyPartNaturalBase">
-		<defName>Stomach</defName>
+		<defName>QE_Organ_Stomach</defName>
 		<label>stomach</label>
 		<description>A biological human stomach. Breaks down food into nutrients, with the help of acids and enzymes.</description>
 		<statBases>
@@ -52,7 +52,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="BodyPartNaturalBase">
-		<defName>Spine</defName>
+		<defName>QE_Organ_Spine</defName>
 		<label>spine</label>
 		<description>A biological human spine. Supports the back and contains the muscle memory.</description>
 		<statBases>
@@ -62,7 +62,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="BodyPartNaturalBase">
-		<defName>Pelvis</defName>
+		<defName>QE_Organ_Pelvis</defName>
 		<label>pelvis</label>
 		<description>A biological human pelvis. Legs and the spine are attached to this.</description>
 		<statBases>
@@ -72,7 +72,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="BodyPartNaturalBase">
-		<defName>Arm</defName>
+		<defName>QE_Organ_Arm</defName>
 		<label>arm</label>
 		<description>A biological human arm. Attached to the shoulder, this let you carry and manipulate things.</description>
 		<statBases>
@@ -82,7 +82,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="BodyPartNaturalBase">
-		<defName>Hand</defName>
+		<defName>QE_Organ_Hand</defName>
 		<label>hand</label>
 		<description>A biological human hand. Great for holding weapons and performing surgeries with.</description>
 		<statBases>
@@ -92,7 +92,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="BodyPartNaturalBase">
-		<defName>Leg</defName>
+		<defName>QE_Organ_Leg</defName>
 		<label>leg</label>
 		<description>A biological human leg. Attached to the pelvis, it gives you locomotion.</description>
 		<statBases>
@@ -102,7 +102,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="BodyPartNaturalBase">
-		<defName>Foot</defName>
+		<defName>QE_Organ_Foot</defName>
 		<label>foot</label>
 		<description>A biological human arm. Dampens downward going motions and are great for foot baths.</description>
 		<statBases>
