@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Rah's Bionics and Surgery Expansion</li>
+            <li>RBSE Hardcore Edition</li>
+        </mods>
+        <match Class ="PatchOperationSequence">
+            <operations>
+                <!-- Remove duplicate organ surgery defs from RBSE -->
+                <li Class="PatchOperationSequence">
+                    <success>Always</success>
+                    <operations>
+                        <li Class="PatchOperationTest">
+                            <xpath>/Defs/RecipeDef[defName = "InstallNaturalStomach"]</xpath>
+                            <success>Always</success>
+                        </li>
+                        <li Class="PatchOperationRemove">
+                            <xpath>/Defs/RecipeDef[defName = "InstallNaturalStomach"]</xpath>
+                        </li>
+                    </operations>
+                </li>
+
+                <!-- Remove RBSE stomach rejection hediff -->
+                <li Class="PatchOperationSequence">
+                    <success>Always</success>
+                    <operations>
+                        <li Class="PatchOperationTest">
+                            <xpath>/Defs/HediffDef[defName = "Stomach"]</xpath>
+                            <success>Always</success>
+                        </li>
+                        <li Class="PatchOperationRemove">
+                            <xpath>/Defs/HediffDef[defName = "Stomach"]</xpath>
+                        </li>
+                    </operations>
+                </li>
+
+                <!-- Remove RBSE stomach ThingDef -->
+                <li Class="PatchOperationSequence">
+                    <success>Always</success>
+                    <operations>
+                        <li Class="PatchOperationTest">
+                            <xpath>/Defs/ThingDef[defName = "Stomach"]</xpath>
+                            <success>Always</success>
+                        </li>
+                        <li Class="PatchOperationRemove">
+                            <xpath>/Defs/ThingDef[defName = "Stomach"]</xpath>
+                        </li>
+                    </operations>
+                </li>
+
+                <!-- Add organ rejection & research pre-requisites to surgery recipes 
+                    NOTE: This hediff is supported by a Harmony patch that will drop the correct body part when an 
+                    implanted organ is removed
+                -->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/RecipeDef[contains(defName, "QE_InstallNatural")]</xpath>
+                    <value>
+                        <addsHediff>QE_OrganRejection</addsHediff>
+                        <researchPrerequisite>OrganTransplantation</researchPrerequisite>
+                    </value>
+                </li>
+
+                <!-- Make organs rottable -->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[contains(defName, "QE_Organ_")]</xpath>
+                    <value>
+                        <tickerType>Rare</tickerType>
+                        <comps>
+                            <li Class="CompProperties_Rottable">
+                                <daysToRotStart>0.6</daysToRotStart>
+                                <rotDestroys>true</rotDestroys>
+                            </li>
+                        </comps>
+                    </value>
+                </li>
+            </operations>
+
+        </match>
+    </Operation>
+
+</Patch>

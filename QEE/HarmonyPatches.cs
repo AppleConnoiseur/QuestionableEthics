@@ -1,6 +1,8 @@
 using Verse;
 using RimWorld;
 using Harmony;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace QEthics
@@ -22,21 +24,67 @@ namespace QEthics
         {
             static void Postfix(ref Thing __result, Pawn pawn, BodyPartRecord part, IntVec3 pos, Map map)
             {
-                //this is a hack to spawn a biological arm when a shoulder is removed with a healthy arm attached
+                bool isOrganTransplant = false;
+                bool shouldSpawnTransplantOrgan = false;
+                int partHediffCount = 0;
+                foreach (Hediff currHediff in pawn.health.hediffSet.hediffs)
+                {
+                    if (currHediff.Part == part)
+                    {
+                        partHediffCount++;
+                    }
+                    if (currHediff.def == QEHediffDefOf.QE_OrganRejection)
+                    {
+                        isOrganTransplant = true;
+                    }
+                }
+
+                //if the only hediff on bodypart is organ rejection, that organ should spawn
+                //vanilla game would not spawn it, because part hediffs > 0
+                if (isOrganTransplant && partHediffCount == 1 && part.def.spawnThingOnRemoved != null)
+                {
+                    shouldSpawnTransplantOrgan = true;
+                }
+
+                QEEMod.TryLog("shouldSpawnTransplant: " + shouldSpawnTransplantOrgan + " [isOrganTransplant: " + 
+                    isOrganTransplant + " " + part.LabelShort + " hediffs: " + partHediffCount + "]");
+
+                //spawn a biological arm when a shoulder is removed with a healthy arm attached
                 if (part.LabelShort == "shoulder")
                 {
                     foreach (BodyPartRecord childPart in part.parts)
                     {
-                        bool healthy = MedicalRecipesUtility.IsClean(pawn, childPart);
-                        QEEMod.TryLog("body part: " + childPart.LabelShort + " defName: " + childPart.def.defName + 
-                            " clean: " + healthy);
+                        bool isHealthy = MedicalRecipesUtility.IsClean(pawn, childPart);
+                        QEEMod.TryLog("body part: " + childPart.LabelShort + " defName: " + childPart.def.defName +
+                            " healthy: " + isHealthy);
 
-                        if (childPart.def.defName == "Arm" && healthy)
+                        if (childPart.def == BodyPartDefOf.Arm && isHealthy && (shouldSpawnTransplantOrgan = true || 
+                            isOrganTransplant == false))
                         {
                             QEEMod.TryLog("Spawn natural arm from shoulder replacement");
                             __result = GenSpawn.Spawn(QEThingDefOf.QE_Organ_Arm, pos, map);
                         }
                     }
+                }
+                else if (shouldSpawnTransplantOrgan)
+                {
+                    __result = GenSpawn.Spawn(part.def.spawnThingOnRemoved, pos, map);
+                }
+
+            }
+        }
+
+        //this is a lightweight patch that will simply add any hediffs in the <addsHediff> element of the recipe
+        //for surgery involving natural body parts
+        [HarmonyPatch(typeof(Recipe_InstallNaturalBodyPart))]
+        [HarmonyPatch(nameof(Recipe_InstallNaturalBodyPart.ApplyOnPawn))]
+        class ApplyOnPawn_Patch
+        {
+            static void Postfix(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients, Bill bill)
+            {
+                if (MedicalRecipesUtility.IsCleanAndDroppable(pawn, part) && bill.recipe.addsHediff != null)
+                {
+                    pawn.health.AddHediff(bill.recipe.addsHediff, part);
                 }
             }
         }

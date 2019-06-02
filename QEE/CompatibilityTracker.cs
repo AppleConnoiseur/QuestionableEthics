@@ -7,6 +7,7 @@ namespace QEthics
     public static class CompatibilityTracker
     {
         private static bool alienRacesActiveInt = false;
+        private static string[] incompatibleModArr = { "Questionable Ethics" };
 
         public static bool AlienRacesActive
         {
@@ -16,19 +17,33 @@ namespace QEthics
             }
         }
 
+        public static string[] IncompatibleMods
+        {
+            get
+            {
+                return incompatibleModArr;
+            }
+            set
+            {
+                incompatibleModArr = value;
+            }
+        }
+
         static CompatibilityTracker()
         {
-            //Check for Alien Races Compatiblity.
-            Log.Message("Questionable Ethics checking for compatibility...");
-            Log.Message("Checking for compatibility for: Alien Race Framework...");
-            if(GenTypes.AllTypes.Any(type => type.FullName == "AlienRace.ThingDef_AlienRace"))
+            foreach (string s in incompatibleModArr)
+            {
+                if (ModsConfig.ActiveModsInLoadOrder.Any((ModMetaData m) => m.Name == s))
+                {
+                    Log.Error("Questionable Ethics Enhanced is incompatible with " + s);
+                }
+            }
+
+            //Check for Alien Races Compatiblity
+            if (GenTypes.AllTypes.Any(type => type.FullName == "AlienRace.ThingDef_AlienRace"))
             {
                 alienRacesActiveInt = true;
-                Log.Message("Is OK.");
-            }
-            else
-            {
-                Log.Message("No compatibility.");
+                QEEMod.TryLog("Humanoid Alien Races detected");
             }
         }
     }
