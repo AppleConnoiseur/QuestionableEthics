@@ -54,11 +54,11 @@ namespace QEthics
         {
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
-            listingStandard.SliderLabeled("QE_OrganGrowthDuration".Translate(), ref settings.organGrowthRateFloat, settings.organGrowthRateFloat.ToStringPercent(), 0.00f, 4.0f, "QE_OrganGrowthDurationTooltip".Translate());
-            listingStandard.SliderLabeled("QE_OrganIngredientMult".Translate(), ref settings.organTotalResourcesFloat, settings.organTotalResourcesFloat.ToStringPercent(), 0.00f, 4.0f, "QE_OrganIngredientMultTooltip".Translate());
-            listingStandard.SliderLabeled("QE_CloneGrowthDuration".Translate(), ref settings.cloneGrowthRateFloat, settings.cloneGrowthRateFloat.ToStringPercent(), 0.00f, 4.0f, "QE_CloneGrowthDurationTooltip".Translate());
-            listingStandard.SliderLabeled("QE_CloneIngredientMult".Translate(), ref settings.cloneTotalResourcesFloat, settings.cloneTotalResourcesFloat.ToStringPercent(), 0.00f, 4.0f, "QE_CloneIngredientMultTooltip".Translate());
-            listingStandard.SliderLabeled("QE_VatMaintTime".Translate(), ref settings.maintRateFloat, settings.maintRateFloat.ToStringPercent(), 0.01f, 4.0f, "QE_VatMaintTimeTooltip".Translate());
+            listingStandard.SliderLabeled("QE_OrganGrowthDuration".Translate(), ref settings.organGrowthRateFloat, settings.organGrowthRateFloat.ToString("0.00"), 0.00f, 4.0f, "QE_OrganGrowthDurationTooltip".Translate());
+            listingStandard.SliderLabeled("QE_OrganIngredientMult".Translate(), ref settings.organTotalResourcesFloat, settings.organTotalResourcesFloat.ToString("0.00"), 0.00f, 4.0f, "QE_OrganIngredientMultTooltip".Translate());
+            listingStandard.SliderLabeled("QE_CloneGrowthDuration".Translate(), ref settings.cloneGrowthRateFloat, settings.cloneGrowthRateFloat.ToString("0.00"), 0.00f, 4.0f, "QE_CloneGrowthDurationTooltip".Translate());
+            listingStandard.SliderLabeled("QE_CloneIngredientMult".Translate(), ref settings.cloneTotalResourcesFloat, settings.cloneTotalResourcesFloat.ToString("0.00"), 0.00f, 4.0f, "QE_CloneIngredientMultTooltip".Translate());
+            listingStandard.SliderLabeled("QE_VatMaintTime".Translate(), ref settings.maintRateFloat, settings.maintRateFloat.ToString("0.00"), 0.01f, 4.0f, "QE_VatMaintTimeTooltip".Translate());
             listingStandard.CheckboxLabeled("QE_DebugLogging".Translate(), ref QEESettings.debugLogging, "QE_DebugLoggingTooltip".Translate());
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);

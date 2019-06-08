@@ -81,16 +81,16 @@
 	<QE_BedSelected>{0} has been selected for brain templating operation</QE_BedSelected>
 
 	<!-- Mod settings -->
-	<QE_OrganGrowthDuration>Organ growth duration</QE_OrganGrowthDuration>
-	<QE_OrganGrowthDurationTooltip>Higher values = more time required to grow organs. Default = 100%</QE_OrganGrowthDurationTooltip>
+	<QE_OrganGrowthDuration>Organ growth multiplier</QE_OrganGrowthDuration>
+	<QE_OrganGrowthDurationTooltip>Higher values = more time required to grow organs. Default = 1.0</QE_OrganGrowthDurationTooltip>
 	<QE_OrganIngredientMult>Organ total ingredient multiplier</QE_OrganIngredientMult>
-	<QE_OrganIngredientMultTooltip>Higher values = more ingredients required to grow organs. Default = 100%</QE_OrganIngredientMultTooltip>
-	<QE_CloneGrowthDuration>Clone growth duration</QE_CloneGrowthDuration>
-	<QE_CloneGrowthDurationTooltip>Higher values = more time required to grow clones. Default = 100%</QE_CloneGrowthDurationTooltip>
+	<QE_OrganIngredientMultTooltip>Higher values = more ingredients required to grow organs. Default = 1.0</QE_OrganIngredientMultTooltip>
+	<QE_CloneGrowthDuration>Clone growth multiplier</QE_CloneGrowthDuration>
+	<QE_CloneGrowthDurationTooltip>Higher values = more time required to grow clones. Default = 1.0</QE_CloneGrowthDurationTooltip>
 	<QE_CloneIngredientMult>Clone total ingredient multiplier</QE_CloneIngredientMult>
-	<QE_CloneIngredientMultTooltip>Higher values = more ingredients required to grow clones. Default = 100%</QE_CloneIngredientMultTooltip>
+	<QE_CloneIngredientMultTooltip>Higher values = more ingredients required to grow clones. Default = 1.0</QE_CloneIngredientMultTooltip>
 	<QE_VatMaintTime>Time between vat maintenance</QE_VatMaintTime>
-	<QE_VatMaintTimeTooltip>Higher values = maintenance required less frequently. Default = 100%</QE_VatMaintTimeTooltip>
+	<QE_VatMaintTimeTooltip>Higher values = maintenance required less frequently. Default = 1.0</QE_VatMaintTimeTooltip>
 	<QE_DebugLogging>Debug logging</QE_DebugLogging>
 	<QE_DebugLoggingTooltip>Enable debug logging for the mod. Helpful if you're running into unepected behavior with the mod. Default: Disabled</QE_DebugLoggingTooltip>
 </LanguageData>
