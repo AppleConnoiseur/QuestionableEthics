@@ -25,29 +25,33 @@ namespace QEthics
             static void Postfix(ref Thing __result, Pawn pawn, BodyPartRecord part, IntVec3 pos, Map map)
             {
                 bool isOrganTransplant = false;
-                bool shouldSpawnTransplantOrgan = false;
-                int partHediffCount = 0;
+                bool shouldDropTransplantOrgan = false;
+                int badHediffCount = 0;
                 foreach (Hediff currHediff in pawn.health.hediffSet.hediffs)
                 {
                     if (currHediff.Part == part)
                     {
-                        partHediffCount++;
-                    }
-                    if (currHediff.def == QEHediffDefOf.QE_OrganRejection)
-                    {
-                        isOrganTransplant = true;
+                        QEEMod.TryLog("Hediff on this body part: " + currHediff.def.defName + " isBad: " + currHediff.def.isBad);
+                        if (currHediff.def == QEHediffDefOf.QE_OrganRejection)
+                        {
+                            isOrganTransplant = true;
+                        }
+                        else if (currHediff.def.isBad)
+                        {
+                            badHediffCount++;
+                        }
                     }
                 }
 
                 //if the only hediff on bodypart is organ rejection, that organ should spawn
                 //vanilla game would not spawn it, because part hediffs > 0
-                if (isOrganTransplant && partHediffCount == 1 && part.def.spawnThingOnRemoved != null)
+                if (isOrganTransplant && badHediffCount == 0 && part.def.spawnThingOnRemoved != null)
                 {
-                    shouldSpawnTransplantOrgan = true;
+                    shouldDropTransplantOrgan = true;
                 }
 
-                QEEMod.TryLog("shouldSpawnTransplant: " + shouldSpawnTransplantOrgan + " [isOrganTransplant: " + 
-                    isOrganTransplant + " " + part.LabelShort + " hediffs: " + partHediffCount + "]");
+                QEEMod.TryLog("shouldDropTransplantOrgan: " + shouldDropTransplantOrgan + " [isOrganTransplant: " + 
+                    isOrganTransplant + " " + part.LabelShort + " bad hediffs: " + badHediffCount + "]");
 
                 //spawn a biological arm when a shoulder is removed with a healthy arm attached
                 if (part.LabelShort == "shoulder")
@@ -58,7 +62,7 @@ namespace QEthics
                         QEEMod.TryLog("body part: " + childPart.LabelShort + " defName: " + childPart.def.defName +
                             " healthy: " + isHealthy);
 
-                        if (childPart.def == BodyPartDefOf.Arm && isHealthy && (shouldSpawnTransplantOrgan = true || 
+                        if (childPart.def == BodyPartDefOf.Arm && isHealthy && (shouldDropTransplantOrgan = true || 
                             isOrganTransplant == false))
                         {
                             QEEMod.TryLog("Spawn natural arm from shoulder replacement");
@@ -66,7 +70,7 @@ namespace QEthics
                         }
                     }
                 }
-                else if (shouldSpawnTransplantOrgan)
+                else if (shouldDropTransplantOrgan)
                 {
                     __result = GenSpawn.Spawn(part.def.spawnThingOnRemoved, pos, map);
                 }
