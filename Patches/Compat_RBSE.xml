@@ -22,21 +22,22 @@
                     </operations>
                 </li>
 
-                <!-- Remove RBSE stomach rejection hediff -->
-                <li Class="PatchOperationSequence">
-                    <success>Always</success>
-                    <operations>
-                        <li Class="PatchOperationTest">
-                            <xpath>/Defs/HediffDef[defName = "Stomach"]</xpath>
-                            <success>Always</success>
-                        </li>
-                        <li Class="PatchOperationRemove">
-                            <xpath>/Defs/HediffDef[defName = "Stomach"]</xpath>
-                        </li>
-                    </operations>
+                <!-- Add RBSE stomach to my stomach surgery 
+                In-game ingredients shows "1x medicine, 1x ingredients"-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/RecipeDef[defName = "QE_InstallNaturalStomach"]/ingredients/li/filter/thingDefs</xpath>
+                    <value>
+                        <li>Stomach</li>
+                    </value>
                 </li>
 
-                <!-- Remove RBSE stomach ThingDef -->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/RecipeDef[defName = "QE_InstallNaturalStomach"]/fixedIngredientFilter/thingDefs</xpath>
+                    <value>
+                        <li>Stomach</li>
+                    </value>
+                </li>
+                
                 <li Class="PatchOperationSequence">
                     <success>Always</success>
                     <operations>
@@ -44,8 +45,30 @@
                             <xpath>/Defs/ThingDef[defName = "Stomach"]</xpath>
                             <success>Always</success>
                         </li>
-                        <li Class="PatchOperationRemove">
-                            <xpath>/Defs/ThingDef[defName = "Stomach"]</xpath>
+                        
+                        <!-- Disallow purchase of RBSE stomach -->
+                        <li Class="PatchOperationConditional">
+                            <xpath>/Defs/ThingDef[defName = "Stomach"]/tradeability</xpath>
+                            <match Class="PatchOperationReplace">
+                                <xpath>/Defs/ThingDef[defName = "Stomach"]/tradeability</xpath>
+                                <value>
+                                    <tradeability>Sellable</tradeability>
+                                </value>
+                            </match>
+                            <nomatch Class="PatchOperationAdd">
+                                <xpath>/Defs/ThingDef[defName = "Stomach"]</xpath>
+                                <value>
+                                    <tradeability>Sellable</tradeability>
+                                </value>
+                            </nomatch>
+                        </li>
+
+                        <!-- Change label of RBSE stomach -->
+                        <li Class="PatchOperationReplace">
+                            <xpath>/Defs/ThingDef[defName = "Stomach"]/label</xpath>
+                            <value>
+                                <label>stomach [RBSE]</label>
+                            </value>
                         </li>
                     </operations>
                 </li>
