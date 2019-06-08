@@ -47,17 +47,17 @@
 		<description>A biological human stomach. Breaks down food into nutrients, with the help of acids and enzymes.</description>
 		<statBases>
 			<MarketValue>400</MarketValue>
-			<Mass>1</Mass>
+			<Mass>2</Mass>
 		</statBases>
 	</ThingDef>
 
 	<ThingDef ParentName="BodyPartNaturalBase">
 		<defName>QE_Organ_Spine</defName>
 		<label>spine</label>
-		<description>A biological human spine. Supports the back and contains the muscle memory.</description>
+		<description>A biological human spine. Supports the back.</description>
 		<statBases>
 			<MarketValue>300</MarketValue>
-			<Mass>1</Mass>
+			<Mass>3</Mass>
 		</statBases>
 	</ThingDef>
 
@@ -67,7 +67,7 @@
 		<description>A biological human pelvis. Legs and the spine are attached to this.</description>
 		<statBases>
 			<MarketValue>200</MarketValue>
-			<Mass>1</Mass>
+			<Mass>5</Mass>
 		</statBases>
 	</ThingDef>
 
@@ -77,14 +77,14 @@
 		<description>A biological human arm. Attached to the shoulder, this let you carry and manipulate things.</description>
 		<statBases>
 			<MarketValue>200</MarketValue>
-			<Mass>1</Mass>
+			<Mass>3</Mass>
 		</statBases>
 	</ThingDef>
 
 	<ThingDef ParentName="BodyPartNaturalBase">
 		<defName>QE_Organ_Hand</defName>
 		<label>hand</label>
-		<description>A biological human hand. Great for holding weapons and performing surgeries with.</description>
+		<description>A biological human hand. Great at holding weapons and performing surgeries.</description>
 		<statBases>
 			<MarketValue>100</MarketValue>
 			<Mass>1</Mass>
@@ -97,14 +97,14 @@
 		<description>A biological human leg. Attached to the pelvis, it gives you locomotion.</description>
 		<statBases>
 			<MarketValue>200</MarketValue>
-			<Mass>1</Mass>
+			<Mass>5</Mass>
 		</statBases>
 	</ThingDef>
 
 	<ThingDef ParentName="BodyPartNaturalBase">
 		<defName>QE_Organ_Foot</defName>
 		<label>foot</label>
-		<description>A biological human arm. Dampens downward going motions and are great for foot baths.</description>
+		<description>A biological human foot. Dampens downward going motions and is great for foot baths.</description>
 		<statBases>
 			<MarketValue>100</MarketValue>
 			<Mass>1</Mass>
