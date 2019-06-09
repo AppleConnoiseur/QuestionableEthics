@@ -6,14 +6,20 @@ namespace QEthics
 {
     public class QEESettings : ModSettings
     {
+        public static QEESettings instance; 
         public float maintRateFloat = 1.0f;
         public float organGrowthRateFloat = 1.0f;
         public float cloneGrowthRateFloat = 1.0f;
         public float organTotalResourcesFloat = 1.0f;
         public float cloneTotalResourcesFloat = 1.0f;
         public List<Pawn> exampleListOfPawns = new List<Pawn>();
-        public static bool debugLogging = false;
+        public bool debugLogging = false;
         
+
+        public QEESettings()
+        {
+            instance = this;
+        }
 
         /// <summary>
         /// The part that writes our settings to file. Note that saving is by ref.
@@ -33,17 +39,12 @@ namespace QEthics
     public class QEEMod : Mod
     {
         /// <summary>
-        /// A reference to our settings.
-        /// </summary>
-        QEESettings settings;
-
-        /// <summary>
         /// A mandatory constructor which resolves the reference to our settings.
         /// </summary>
         /// <param name="content"></param>
         public QEEMod(ModContentPack content) : base(content)
         {
-            this.settings = GetSettings<QEESettings>();
+            QEESettings.instance = base.GetSettings<QEESettings>();
         }
 
         /// <summary>
@@ -54,19 +55,19 @@ namespace QEthics
         {
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
-            listingStandard.SliderLabeled("QE_OrganGrowthDuration".Translate(), ref settings.organGrowthRateFloat, settings.organGrowthRateFloat.ToString("0.00"), 0.00f, 4.0f, "QE_OrganGrowthDurationTooltip".Translate());
-            listingStandard.SliderLabeled("QE_OrganIngredientMult".Translate(), ref settings.organTotalResourcesFloat, settings.organTotalResourcesFloat.ToString("0.00"), 0.00f, 4.0f, "QE_OrganIngredientMultTooltip".Translate());
-            listingStandard.SliderLabeled("QE_CloneGrowthDuration".Translate(), ref settings.cloneGrowthRateFloat, settings.cloneGrowthRateFloat.ToString("0.00"), 0.00f, 4.0f, "QE_CloneGrowthDurationTooltip".Translate());
-            listingStandard.SliderLabeled("QE_CloneIngredientMult".Translate(), ref settings.cloneTotalResourcesFloat, settings.cloneTotalResourcesFloat.ToString("0.00"), 0.00f, 4.0f, "QE_CloneIngredientMultTooltip".Translate());
-            listingStandard.SliderLabeled("QE_VatMaintTime".Translate(), ref settings.maintRateFloat, settings.maintRateFloat.ToString("0.00"), 0.01f, 4.0f, "QE_VatMaintTimeTooltip".Translate());
-            listingStandard.CheckboxLabeled("QE_DebugLogging".Translate(), ref QEESettings.debugLogging, "QE_DebugLoggingTooltip".Translate());
+            listingStandard.SliderLabeled("QE_OrganGrowthDuration".Translate(), ref QEESettings.instance.organGrowthRateFloat, QEESettings.instance.organGrowthRateFloat.ToString("0.00"), 0.00f, 4.0f, "QE_OrganGrowthDurationTooltip".Translate());
+            listingStandard.SliderLabeled("QE_OrganIngredientMult".Translate(), ref QEESettings.instance.organTotalResourcesFloat, QEESettings.instance.organTotalResourcesFloat.ToString("0.00"), 0.00f, 4.0f, "QE_OrganIngredientMultTooltip".Translate());
+            listingStandard.SliderLabeled("QE_CloneGrowthDuration".Translate(), ref QEESettings.instance.cloneGrowthRateFloat, QEESettings.instance.cloneGrowthRateFloat.ToString("0.00"), 0.00f, 4.0f, "QE_CloneGrowthDurationTooltip".Translate());
+            listingStandard.SliderLabeled("QE_CloneIngredientMult".Translate(), ref QEESettings.instance.cloneTotalResourcesFloat, QEESettings.instance.cloneTotalResourcesFloat.ToString("0.00"), 0.00f, 4.0f, "QE_CloneIngredientMultTooltip".Translate());
+            listingStandard.SliderLabeled("QE_VatMaintTime".Translate(), ref QEESettings.instance.maintRateFloat, QEESettings.instance.maintRateFloat.ToString("0.00"), 0.01f, 4.0f, "QE_VatMaintTimeTooltip".Translate());
+            listingStandard.CheckboxLabeled("QE_DebugLogging".Translate(), ref QEESettings.instance.debugLogging, "QE_DebugLoggingTooltip".Translate());
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);
         }
 
         public static void TryLog(string message)
         {
-            if (QEESettings.debugLogging)
+            if (QEESettings.instance.debugLogging)
             {
                 Log.Message("QEE: " + message);
             }

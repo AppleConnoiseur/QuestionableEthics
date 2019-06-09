@@ -30,7 +30,7 @@ namespace QEthics
         public GrowerRecipeDef activeRecipe;
 
         //public override int TicksNeededToCraft => activeRecipe?.craftingTime ?? 0;
-        public override int TicksNeededToCraft => (int)(activeRecipe?.craftingTime * LoadedModManager.GetMod<QEEMod>().GetSettings<QEESettings>().organGrowthRateFloat ?? 0);
+        public override int TicksNeededToCraft => (int)(activeRecipe?.craftingTime * QEESettings.instance.organGrowthRateFloat ?? 0);
 
         /// <summary>
         /// From 0.0 to 1.0. If the maintenance is below 50% there is a chance for failure.
@@ -182,8 +182,7 @@ namespace QEthics
                 powerModifier = 10f;
             }
             float cleanlinessModifer = cleanlinessCurve.Evaluate(RoomCleanliness);
-            //float decayRate = 0.00003f * cleanlinessModifer * powerModifier;
-            float decayRate = 0.00003f * cleanlinessModifer * powerModifier / (LoadedModManager.GetMod<QEEMod>().GetSettings<QEESettings>().maintRateFloat);
+            float decayRate = 0.00003f * cleanlinessModifer * powerModifier / (QEESettings.instance.maintRateFloat);
 
             scientistMaintenance -= decayRate;
             doctorMaintenance -= decayRate;

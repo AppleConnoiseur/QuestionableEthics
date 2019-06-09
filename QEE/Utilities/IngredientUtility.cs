@@ -100,8 +100,7 @@ namespace QEthics
                 filterCopy.CopyAllowancesFrom(ingredientCount.filter);
 
                 ThingOrderRequest copy = new ThingOrderRequest(filterCopy);
-                //copy.amount = (int)ingredientCount.GetBaseCount();
-                copy.amount = (int)(ingredientCount.GetBaseCount() * LoadedModManager.GetMod<QEEMod>().GetSettings<QEESettings>().organTotalResourcesFloat);
+                copy.amount = (int)(ingredientCount.GetBaseCount() * QEESettings.instance.organTotalResourcesFloat);
 
                 orderProcessor.desiredIngredients.Add(copy);
             }
@@ -122,8 +121,7 @@ namespace QEthics
             //Leather is worth half of the meat value.
             float leatherAmount = pawnThingDef.GetStatValueAbstract(StatDefOf.LeatherAmount) * raceProps.baseBodySize;
 
-            //int proteinAmount = (int)(meatAmount * meatBaseNutrition * 15f) + (int)(leatherAmount * meatBaseNutrition * 15f);
-            int proteinAmount = (int)(LoadedModManager.GetMod<QEEMod>().GetSettings<QEESettings>().cloneTotalResourcesFloat *
+            int proteinAmount = (int)(QEESettings.instance.cloneTotalResourcesFloat *
                     ((meatAmount * meatBaseNutrition * 15f) + (int)(leatherAmount * meatBaseNutrition * 15f)));
             int nutritionAmount = (int)(proteinAmount * 4.5f);
 
