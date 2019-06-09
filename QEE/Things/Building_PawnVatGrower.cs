@@ -185,10 +185,10 @@ namespace QEthics
             float powerModifier = 1f;
             if (PowerTrader != null && !PowerTrader.PowerOn)
             {
-                powerModifier = 10f;
+                powerModifier = 15f;
             }
             float cleanlinessModifer = cleanlinessCurve.Evaluate(RoomCleanliness);
-            float decayRate = 0.00003f * cleanlinessModifer * powerModifier / (QEESettings.instance.maintRateFloat);
+            float decayRate = 0.00002f * cleanlinessModifer * powerModifier / (QEESettings.instance.maintRateFloat);
 
             scientistMaintenance -= decayRate;
             doctorMaintenance -= decayRate;
