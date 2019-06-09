@@ -43,7 +43,7 @@ namespace QEthics
 
             bool maintainScience = true;
 
-            if(maintanable.ScientistMaintenance > 0.49f)
+            if(maintanable.ScientistMaintenance > QEESettings.instance.maintWorkThresholdFloat)
             {
                 if (maintanable.ScientistMaintenance > 0.90f)
                     maintainScience = false;
@@ -52,7 +52,7 @@ namespace QEthics
 
             bool maintainDoctor = true;
 
-            if (maintanable.DoctorMaintenance > 0.49f)
+            if (maintanable.DoctorMaintenance > QEESettings.instance.maintWorkThresholdFloat)
             {
                 if (maintanable.DoctorMaintenance > 0.90f)
                     maintainDoctor = false;
@@ -71,12 +71,12 @@ namespace QEthics
 
             IMaintainableGrower maintanable = t as IMaintainableGrower;
 
-            if (maintanable.ScientistMaintenance < 0.49f)
+            if (maintanable.ScientistMaintenance < QEESettings.instance.maintWorkThresholdFloat)
             {
                 job = new Job(QEJobDefOf.QE_MaintainGrowerJob_Intellectual, t);
             }
 
-            if (maintanable.DoctorMaintenance < 0.49f)
+            if (maintanable.DoctorMaintenance < QEESettings.instance.maintWorkThresholdFloat)
             {
                 job = new Job(QEJobDefOf.QE_MaintainGrowerJob_Medicine, t);
             }
