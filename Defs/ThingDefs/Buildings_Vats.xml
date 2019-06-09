@@ -59,7 +59,7 @@
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>200</basePowerConsumption>
+				<basePowerConsumption>400</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Glower">
 				<glowRadius>1.75</glowRadius>
@@ -158,7 +158,7 @@
 			<li Class="CompProperties_Flickable"/>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>700</basePowerConsumption>
+				<basePowerConsumption>2000</basePowerConsumption>
 			</li>
 			<li Class="CompProperties_Glower">
 				<glowRadius>2.75</glowRadius>
