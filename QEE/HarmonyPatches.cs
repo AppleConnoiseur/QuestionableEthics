@@ -22,7 +22,8 @@ namespace QEthics
         [HarmonyPatch(nameof(MedicalRecipesUtility.SpawnNaturalPartIfClean))]
         static class SpawnNaturalPartIfClean_Patch
         {
-            static void Postfix(ref Thing __result, Pawn pawn, BodyPartRecord part, IntVec3 pos, Map map)
+            [HarmonyPostfix]
+            static void SpawnNaturalPartIfCleanPostfix(ref Thing __result, Pawn pawn, BodyPartRecord part, IntVec3 pos, Map map)
             {
                 bool isOrganTransplant = false;
                 bool shouldDropTransplantOrgan = false;
@@ -84,7 +85,8 @@ namespace QEthics
         [HarmonyPatch(nameof(Recipe_InstallNaturalBodyPart.ApplyOnPawn))]
         class ApplyOnPawn_Patch
         {
-            static void Postfix(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients, Bill bill)
+            [HarmonyPostfix]
+            static void ApplyOnPawnPostfix(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients, Bill bill)
             {
                 if (MedicalRecipesUtility.IsCleanAndDroppable(pawn, part) && bill.recipe.addsHediff != null)
                 {
