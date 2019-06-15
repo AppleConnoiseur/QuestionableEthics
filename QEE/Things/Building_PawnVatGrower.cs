@@ -109,7 +109,11 @@ namespace QEthics
             {
                 Find.LetterStack.ReceiveLetter("QE_LetterHumanlikeGrownLabel".Translate(), "QE_LetterHumanlikeGrownDescription".Translate(tempPawn.Named("PAWN")), LetterDefOf.PositiveEvent, new LookTargets(tempPawn));
                 TaleRecorder.RecordTale(QETaleDefOf.QE_Vatgrown, tempPawn);
-                tempPawn.needs.mood.thoughts.memories.TryGainMemory(QEThoughtDefOf.QE_VatGrownCloneConfusion);
+
+                if (QEESettings.instance.giveCloneNegativeThought)
+                {
+                    tempPawn.needs.mood.thoughts.memories.TryGainMemory(QEThoughtDefOf.QE_VatGrownCloneConfusion);
+                }
             }
             return tempPawn;
         }

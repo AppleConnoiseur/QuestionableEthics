@@ -95,4 +95,6 @@
 	<QE_DebugLoggingTooltip>Enable debug logging for the mod. Helpful if you're running into unepected behavior with the mod. Default: Disabled</QE_DebugLoggingTooltip>
 	<QE_MaintenanceWorkThreshold>Give vat maintenance job</QE_MaintenanceWorkThreshold>
 	<QE_MaintenanceWorkThresholdTooltip>Give a pawn the 'Maintain Vat' job at this percentage of maintenance remaining. Default: 40%</QE_MaintenanceWorkThresholdTooltip>
+	<QE_GiveCloneNegativeThought>Give new clones 'vatgrown clone' negative thought</QE_GiveCloneNegativeThought>
+	<QE_GiveCloneNegativeThoughtTooltip>When a humanlike clone is grown, give it a temporary negative thought to indicate confusion about the new environment. Default: Enabled</QE_GiveCloneNegativeThoughtTooltip>
 </LanguageData>

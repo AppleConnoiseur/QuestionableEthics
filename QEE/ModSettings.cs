@@ -14,6 +14,7 @@ namespace QEthics
         public float cloneTotalResourcesFloat = 1.0f;
         public float maintWorkThresholdFloat = 0.40f;
         public bool debugLogging = false;
+        public bool giveCloneNegativeThought = true;
         
 
         public QEESettings()
@@ -33,6 +34,7 @@ namespace QEthics
             Scribe_Values.Look(ref cloneTotalResourcesFloat, "cloneTotalResourcesFloat", 1.0f);
             Scribe_Values.Look(ref debugLogging, "debugLogging", false);
             Scribe_Values.Look(ref maintWorkThresholdFloat, "maintWorkGiverThresholdFloat", 0.40f);
+            Scribe_Values.Look(ref giveCloneNegativeThought, "giveCloneNegativeThought", true);
             base.ExposeData();
         }
     }
@@ -62,6 +64,7 @@ namespace QEthics
             listingStandard.SliderLabeled("QE_CloneIngredientMult".Translate(), ref QEESettings.instance.cloneTotalResourcesFloat, QEESettings.instance.cloneTotalResourcesFloat.ToString("0.00"), 0.00f, 4.0f, "QE_CloneIngredientMultTooltip".Translate());
             listingStandard.SliderLabeled("QE_VatMaintTime".Translate(), ref QEESettings.instance.maintRateFloat, QEESettings.instance.maintRateFloat.ToString("0.00"), 0.01f, 4.0f, "QE_VatMaintTimeTooltip".Translate());
             listingStandard.SliderLabeled("QE_MaintenanceWorkThreshold".Translate(), ref QEESettings.instance.maintWorkThresholdFloat, QEESettings.instance.maintWorkThresholdFloat.ToStringPercent(), 0.00f, 1.0f, "QE_MaintenanceWorkThresholdTooltip".Translate());
+            listingStandard.CheckboxLabeled("QE_GiveCloneNegativeThought".Translate(), ref QEESettings.instance.giveCloneNegativeThought, "QE_GiveCloneNegativeThoughtTooltip".Translate());
             listingStandard.CheckboxLabeled("QE_DebugLogging".Translate(), ref QEESettings.instance.debugLogging, "QE_DebugLoggingTooltip".Translate());
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);
