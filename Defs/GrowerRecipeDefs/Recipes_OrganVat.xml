@@ -10,7 +10,7 @@
 						<li>QE_NutrientSolution</li>
 					</thingDefs>
 				</filter>
-				<count>300</count>
+				<count>100</count>
 			</li>
 			<li>
 				<filter>
@@ -18,7 +18,39 @@
 						<li>QE_ProteinMash</li>
 					</thingDefs>
 				</filter>
-				<count>35</count>
+				<count>25</count>
+			</li>
+		</ingredients>
+		<productGraphic>
+			<graphicClass>Graphic_Single</graphicClass>
+			<texPath>Effects/Organs/Shinzy_Organ</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<drawRotated>false</drawRotated>
+		</productGraphic>
+		<recipeUsers>
+			<li>QE_OrganVat</li>
+		</recipeUsers>
+	</QEthics.GrowerRecipeDef>
+
+	<QEthics.GrowerRecipeDef Name="SmallOrganGrowerRecipeBase" Abstract="True">
+		<productAmount>1</productAmount>
+		<craftingTime>120000</craftingTime>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>QE_NutrientSolution</li>
+					</thingDefs>
+				</filter>
+				<count>50</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>QE_ProteinMash</li>
+					</thingDefs>
+				</filter>
+				<count>10</count>
 			</li>
 		</ingredients>
 		<productGraphic>
@@ -34,9 +66,8 @@
 
 	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
 		<defName>Natural_Lung</defName>
-		<label>natural lungs</label>
+		<label>natural lung</label>
 		<productDef>Lung</productDef>
-		<productAmount>2</productAmount>
 		<requiredResearch>QE_OrganVat_InternalOrgans</requiredResearch>
 	</QEthics.GrowerRecipeDef>
 
@@ -49,9 +80,8 @@
 
 	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
 		<defName>Natural_Kidney</defName>
-		<label>natural kidneys</label>
+		<label>natural kidney</label>
 		<productDef>Kidney</productDef>
-		<productAmount>2</productAmount>
 		<requiredResearch>QE_OrganVat_InternalOrgans</requiredResearch>
 	</QEthics.GrowerRecipeDef>
 
@@ -72,33 +102,31 @@
 		<requiredResearch>QE_OrganVat_InternalOrgans</requiredResearch>
 	</QEthics.GrowerRecipeDef>
 
-	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
+	<QEthics.GrowerRecipeDef ParentName="SmallOrganGrowerRecipeBase">
 		<defName>Natural_Eye</defName>
-		<label>natural eyes</label>
+		<label>natural eye</label>
 		<productDef>QE_Organ_Eye</productDef>
-		<productAmount>2</productAmount>
 		<requiredResearch>QE_OrganVat_SensoryOrgans</requiredResearch>
 		<productGraphic>
 			<texPath>Effects/Organs/Shinzy_Organ_Eyes</texPath>
 		</productGraphic>
 	</QEthics.GrowerRecipeDef>
 
-	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
+	<QEthics.GrowerRecipeDef ParentName="SmallOrganGrowerRecipeBase">
 		<defName>Natural_Ear</defName>
-		<label>natural ears</label>
+		<label>natural ear</label>
 		<productDef>QE_Organ_Ear</productDef>
-		<productAmount>2</productAmount>
 		<requiredResearch>QE_OrganVat_SensoryOrgans</requiredResearch>
 	</QEthics.GrowerRecipeDef>
 
-	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
+	<QEthics.GrowerRecipeDef ParentName="SmallOrganGrowerRecipeBase">
 		<defName>Natural_Nose</defName>
 		<label>natural nose</label>
 		<productDef>QE_Organ_Nose</productDef>
 		<requiredResearch>QE_OrganVat_SensoryOrgans</requiredResearch>
 	</QEthics.GrowerRecipeDef>
 
-	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
+	<QEthics.GrowerRecipeDef ParentName="SmallOrganGrowerRecipeBase">
 		<defName>Natural_Jaw</defName>
 		<label>natural jaw</label>
 		<productDef>QE_Organ_Jaw</productDef>
@@ -126,7 +154,7 @@
 		<requiredResearch>QE_OrganVat_Limbs</requiredResearch>
 	</QEthics.GrowerRecipeDef>
 
-	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
+	<QEthics.GrowerRecipeDef ParentName="SmallOrganGrowerRecipeBase">
 		<defName>Natural_Hand</defName>
 		<label>natural hand</label>
 		<productDef>QE_Organ_Hand</productDef>
@@ -140,7 +168,7 @@
 		<requiredResearch>QE_OrganVat_Limbs</requiredResearch>
 	</QEthics.GrowerRecipeDef>
 
-	<QEthics.GrowerRecipeDef ParentName="NaturalOrganGrowerRecipeBase">
+	<QEthics.GrowerRecipeDef ParentName="SmallOrganGrowerRecipeBase">
 		<defName>Natural_Foot</defName>
 		<label>natural foot</label>
 		<productDef>QE_Organ_Foot</productDef>

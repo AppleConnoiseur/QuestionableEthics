@@ -8,7 +8,7 @@
 		<jobString>Refining nutrient solution from organics.</jobString>
 		<effectWorking>Cremate</effectWorking>
 		<soundWorking>Recipe_Cremate</soundWorking>
-		<workAmount>2500</workAmount>
+		<workAmount>1500</workAmount>
 		<workSpeedStat>UnskilledLaborSpeed</workSpeedStat>
 		<allowMixingIngredients>true</allowMixingIngredients>
 		<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
@@ -23,7 +23,7 @@
 						<li>Hay</li>
 					</disallowedThingDefs>
 				</filter>
-				<count>3.5</count>
+				<count>2.5</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
@@ -45,7 +45,7 @@
 			</disallowedCategories>
 		</defaultIngredientFilter>
 		<products>
-			<QE_NutrientSolution>35</QE_NutrientSolution>
+			<QE_NutrientSolution>25</QE_NutrientSolution>
 		</products>
 		<recipeUsers>
 			<li>BiofuelRefinery</li>
@@ -60,7 +60,7 @@
 		<jobString>Refining protein mash from organics.</jobString>
 		<effectWorking>Cremate</effectWorking>
 		<soundWorking>Recipe_Cremate</soundWorking>
-		<workAmount>2500</workAmount>
+		<workAmount>1500</workAmount>
 		<workSpeedStat>UnskilledLaborSpeed</workSpeedStat>
 		<allowMixingIngredients>true</allowMixingIngredients>
 		<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
@@ -71,7 +71,7 @@
 						<li>MeatRaw</li>
 					</categories>
 				</filter>
-				<count>3.5</count>
+				<count>2.5</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
@@ -85,7 +85,7 @@
 			</categories>
 		</defaultIngredientFilter>
 		<products>
-			<QE_ProteinMash>35</QE_ProteinMash>
+			<QE_ProteinMash>25</QE_ProteinMash>
 		</products>
 		<recipeUsers>
 			<li>BiofuelRefinery</li>
@@ -100,7 +100,7 @@
 		<jobString>Synthesizing protein mash from nutrient solution.</jobString>
 		<effectWorking>Cremate</effectWorking>
 		<soundWorking>Recipe_Cremate</soundWorking>
-		<workAmount>7500</workAmount>
+		<workAmount>6000</workAmount>
 		<workSpeedStat>UnskilledLaborSpeed</workSpeedStat>
 		<ingredients>
 			<li>
@@ -109,7 +109,7 @@
 						<li>QE_NutrientSolution</li>
 					</thingDefs>
 				</filter>
-				<count>140</count>
+				<count>100</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
@@ -123,7 +123,7 @@
 			</thingDefs>
 		</defaultIngredientFilter>
 		<products>
-			<QE_ProteinMash>35</QE_ProteinMash>
+			<QE_ProteinMash>25</QE_ProteinMash>
 		</products>
 		<recipeUsers>
 			<li>BiofuelRefinery</li>
@@ -149,7 +149,7 @@
 						<li>QE_ProteinMash</li>
 					</thingDefs>
 				</filter>
-				<count>70</count>
+				<count>100</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
@@ -163,7 +163,7 @@
 			</thingDefs>
 		</defaultIngredientFilter>
 		<products>
-			<Meat_QESynthMeat>60</Meat_QESynthMeat>
+			<Meat_QESynthMeat>50</Meat_QESynthMeat>
 		</products>
 		<recipeUsers>
 			<li>ElectricStove</li>

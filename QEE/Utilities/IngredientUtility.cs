@@ -109,21 +109,21 @@ namespace QEthics
         public static void FillOrderProcessorFromPawnKindDef(ThingOrderProcessor orderProcessor, PawnKindDef pawnKind)
         {
             ThingDef pawnThingDef = pawnKind.race;
-
             RaceProperties raceProps = pawnThingDef.race;
 
             //Assemble all required materials for a fully grown adult.
-            //Meat is worth the full nutritional value.
             ThingDef meatDef = raceProps.meatDef;
             float meatBaseNutrition = meatDef.ingestible.CachedNutrition;
-            float meatAmount = pawnThingDef.GetStatValueAbstract(StatDefOf.MeatAmount) * raceProps.baseBodySize;
+            float meatAmount = pawnThingDef.GetStatValueAbstract(StatDefOf.MeatAmount);
+            int nutritionAmount, proteinAmount;
 
-            //Leather is worth half of the meat value.
-            float leatherAmount = pawnThingDef.GetStatValueAbstract(StatDefOf.LeatherAmount) * raceProps.baseBodySize;
+            //protein cost = Meat * base Meat nutrition (vanilla is .05) * magic multiplier of 27
+            //Minimum protein cost is 25, max is 750. Multiply by mod setting for clone ingredients
+            //finally, round up to the nearest number divisible by 5
+            proteinAmount = (int)(Math.Ceiling((meatAmount * meatBaseNutrition * 27f).Clamp(25, 750)
+                * QEESettings.instance.cloneTotalResourcesFloat / 5) * 5);
 
-            int proteinAmount = (int)(QEESettings.instance.cloneTotalResourcesFloat *
-                    ((meatAmount * meatBaseNutrition * 15f) + (int)(leatherAmount * meatBaseNutrition * 15f)));
-            int nutritionAmount = (int)(proteinAmount * 4.5f);
+            nutritionAmount = 4 * proteinAmount;
 
             {
                 ThingOrderRequest orderRequest = new ThingOrderRequest(QEThingDefOf.QE_ProteinMash, proteinAmount);
@@ -134,6 +134,13 @@ namespace QEthics
                 ThingOrderRequest orderRequest = new ThingOrderRequest(QEThingDefOf.QE_NutrientSolution, nutritionAmount);
                 orderProcessor.desiredIngredients.Add(orderRequest);
             }
+        }
+
+        public static T Clamp<T>(this T val, T min, T max) where T : IComparable<T>
+        {
+            if (val.CompareTo(min) < 0) return min;
+            else if (val.CompareTo(max) > 0) return max;
+            else return val;
         }
     }
 }
