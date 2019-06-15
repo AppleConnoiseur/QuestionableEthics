@@ -189,7 +189,7 @@
 						<li>QE_NutrientSolution</li>
 					</thingDefs>
 				</filter>
-				<count>5</count>
+				<count>10</count>
 			</li>
 		</ingredients>
 		<fixedIngredientFilter>
