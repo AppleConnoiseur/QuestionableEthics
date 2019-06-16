@@ -40,9 +40,12 @@ namespace QEthics
         /// </summary>
         public float doctorMaintenance;
 
-        //public override int TicksNeededToCraft => (int)(pawnKindToGrow.RaceProps.lifeStageAges.Last().minAge * pawnKindToGrow.RaceProps.baseBodySize * (float)GenDate.TicksPerDay);
-        public override int TicksNeededToCraft => (int)(pawnKindToGrow.RaceProps.lifeStageAges.Last().minAge * pawnKindToGrow.RaceProps.baseBodySize * 
-            (float)GenDate.TicksPerDay * QEESettings.instance.cloneGrowthRateFloat);
+        /// <summary>
+        /// Formula: (2 days + 2 ^ baseBodySize) * TicksPerDay * ModSetting multiplier
+        /// </summary>
+        public override int TicksNeededToCraft => (int)((2 + Math.Pow(2.0f, pawnKindToGrow.RaceProps.baseBodySize) +
+            pawnKindToGrow.RaceProps.lifeStageAges.Last().minAge) * (float)GenDate.TicksPerDay *
+            QEESettings.instance.cloneGrowthRateFloat);
 
         public float ScientistMaintenance { get => scientistMaintenance; set => scientistMaintenance = value; }
 
