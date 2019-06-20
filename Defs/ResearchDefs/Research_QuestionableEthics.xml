@@ -51,7 +51,7 @@
 			<li>QE_OrganVat</li>
 		</prerequisites>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-		<researchViewX>3</researchViewX>
+		<researchViewX>2</researchViewX>
 		<researchViewY>2</researchViewY>
 	</ResearchProjectDef>
 
@@ -70,7 +70,7 @@
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-		<researchViewX>4</researchViewX>
+		<researchViewX>3</researchViewX>
 		<researchViewY>2</researchViewY>
 	</ResearchProjectDef>
 
@@ -104,7 +104,7 @@
 			<li>QE_Distillation</li>
 		</prerequisites>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-		<researchViewX>3</researchViewX>
+		<researchViewX>2</researchViewX>
 		<researchViewY>1</researchViewY>
 	</ResearchProjectDef>
 
@@ -123,7 +123,7 @@
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-		<researchViewX>4</researchViewX>
+		<researchViewX>3</researchViewX>
 		<researchViewY>1</researchViewY>
 	</ResearchProjectDef>
 
@@ -138,7 +138,7 @@
 			<li>QE_Distillation</li>
 		</prerequisites>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-		<researchViewX>3</researchViewX>
+		<researchViewX>1</researchViewX>
 		<researchViewY>0</researchViewY>
 	</ResearchProjectDef>
 
@@ -153,8 +153,8 @@
 		<prerequisites>
 			<li>QE_OrganVat</li>
 		</prerequisites>
-		<researchViewX>1</researchViewX>
-		<researchViewY>3</researchViewY>
+		<researchViewX>2</researchViewX>
+		<researchViewY>4</researchViewY>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>
@@ -167,7 +167,7 @@
 		<prerequisites>
 			<li>QE_OrganVat_InternalOrgans</li>
 		</prerequisites>
-		<researchViewX>1</researchViewX>
+		<researchViewX>3</researchViewX>
 		<researchViewY>4</researchViewY>
 	</ResearchProjectDef>
 
@@ -195,8 +195,8 @@
 		<prerequisites>
 			<li>QE_OrganVat_Bones</li>
 		</prerequisites>
-		<researchViewX>2</researchViewX>
-		<researchViewY>4</researchViewY>
+		<researchViewX>3</researchViewX>
+		<researchViewY>3</researchViewY>
 	</ResearchProjectDef>
 
 	<!-- Brain manipulation -->
@@ -215,8 +215,8 @@
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-		<researchViewX>5</researchViewX>
-		<researchViewY>3</researchViewY>
+		<researchViewX>4</researchViewX>
+		<researchViewY>2</researchViewY>
 	</ResearchProjectDef>
 
 	<!-- Cyber enslaving -->
@@ -234,8 +234,8 @@
 			<li>MultiAnalyzer</li>
 		</requiredResearchFacilities>
 		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-		<researchViewX>4</researchViewX>
-		<researchViewY>3</researchViewY>
+		<researchViewX>3</researchViewX>
+		<researchViewY>0</researchViewY>
 	</ResearchProjectDef>
 
 </Defs>
