@@ -63,7 +63,9 @@ If you run into errors when adding this mod to your modlist, please let me know 
 
 ## Links
 [Source code](https://github.com/KongMD-Steam/QuestionableEthicsEnhanced)
+
 [Bug Report or feature request](https://github.com/KongMD-Steam/QuestionableEthicsEnhanced/issues)
+
 [Full list of changes](https://github.com/KongMD-Steam/QuestionableEthicsEnhanced/issues?page=1&q=is%3Aissue+is%3Aclosed)
 
 ## Credits
