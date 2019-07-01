@@ -482,8 +482,8 @@ namespace QEthics
                     {
                         yield return new Command_Action()
                         {
-                            defaultLabel = "DEBUG: Finish growing",
-                            defaultDesc = "Instantly finishes the growing of the pawn.",
+                            defaultLabel = "QE_VatGrowerDebugFinishGrowing".Translate(),
+                            defaultDesc = "QE_VatGrowerDebugFinishGrowingDescription".Translate(),
                             //icon = ContentFinder<Texture2D>.Get("UI/Designators/Cancel", true),
                             action = delegate ()
                             {

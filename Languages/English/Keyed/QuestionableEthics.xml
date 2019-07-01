@@ -14,8 +14,8 @@
 
 	<!-- Vat grower -->
 	<QE_VatGrowerProduct>Product</QE_VatGrowerProduct>
-	<QE_VatGrowerScientistMaintenance>Researcher maintenance</QE_VatGrowerScientistMaintenance>
-	<QE_VatGrowerDoctorMaintenance>Doctoring maintenance</QE_VatGrowerDoctorMaintenance>
+	<QE_VatGrowerMaintenance>Maintenance: {0} Scientist, {1} Doctor</QE_VatGrowerMaintenance>
+	<QE_VatGrowerCleanlinessMult>Cleanliness maint. multiplier: {0}</QE_VatGrowerCleanlinessMult>
 	<QE_VatGrowerDaysRemaining>days remaining</QE_VatGrowerDaysRemaining>
 	<QE_VatGrowerHoursRemaining>hours remaining</QE_VatGrowerHoursRemaining>
 	<QE_VatGrowerNoLivingBeing>no living being</QE_VatGrowerNoLivingBeing>
@@ -27,8 +27,10 @@
 	<QE_VatGrowerStopCraftingGizmoLabel>Stop growing</QE_VatGrowerStopCraftingGizmoLabel>
 	<QE_VatGrowerStopCraftingGizmoDescription>Stops the growing process. Refunds inserted ingredients if the process was not started.</QE_VatGrowerStopCraftingGizmoDescription>
 	<QE_CustomNameCompGizmoLabel>Set custom name</QE_CustomNameCompGizmoLabel>
-	<QE_CustomNameCompGizmoDescription>Sets a custom name which can be easily indentifiable.</QE_CustomNameCompGizmoDescription>
+	<QE_CustomNameCompGizmoDescription>Sets a custom name which can be easily identifiable.</QE_CustomNameCompGizmoDescription>
 	<QE_VatGrowerGenomesHint>No available genomes. Get them by making 'Genome Sequencers' in machining tables, then use them.</QE_VatGrowerGenomesHint>
+	<QE_VatGrowerDebugFinishGrowing>DEBUG: Finish growing</QE_VatGrowerDebugFinishGrowing>
+	<QE_VatGrowerDebugFinishGrowingDescription>Instantly finishes growing the pawn.</QE_VatGrowerDebugFinishGrowingDescription>
 	<!-- UI -->
 	<QE_CustomNameCompDialogTitle>Set custom name for {0}</QE_CustomNameCompDialogTitle>
 	<!-- Genome Sequencer -->

@@ -107,10 +107,14 @@ namespace QEthics
             if (status == CrafterStatus.Crafting)
             {
                 builder.AppendLine();
-                builder.AppendLine("Maintenance: " + String.Format("{0:0%}", scientistMaintenance) +
-                    " Scientist, " + String.Format("{0:0%}", doctorMaintenance) + " Doctor");
+                //builder.AppendLine("QE_VatGrowerMaintenance".Translate() + ": " + String.Format("{0:0%}", scientistMaintenance) +
+                //    " " + "QE_VatGrowerScientistMaintenance".Translate() + ", " + String.Format("{0:0%}", doctorMaintenance) + 
+                //    " " + "QE_VatGrowerDoctorMaintenance".Translate());
 
-                builder.AppendLine("Cleanliness maint. multiplier: " + cleanlinessCurve.Evaluate(RoomCleanliness).ToString("0.00"));
+                builder.AppendLine("QE_VatGrowerMaintenance".Translate(String.Format("{0:0%}", scientistMaintenance), 
+                    String.Format("{0:0%}", doctorMaintenance)));
+
+                builder.AppendLine("QE_VatGrowerCleanlinessMult".Translate(cleanlinessCurve.Evaluate(RoomCleanliness).ToString("0.00")));
             }
 
             return builder.ToString().TrimEndNewlines();
