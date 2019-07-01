@@ -17,7 +17,7 @@
 
 Questionable Ethics Enhanced is a successor to the Questionable Ethics mod created by ChJees. At release, there are 14 bugs fixed, 15 new enhancements, and a few new compatibility patches that were not in QE. [Full list here](https://github.com/KongMD-Steam/QuestionableEthicsEnhanced/issues?page=1&q=is%3Aissue+is%3Aclosed). Here are the big changes:
 
-* The Life Support System & Crude Bionics have been moved to standalone mods, to improve mod compatibility.
+* The [Life Support System](https://steamcommunity.com/sharedfiles/filedetails/?id=1778018794) & [Crude Bionics](https://steamcommunity.com/sharedfiles/filedetails/?id=1785162951) have been moved to standalone mods, to improve mod compatibility.
 * All descriptions have been re-written with an emphasis on **discoverability** (how do I use this item and where do I obtain it) and **correct grammar**.
 * **Failed cloning no longer causes Cloning Vat ingredient loading to break**. This was a high-impact bug in QE and many people asked for a fix.
 * Nutrient Solution and Protein Mash recipes, output, and costs have been rebalanced across the board. See mod preview image for details.
@@ -36,14 +36,15 @@ This mod patches in changes to vanilla organ defs, but does not remove anything 
 **Enhanced Functionality**
 * Bionic Icons - Textures from this mod will be used for the organs. Highly recommended upgrade over vanilla textures!
 * Evolved Organs - Has exciting changes to its mechanics when QEE is enabled. There are too many to list, but [go here]([https://github.com/Xahkarias/Evolved-Organs/blob/master/About/Patch%20Notes.txt) for more details.
+* Humanoid Alien Races 2.0 - Race mods built with this framework will be able to to be cloned in the Cloning Vat.
 * Rah's Bionics and Surgery Expansion (RBSE)
   * Organ installation requires RBSE research pre-req 'Organ Transplantation'
   * Organs need to be refrigerated
   * Organ Rejection hediff added when organs are implanted
 
 **Fully Compatible**
+* Bioreactor
 * Combat Extended - no patch required
-* Race mods built with Humanoid Alien Races 2.0 - Races will be able to to be cloned in the Cloning Vat.
 * EPOE - Duplicated natural organ defs (two 'Eye' organs with different descriptions, for example). Outside of this, you should have no issues running with both mods enabled.
 * Harvest Organs Post-Mortem (HOPM) - All natural organs from QEE have a chance to spawn after autopsy
 
@@ -53,7 +54,7 @@ This mod patches in changes to vanilla organ defs, but does not remove anything 
 **Investigating...**
 * Harvest Everything (a lot of duplicate functionality)
 * Multiplayer (probably not compatible due to heavy C# coding. Please let me know, if you try it.)
-* Pawmmorpher
+* Pawnmorpher
 
 If you run into errors when adding this mod to your modlist, please let me know in the comments. This mod includes a Debug Mode toggle in the Mod Settings, which I would recommend setting to Enabled, if you have problems. [Post an issue on Github for maximum visibility](https://github.com/KongMD-Steam/QuestionableEthicsEnhanced/issues). The more information you include, the easier it will be for me to fix it.
 
