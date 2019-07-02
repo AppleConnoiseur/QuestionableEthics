@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <QE_InstallNerveStaple.label>神経ステープル 移植</QE_InstallNerveStaple.label>
+  <QE_InstallNerveStaple.description>犠牲者にコロニーへの参加を強制する、神経ステープルを取り付けます。</QE_InstallNerveStaple.description>
+  <QE_InstallNerveStaple.jobString>神経ステープルを移植中</QE_InstallNerveStaple.jobString>
+
+  <QE_Make_NerveStaples.label>神経ステープルを作る</QE_Make_NerveStaples.label>
+  <QE_Make_NerveStaples.description>神経ステープルを作る。</QE_Make_NerveStaples.description>
+  <QE_Make_NerveStaples.jobString>神経ステープルを製作中</QE_Make_NerveStaples.jobString>
+
+</LanguageData>

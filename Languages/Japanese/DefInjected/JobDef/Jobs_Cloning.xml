@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <QE_ApplyBrainScanTemplate.reportString>TargetBをTargetAに適用します。</QE_ApplyBrainScanTemplate.reportString>
+  <QE_SalvageCropseGenome.reportString>TargetAからゲノムを回収している。</QE_SalvageCropseGenome.reportString>
+
+</LanguageData>

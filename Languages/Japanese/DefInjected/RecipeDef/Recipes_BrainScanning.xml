@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <QE_BrainScanning.label>ブレインスキャン</QE_BrainScanning.label>
+  <QE_BrainScanning.description>患者の脳を徹底的にスキャンします。手術後はめまいがするようになります。中立または同盟している派閥のメンバーに対して、この行為は条約違反とみなされます。</QE_BrainScanning.description>
+  <QE_BrainScanning.jobString>脳をスキャン中</QE_BrainScanning.jobString>
+
+  <QE_Make_BrainScanner.label>ブレインスキャナーを作る</QE_Make_BrainScanner.label>
+  <QE_Make_BrainScanner.description>ブレインスキャナーを作る。</QE_Make_BrainScanner.description>
+  <QE_Make_BrainScanner.jobString>ブレインスキャナーを製作中</QE_Make_BrainScanner.jobString>
+
+</LanguageData>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <QE_MaintainVat.label>培養槽を整備</QE_MaintainVat.label>
+  <QE_MaintainVat.labelShort>整備</QE_MaintainVat.labelShort>
+  <QE_MaintainVat.pawnLabel>生命工学士</QE_MaintainVat.pawnLabel>
+  <QE_MaintainVat.gerundLabel>整備</QE_MaintainVat.gerundLabel>
+  <QE_MaintainVat.description>医療スキルと知力スキルの両方を活用して培養槽を整備します。</QE_MaintainVat.description>
+  <QE_MaintainVat.verb>整備</QE_MaintainVat.verb>
+
+</LanguageData>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Natural -->
+
+  <QE_Organ_Eye.label>眼（生体）</QE_Organ_Eye.label>
+  <QE_Organ_Eye.description>移植用の眼です。集めた光刺激を電気信号に変換して脳へ届けます。</QE_Organ_Eye.description>
+
+  <QE_Organ_Ear.label>耳（生体）</QE_Organ_Ear.label>
+  <QE_Organ_Ear.description>移植用の耳です。空気を伝わる音波を捉えて電気信号に変換して脳へ届けます。</QE_Organ_Ear.description>
+
+  <QE_Organ_Nose.label>鼻（生体）</QE_Organ_Nose.label>
+  <QE_Organ_Nose.description>移植用の鼻です。顔面を形成して、匂いと味覚を感じることを可能にします。</QE_Organ_Nose.description>
+
+  <QE_Organ_Jaw.label>顎（生体）</QE_Organ_Jaw.label>
+  <QE_Organ_Jaw.description>移植用の顎です。舌と歯を備えており、食べ物を咀嚼する力と味覚を感じられます。</QE_Organ_Jaw.description>
+
+  <QE_Organ_Stomach.label>胃（生体）</QE_Organ_Stomach.label>
+  <QE_Organ_Stomach.description>移植用の胃です。酸と酵素の助けを借りて、食べ物を栄養素に分解します。</QE_Organ_Stomach.description>
+
+  <QE_Organ_Spine.label>背骨（生体）</QE_Organ_Spine.label>
+  <QE_Organ_Spine.description>移植用の背骨です。背中を支えます。</QE_Organ_Spine.description>
+
+  <QE_Organ_Pelvis.label>骨盤（生体）</QE_Organ_Pelvis.label>
+  <QE_Organ_Pelvis.description>移植用の骨盤です。脚と背骨がこれに繋がっています。</QE_Organ_Pelvis.description>
+
+  <QE_Organ_Arm.label>腕（生体）</QE_Organ_Arm.label>
+  <QE_Organ_Arm.description>移植用の腕です。肩に取り付けると、物を運んだり操作できます。</QE_Organ_Arm.description>
+
+  <QE_Organ_Hand.label>手（生体）</QE_Organ_Hand.label>
+  <QE_Organ_Hand.description>移植用の手です。武器を持ったり手術を行うのに強い影響があります。</QE_Organ_Hand.description>
+
+  <QE_Organ_Leg.label>脚（生体）</QE_Organ_Leg.label>
+  <QE_Organ_Leg.description>移植用の脚です。骨盤に繋がっており、あなたが歩行できるようになります。</QE_Organ_Leg.description>
+
+  <QE_Organ_Foot.label>足（生体）</QE_Organ_Foot.label>
+  <QE_Organ_Foot.description>移植用の足です。下半身の動作を支えたり、足湯を利用するのに最適です。</QE_Organ_Foot.description>
+
+</LanguageData>
