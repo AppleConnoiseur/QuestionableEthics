@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <QE_NerveStapled.stages.nerve_stapled.label>神経ステープルされた</QE_NerveStapled.stages.nerve_stapled.label>
+  <QE_NerveStapled.stages.nerve_stapled.description>何か変だ。でも従わなければ。</QE_NerveStapled.stages.nerve_stapled.description>
+
+  <QE_RecentlyNerveStapled.stages.recently_nerve_stapled.label>最近神経ステープルされた</QE_RecentlyNerveStapled.stages.recently_nerve_stapled.label>
+  <QE_RecentlyNerveStapled.stages.recently_nerve_stapled.description>あぁぁぁ！私に何が起こったんだ!?</QE_RecentlyNerveStapled.stages.recently_nerve_stapled.description>
+
+  <QE_NerveStapledResistance.stages.nerve_stapled_resistance.label>神経ステープルに抵抗</QE_NerveStapledResistance.stages.nerve_stapled_resistance.label>
+  <QE_NerveStapledResistance.stages.nerve_stapled_resistance.description>うぐっ！抵抗してやる。でもどうして...</QE_NerveStapledResistance.stages.nerve_stapled_resistance.description>
+
+  <QE_NerveStapledPawn.stages.nerve_stapled_someone.label>誰かが神経ステープルされた</QE_NerveStapledPawn.stages.nerve_stapled_someone.label>
+  <QE_NerveStapledPawn.stages.nerve_stapled_someone.description>これは恐ろしいことです。私たちは誰かの自由意志を奪ってしまった。</QE_NerveStapledPawn.stages.nerve_stapled_someone.description>
+
+  <QE_NerveStapledColonist.stages.nerve_stapled_colonist.label>入植者が神経ステープルされた</QE_NerveStapledColonist.stages.nerve_stapled_colonist.label>
+  <QE_NerveStapledColonist.stages.nerve_stapled_colonist.description>これは恐ろしいことです。私たちは彼らだけでなく、自分達の自由意志も奪ってしまった。</QE_NerveStapledColonist.stages.nerve_stapled_colonist.description>
+
+  <QE_NerveStapledMe.stages.nerve_stapled_me.label>私は神経ステープルされた</QE_NerveStapledMe.stages.nerve_stapled_me.label>
+
+</LanguageData>

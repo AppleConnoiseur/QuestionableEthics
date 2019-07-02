@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <QE_GenomeSequencing.label>ゲノムを解析する</QE_GenomeSequencing.label>
+  <QE_GenomeSequencing.description>生物のゲノム(遺伝子配列)を解析(シーケンス)します。中立や同盟勢力のメンバーに対してこれを行うことは条約違反とみなされます。</QE_GenomeSequencing.description>
+  <QE_GenomeSequencing.jobString>ゲノムを解析中</QE_GenomeSequencing.jobString>
+
+  <QE_Make_GenomeSequencer.label>ゲノムシーケンサーを作る</QE_Make_GenomeSequencer.label>
+  <QE_Make_GenomeSequencer.description>ゲノムシーケンサーを作る。</QE_Make_GenomeSequencer.description>
+  <QE_Make_GenomeSequencer.jobString>ゲノムシーケンサーを製作中</QE_Make_GenomeSequencer.jobString>
+
+</LanguageData>

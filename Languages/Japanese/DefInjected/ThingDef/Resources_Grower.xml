@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <QE_NutrientSolution.label>栄養液</QE_NutrientSolution.label>
+  <QE_NutrientSolution.description>水やアミノ酸や脂肪分、ビタミンなどが豊富に含まれる合成物質です。クローンや臓器を培養するのに使われます。</QE_NutrientSolution.description>
+
+  <QE_ProteinMash.label>プロテインの塊</QE_ProteinMash.label>
+  <QE_ProteinMash.description>さまざまな材料から抽出されたタンパク質が混ざり、気持ち悪いペースト状の塊になっています。臓器や生物の培養に最適です。</QE_ProteinMash.description>
+
+  <Meat_QESynthMeat.label>人造肉</Meat_QESynthMeat.label>
+  <Meat_QESynthMeat.description>見た目は普通の肉によく似ており、すじや脂身も入っています。しかし、味は物足りない部分が多いです。</Meat_QESynthMeat.description>
+
+</LanguageData>

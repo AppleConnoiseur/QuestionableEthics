@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <QE_BrainScanner.label>ブレインスキャナー</QE_BrainScanner.label>
+  <QE_BrainScanner.description>生物の脳波マッピング行うために使用されるツールセットです。外科医はこれを利用して、患者の脳をブレインテンプレートに整然とマッピングします。人間に使われると、彼らのスキル熟達度と情熱をキャプチャー(保存)するでしょう。動物に使用される場合、それは家畜への訓練状態をキャプチャー(保存)します。</QE_BrainScanner.description>
+
+  <QE_BrainScannerFilled.label>ブレインテンプレート</QE_BrainScannerFilled.label>
+  <QE_BrainScannerFilled.description>生物の持つ脳の完全な神経ネットワークのマップ情報が入ったデータボードです。ポーンを選択した状態でこれを右クリックして、ブレインテンプレートを適用する別のポーンを選択します。</QE_BrainScannerFilled.description>
+
+</LanguageData>

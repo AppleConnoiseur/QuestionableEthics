@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Backstory_ColonyVatgrown.title>培養槽育ち</Backstory_ColonyVatgrown.title>
+  <Backstory_ColonyVatgrown.titleShort>クローン</Backstory_ColonyVatgrown.titleShort>
+  <Backstory_ColonyVatgrown.titleFemale>培養槽育ち</Backstory_ColonyVatgrown.titleFemale>
+  <Backstory_ColonyVatgrown.titleShortFemale>クローン</Backstory_ColonyVatgrown.titleShortFemale>
+  <Backstory_ColonyVatgrown.baseDesc>[PAWN_nameDef]はコロニーの培養槽で育ちました。[PAWN_pronoun]はスキルを持たないまま培養タンクから産まれましたが、潜在スキルが成長する余地があります。</Backstory_ColonyVatgrown.baseDesc>
+
+</LanguageData>
