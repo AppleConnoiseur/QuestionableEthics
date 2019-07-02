@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <QE_VatGrownCloneConfusion.stages.vatgrown_clone.label>クローン培養槽育ち</QE_VatGrownCloneConfusion.stages.vatgrown_clone.label>
+  <QE_VatGrownCloneConfusion.stages.vatgrown_clone.description>これはどういう事ですか？私は誰なの？ここに居る人々は誰ですか？なぜ私はここにいるの？なぜ私にそっくりな人が居るのですか？</QE_VatGrownCloneConfusion.stages.vatgrown_clone.description>
+
+  <QE_VatGrownCloneAcceptance.stages.vatgrown_clone_acceptance.label>クローン培養槽育ち(容認)</QE_VatGrownCloneAcceptance.stages.vatgrown_clone_acceptance.label>
+  <QE_VatGrownCloneAcceptance.stages.vatgrown_clone_acceptance.description>私は生き続けるしか選択肢がありません、と私は思います。考えるだけ無意味です。</QE_VatGrownCloneAcceptance.stages.vatgrown_clone_acceptance.description>
+
+</LanguageData>

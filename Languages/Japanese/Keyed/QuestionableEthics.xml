@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Grower Building -->
+  <QE_GrowerCraftingProgress>状態</QE_GrowerCraftingProgress>
+  <!-- Status -->
+  <QE_GrowerStatus>状態</QE_GrowerStatus>
+  <QE_GrowerStatus_Idle>待機中</QE_GrowerStatus_Idle>
+  <QE_GrowerStatus_Filling>充填中</QE_GrowerStatus_Filling>
+  <QE_GrowerStatus_Crafting>培養中</QE_GrowerStatus_Crafting>
+  <QE_GrowerStatus_Finished>培養完了</QE_GrowerStatus_Finished>
+  <!-- Ingredients -->
+  <QE_GrowerIngredientsNeeded>不足</QE_GrowerIngredientsNeeded>
+  <QE_GrowerIngredientsFilled>充填済</QE_GrowerIngredientsFilled>
+
+  <!-- Vat grower -->
+  <QE_VatGrowerProduct>製造物</QE_VatGrowerProduct>
+  <!-- <QE_VatGrowerScientistMaintenance>調査装置の整備</QE_VatGrowerScientistMaintenance>
+  <QE_VatGrowerDoctorMaintenance>診断装置の整備</QE_VatGrowerDoctorMaintenance> -->
+  <QE_VatGrowerMaintenance>整備：科学者{0}、医者{1}</QE_VatGrowerMaintenance>
+  <QE_VatGrowerCleanlinessMult>清潔さの状態。倍率：{0}</QE_VatGrowerCleanlinessMult>
+  <QE_VatGrowerDaysRemaining>日数(残り)</QE_VatGrowerDaysRemaining>
+  <QE_VatGrowerHoursRemaining>時間(残り)</QE_VatGrowerHoursRemaining>
+  <QE_VatGrowerNoLivingBeing>生存してない</QE_VatGrowerNoLivingBeing>
+  <QE_VatGrowerNoRecipe>加工命令無し</QE_VatGrowerNoRecipe>
+  <!-- Gizmos -->
+  <QE_VatGrowerStartCraftingGizmoLabel>培養開始</QE_VatGrowerStartCraftingGizmoLabel>
+  <QE_VatGrowerStartCraftingGizmoDescription>培養する臓器を選択してください。入植者たちは必要な材料を培養タンクへ充填する作業を開始します。</QE_VatGrowerStartCraftingGizmoDescription>
+  <QE_VatGrowerStartCraftingFloatMenuDisabled>{0}（研究が必要：{1}）</QE_VatGrowerStartCraftingFloatMenuDisabled>
+  <QE_VatGrowerStopCraftingGizmoLabel>培養停止</QE_VatGrowerStopCraftingGizmoLabel>
+  <QE_VatGrowerStopCraftingGizmoDescription>培養作業を停止します。作業が開始されていない場合は、充填した材料を取り戻せます。</QE_VatGrowerStopCraftingGizmoDescription>
+  <QE_CustomNameCompGizmoLabel>指定した名前に変更</QE_CustomNameCompGizmoLabel>
+  <QE_CustomNameCompGizmoDescription>簡単に識別できるように名前を変更します。</QE_CustomNameCompGizmoDescription>
+  <QE_VatGrowerGenomesHint>利用可能なゲノム(遺伝子情報)がありません。精密工作機械で「ゲノムシーケンサー」を作成してから、それを培養したい対象に使用してください。</QE_VatGrowerGenomesHint>
+  <QE_VatGrowerDebugFinishGrowing>DEBUG：培養を完了する</QE_VatGrowerDebugFinishGrowing>
+  <QE_VatGrowerDebugFinishGrowingDescription>即座にクローンの培養を完了します。</QE_VatGrowerDebugFinishGrowingDescription>
+  <!-- UI -->
+  <QE_CustomNameCompDialogTitle>名前を{0}に変更します</QE_CustomNameCompDialogTitle>
+  <!-- Genome Sequencer -->
+  <QE_GenomeSequencerDescription_Name>培養元の名前</QE_GenomeSequencerDescription_Name>
+  <QE_GenomeSequencerDescription_Race>種族</QE_GenomeSequencerDescription_Race>
+  <QE_GenomeSequencerDescription_Gender>性別</QE_GenomeSequencerDescription_Gender>
+  <QE_GenomeSequencerDescription_Traits>特性</QE_GenomeSequencerDescription_Traits>
+  <QE_GenomeSequencerSalvage>死体からのゲノム回収率（{0}％）</QE_GenomeSequencerSalvage>
+  <!-- Alerts -->
+  <QE_AlertMaintenanceRequiredLabel>培養タンクの整備が必要</QE_AlertMaintenanceRequiredLabel>
+  <QE_AlertMaintenanceRequiredExplanation>これらの培養タンクは直ちに整備が必要で、整備しなければタンクで培養しているものを失い、費やされた材料を無駄にするでしょう！\n\nすぐに整備を行うために医者(医療スキル)か研究者(知力スキル)を向かわせてください。</QE_AlertMaintenanceRequiredExplanation>
+  <!-- Messages -->
+  <QE_MessageGrowingDone>{0}の培養が完了しました。</QE_MessageGrowingDone>
+  <!-- Letters -->
+  <QE_LetterHumanlikeGrownLabel>培養クローン製造</QE_LetterHumanlikeGrownLabel>
+  <QE_LetterHumanlikeGrownDescription>{PAWN_labelShort}の培養クローンがコロニーに参加しました！\n\n生まれたばかりの{PAWN_pronoun}は、まだスキルを持っていませんが、{PAWN_possessive}脳にブレインテンプレートを適用して{PAWN_possessive}脳にスキルセットを即座に与えることができます。</QE_LetterHumanlikeGrownDescription>
+
+  <!-- Brain scanning -->
+  <QE_BrainScanningRejectNoValidBed>{0}は有効なスキャン対象ですが、使用可能なベッドが見つかりませんでした。</QE_BrainScanningRejectNoValidBed>
+  <QE_BrainScanningRejectDead>{PAWN_pronoun}は死亡しており、脳が活動していないため{PAWN_labelShort}へのスキャンは対象として拒絶されました。</QE_BrainScanningRejectDead>
+  <QE_BrainScanningRejectNotClone>{PAWN_pronoun}は培養クローンではないため、{PAWN_labelShort}は対象として拒絶されました。</QE_BrainScanningRejectNotClone>
+  <QE_BrainScanningRejectAlreadyTemplated>{PAWN_pronoun}は既にブレインスキャンテンプレートが適用済なため、{PAWN_labelShort}は対象として拒絶されました。</QE_BrainScanningRejectAlreadyTemplated>
+  <QE_BrainScanningRejectExcludedHediff>{PAWN_pronoun}には{PAWN_objective}ブレインスキャンできない傷害があるため、{PAWN_labelShort}は対象として拒絶されました。</QE_BrainScanningRejectExcludedHediff>
+  <QE_BrainScanningRejectExcludedRace>{0}は、ブレインスキャンの対象外です。</QE_BrainScanningRejectExcludedRace>
+  <QE_BrainScanningRejectNotAnimal>このブレインスキャンテンプレートは動物にのみ適用可能なため、{0}は対象として拒絶されました。</QE_BrainScanningRejectNotAnimal>
+  <QE_BrainScanningRejectNotHumanlike>このブレインスキャンテンプレートは動物には適用不可能なため、{0}は対象として拒絶されました。</QE_BrainScanningRejectNotHumanlike>
+  <QE_BrainScanningApplyTemplate>ブレインスキャンテンプレートを適用する</QE_BrainScanningApplyTemplate>
+  <QE_BrainScanningFloatMenuLabel>ブレインスキャンテンプレートを{0}に適用する</QE_BrainScanningFloatMenuLabel>
+  <QE_BrainScanningFloatMenuLabelDisabled>{0}（ベッドなし）</QE_BrainScanningFloatMenuLabelDisabled>
+  <QE_BrainScanDescription_BackshortChild>幼年期の生い立ち</QE_BrainScanDescription_BackshortChild>
+  <QE_BrainScanDescription_BackshortAdult>成年期の生い立ち</QE_BrainScanDescription_BackshortAdult>
+  <QE_BrainScanDescription_Skills>スキルの蓄積（情熱はアスタリスクで表示）</QE_BrainScanDescription_Skills>
+  <QE_BrainScanDescription_Training>訓練の蓄積（動物）</QE_BrainScanDescription_Training>
+  <QE_BrainTemplatingComplete>ブレインスキャンテンプレートは{PAWN_labelShort}に正常に適用されました。</QE_BrainTemplatingComplete>
+
+  <!-- Bed validation checks for applying brain templates. Enable debug logging in the Mod Settings to see these in the log. -->
+  <QE_BedInvalid>{0}は有効なベッドではありません</QE_BedInvalid>
+  <QE_BedIsNotMedical>ベッド({0})は無効です。理由：医療用ベッドではない</QE_BedIsNotMedical>
+  <QE_BedUnreachableBySurgeon>ベッド({0})は無効です。理由：{SURGEON_labelShort}へ移動できないか行動の予約ができません</QE_BedUnreachableBySurgeon>
+  <QE_BedTooDangerous>ベッド({0})は無効です。理由：{PATIENT_labelShort}にとって危険すぎます</QE_BedTooDangerous>
+  <QE_BedSurgeonAlreadyReserved>ベッド({0})は無効です。理由：ベッドは既に{SURGEON_labelShort}に予約されています</QE_BedSurgeonAlreadyReserved>
+  <QE_BedOccupied>ベッド({0})は無効です。理由：ベッドは使用中です</QE_BedOccupied>
+  <QE_BedForbidden>ベッド({0})は無効です。理由：ベッドは禁止されている</QE_BedForbidden>
+  <QE_BedIsBurning>ベッド({0})は無効です。理由：ベッドが燃えている</QE_BedIsBurning>
+  <QE_BedImproperForPrisoner>ベッド({0})は無効です。理由：{PATIENT_labelShort}は囚人です。囚人用ベッドではない</QE_BedImproperForPrisoner>
+  <QE_BedNotInPrisonCell>ベッド({0})は無効です。理由：{PATIENT_labelShort}は囚人です。ベッドが囚人用の部屋の中にありません</QE_BedNotInPrisonCell>
+  <QE_BedImproperFaction>ベッド({0})は無効です。理由：{SURGEON_labelShort}の派閥が領有していないベッド</QE_BedImproperFaction>
+  <QE_PrisonerBedForNonPrisoner>ベッド({0})は無効です。理由：{PATIENT_labelShort}は囚人では無く、このベッドは囚人用です</QE_PrisonerBedForNonPrisoner>
+  <QE_BedHasAnotherOwner>ベッド({0})は無効です。理由：ベッドの持ち主に別のポーンが指定されています</QE_BedHasAnotherOwner>
+  <QE_BedSelected>{0}はブレインテンプレートの手術対象に選択された</QE_BedSelected>
+
+  <!-- Mod settings -->
+  <QE_OrganGrowthDuration>臓器の成長率</QE_OrganGrowthDuration>
+  <QE_OrganGrowthDurationTooltip>この値が高いほど、臓器の培養に必要な時間が長くなります。初期値は1.0</QE_OrganGrowthDurationTooltip>
+  <QE_OrganIngredientMult>臓器の必要材料倍率</QE_OrganIngredientMult>
+  <QE_OrganIngredientMultTooltip>この値が高いほど、臓器を培養するのに必要な材料がより多くなります。初期値は1.0</QE_OrganIngredientMultTooltip>
+  <QE_CloneGrowthDuration>クローンの成長率</QE_CloneGrowthDuration>
+  <QE_CloneGrowthDurationTooltip>この値が高いほど、クローンの培養に必要な時間が長くなります。 初期値は1.0</QE_CloneGrowthDurationTooltip>
+  <QE_CloneIngredientMult>クローンの必要材料倍率</QE_CloneIngredientMult>
+  <QE_CloneIngredientMultTooltip>この値が高いほど、クローンを培養するのに必要な材料がより多くなります。初期値は1.0</QE_CloneIngredientMultTooltip>
+  <QE_VatMaintTime>培養タンクの整備頻度</QE_VatMaintTime>
+  <QE_VatMaintTimeTooltip>この値が高いほど、培養タンクの整備頻度が減少(整備の時間間隔が伸びる)します。初期値は1.0</QE_VatMaintTimeTooltip>
+  <QE_DebugLogging>デバックログを記録する</QE_DebugLogging>
+  <QE_DebugLoggingTooltip>Modのデバッグ用のログを有効にします。Modで予期しない動作が発生した場合に役立ちます。初期値：無効</QE_DebugLoggingTooltip>
+  <QE_MaintenanceWorkThreshold>整備を開始する培養タンクの整備状態(％)</QE_MaintenanceWorkThreshold>
+  <QE_MaintenanceWorkThresholdTooltip>設定した整備状態(％)以下で「培養タンクの整備」をする仕事をポーンに与えます。初期値：40％</QE_MaintenanceWorkThresholdTooltip>
+  <QE_GiveCloneNegativeThought>誕生したクローンに「培養クローン」のマイナスな思考を付与</QE_GiveCloneNegativeThought>
+  <QE_GiveCloneNegativeThoughtTooltip>人間などのクローンが成長した際に、彼らが新しい環境に混乱するのを表現するために、クローンに一時的なマイナス思考を与えます。初期値：有効</QE_GiveCloneNegativeThoughtTooltip>
+
+</LanguageData>

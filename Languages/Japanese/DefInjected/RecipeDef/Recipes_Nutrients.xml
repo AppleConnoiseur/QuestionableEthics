@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Distillation -->
+
+  <Make_NutrientSolutionFromOrganics.label>有機物から栄養液を作る</Make_NutrientSolutionFromOrganics.label>
+  <Make_NutrientSolutionFromOrganics.description>原材料の有機物から栄養素(有機タンパク質)を抽出することによって、栄養液のバッチを作ります。</Make_NutrientSolutionFromOrganics.description>
+  <Make_NutrientSolutionFromOrganics.jobString>有機物からの栄養液を精製中</Make_NutrientSolutionFromOrganics.jobString>
+
+  <Make_ProteinMashFromOrganics.label>有機物からプロテインの塊を作る</Make_ProteinMashFromOrganics.label>
+  <Make_ProteinMashFromOrganics.description>有機タンパク質を多く含む原材料からタンパク質を抽出して、プロテインの塊を作ります。</Make_ProteinMashFromOrganics.description>
+  <Make_ProteinMashFromOrganics.jobString>有機物からプロテインの塊を精製中</Make_ProteinMashFromOrganics.jobString>
+
+  <Make_ProteinMashFromNutrientSolution.label>栄養液からプロテインの塊を作る</Make_ProteinMashFromNutrientSolution.label>
+  <Make_ProteinMashFromNutrientSolution.description>栄養液をさらに精製することで、プロテインの塊を作ります。この作業工程ではタンパク質を合成するのに必要な酵素を使い時間をかけて栄養素を凝固させます。</Make_ProteinMashFromNutrientSolution.description>
+  <Make_ProteinMashFromNutrientSolution.jobString>栄養塊からプロテインの塊を合成中</Make_ProteinMashFromNutrientSolution.jobString>
+
+
+  <!-- Cooking -->
+
+  <Make_QESynthMeat.label>人造肉を作る</Make_QESynthMeat.label>
+  <Make_QESynthMeat.description>プロテインの塊から人造肉の塊を作ります。</Make_QESynthMeat.description>
+  <Make_QESynthMeat.jobString>人造肉を合成中</Make_QESynthMeat.jobString>
+
+  <Make_QENutrientPaste.label>栄養補給ペースト</Make_QENutrientPaste.label>
+  <Make_QENutrientPaste.description>栄養液から栄養補給ペーストを作ります。</Make_QENutrientPaste.description>
+  <Make_QENutrientPaste.jobString>栄養補給ペーストを合成中</Make_QENutrientPaste.jobString>
+
+
+  <!-- Drugs -->
+
+  <Make_QENeutroamine.label>ニュートロアミンを作る</Make_QENeutroamine.label>
+  <Make_QENeutroamine.description>栄養液とプロテインの塊からニュートロアミンを作る。</Make_QENeutroamine.description>
+  <Make_QENeutroamine.jobString>ニュートロアミンを合成中</Make_QENeutroamine.jobString>
+
+</LanguageData>

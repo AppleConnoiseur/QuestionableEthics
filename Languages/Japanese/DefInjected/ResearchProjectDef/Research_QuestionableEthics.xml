@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Main research path to cloning -->
+
+  <QE_Distillation.label>生物組織の培養</QE_Distillation.label>
+  <QE_Distillation.description>製油施設で有機物から栄養液とプロテインの塊を精製する事と、培養槽(タンク)で生体組織を培養することは、どちらも極めて重要です。</QE_Distillation.description>
+
+  <QE_OrganVat.label>臓器培養槽</QE_OrganVat.label>
+  <QE_OrganVat.description>栄養液とプロテインの塊を材料に臓器を培養する臓器培養槽(タンク)を作りましょう。自然な肉体で幸せな生き方するための第一歩は、その生体組織の一部を培養させることから始まります。</QE_OrganVat.description>
+
+  <QE_GenomeSequencing.label>遺伝子配列</QE_GenomeSequencing.label>
+  <QE_GenomeSequencing.description>精密工作機械でゲノムシーケンサーを作成します。シーケンサーを右クリックして、生存しているポーンか死亡しているポーンを選択して、手術することで彼らの遺伝子配列を解析(シーケンス)します。</QE_GenomeSequencing.description>
+
+  <QE_VatGrownBeings.label>クローン培養槽</QE_VatGrownBeings.label>
+  <QE_VatGrownBeings.description>クローン培養槽で生命体を培養します。より大きな生命体は成長するのにより多くの栄養素とタンパク質を必要とします。産まれてくるクローンはスキルレベルとランダムな情熱なしで作成されます、しかし将来の研究によって訓練不要でスキルを修正することができるでしょう。</QE_VatGrownBeings.description>
+
+
+  <!-- Chemistry -->
+
+  <QE_AdvancedRefining.label>先進的な栄養精製</QE_AdvancedRefining.label>
+  <QE_AdvancedRefining.description>製油施設で栄養液からプロテインの塊をを合成できます。化学の進歩により、このようにして自然生物学的プロセスを乗っ取ることが可能になりました。</QE_AdvancedRefining.description>
+
+  <QE_Neutroamine.label>ニュートロアミン合成</QE_Neutroamine.label>
+  <QE_Neutroamine.description>幹細胞組織と生物工学の技術を使って組み換えることで、栄養液とプロテインの塊からドラッグラボでニュートロアミンを合成できます。</QE_Neutroamine.description>
+
+  <QE_Edibles.label>人造合成食品</QE_Edibles.label>
+  <QE_Edibles.description>カマドや電気コンロで人造肉や栄養補給ペーストを作れます。</QE_Edibles.description>
+
+
+  <!-- All natural organs -->
+
+  <QE_OrganVat_InternalOrgans.label>生体臓器</QE_OrganVat_InternalOrgans.label>
+  <QE_OrganVat_InternalOrgans.description>臓器培養槽(タンク)で生体組織を培養して移植用の臓器を作ることができます。</QE_OrganVat_InternalOrgans.description>
+
+  <QE_OrganVat_SensoryOrgans.label>生体感覚器</QE_OrganVat_SensoryOrgans.label>
+  <QE_OrganVat_SensoryOrgans.description>臓器培養槽(タンク)で生体組織を培養して移植用の眼や耳や鼻を作ることができます。</QE_OrganVat_SensoryOrgans.description>
+
+  <QE_OrganVat_Bones.label>生体骨組織</QE_OrganVat_Bones.label>
+  <QE_OrganVat_Bones.description>臓器培養槽(タンク)で骨組織を培養して移植用の骨盤や背骨を作ることができます。</QE_OrganVat_Bones.description>
+
+  <QE_OrganVat_Limbs.label>生体四肢</QE_OrganVat_Limbs.label>
+  <QE_OrganVat_Limbs.description>臓器培養槽(タンク)で生体組織を培養して移植用の腕や脚や手や足などの四肢を作ることができます。</QE_OrganVat_Limbs.description>
+
+
+  <!-- Brain manipulation -->
+
+  <QE_BrainScanning.label>脳波検査</QE_BrainScanning.label>
+  <QE_BrainScanning.description>ポーンの脳波をマッピングすることができます。コンポーネント工作台でブレインスキャナーを作成します。ブレインテンプレートはポーンのスキル熟練度と情熱をコピーして保存します。新しく作成されたクローンにブレインテンプレートを適用して速成教育したり、全く他人のポーンに使用して効果を高めます。</QE_BrainScanning.description>
+
+
+  <!-- Cyber enslaving -->
+
+  <QE_NerveStapling.label>神経ステープル</QE_NerveStapling.label>
+  <QE_NerveStapling.description>脳の中枢神経系を刺激する高価な脳インプラントです。精密工作機械で作成することができ、ポーンを簡単に洗脳できます。それは最も手に負えない囚人を自ら喜んで奴隷にすることができますが、多くの文明社会では残虐な行為と見なされています。副作用としてポーンの学習能力は著しく低下します。</QE_NerveStapling.description>
+
+</LanguageData>

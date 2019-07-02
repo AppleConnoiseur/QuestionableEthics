@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <QE_Vatgrown.label>クローン培養産まれ</QE_Vatgrown.label>
+  <QE_Vatgrown.rulePack.rulesStrings.0>tale_noun->[PAWN_nameDef]はクローン培養槽から産まれた</QE_Vatgrown.rulePack.rulesStrings.0>
+  <QE_Vatgrown.rulePack.rulesStrings.1>image->[circumstance_group][PAWN_nameFull]は、クローン培養槽から出てきた</QE_Vatgrown.rulePack.rulesStrings.1>
+  <QE_Vatgrown.rulePack.rulesStrings.2>image->[circumstance_group][PAWN_nameFull]は、人工的にクローン培養槽から産まれた</QE_Vatgrown.rulePack.rulesStrings.2>
+  <QE_Vatgrown.rulePack.rulesStrings.3>circumstance_phrase->ぼーっとした表情で</QE_Vatgrown.rulePack.rulesStrings.3>
+  <QE_Vatgrown.rulePack.rulesStrings.4>circumstance_phrase->不思議そうな顔をして</QE_Vatgrown.rulePack.rulesStrings.4>
+  <QE_Vatgrown.rulePack.rulesStrings.5>circumstance_phrase->自信に満ちた輝いた表情で</QE_Vatgrown.rulePack.rulesStrings.5>
+  <QE_Vatgrown.rulePack.rulesStrings.6>circumstance_phrase->真っ裸のまま</QE_Vatgrown.rulePack.rulesStrings.6>
+  <QE_Vatgrown.rulePack.rulesStrings.7>circumstance_phrase->栄養液でベトベトになりながら</QE_Vatgrown.rulePack.rulesStrings.7>
+  <QE_Vatgrown.rulePack.rulesStrings.8>circumstance_phrase->[PAWN_possessive]顔を触って確かめながら</QE_Vatgrown.rulePack.rulesStrings.8>
+  <QE_Vatgrown.rulePack.rulesStrings.9>desc_sentence->[PAWN_pronoun]は、[PAWN_objective]取り巻く周囲をまったく気にしていないようです。</QE_Vatgrown.rulePack.rulesStrings.9>
+  <QE_Vatgrown.rulePack.rulesStrings.10>desc_sentence->[PAWN_pronoun]は、[PAWN_possessive]初めて見る環境に物凄く混乱しています。</QE_Vatgrown.rulePack.rulesStrings.10>
+  <QE_Vatgrown.rulePack.rulesStrings.11>desc_sentence->[PAWN_pronoun]は、安全なクローン培養槽に戻りたいと考えています。</QE_Vatgrown.rulePack.rulesStrings.11>
+  <QE_Vatgrown.rulePack.rulesStrings.12>desc_sentence->[PAWN_pronoun]は、何が起こっているのか理解できないようです。</QE_Vatgrown.rulePack.rulesStrings.12>
+  <QE_Vatgrown.rulePack.rulesStrings.13>desc_sentence->[PAWN_pronoun]は、言葉を話そうと何度か試していました。</QE_Vatgrown.rulePack.rulesStrings.13>
+  <QE_Vatgrown.rulePack.rulesStrings.14>desc_sentence->[PAWN_pronoun]は。初めて[Animal]を見て驚いたように泣き始めました。</QE_Vatgrown.rulePack.rulesStrings.14>
+  <QE_Vatgrown.rulePack.rulesStrings.15>desc_sentence->[動物]は、好奇心を刺激されたようです。</QE_Vatgrown.rulePack.rulesStrings.15>
+  <QE_Vatgrown.rulePack.rulesStrings.16>desc_sentence->[Animal]は、嫌そうな顔で見ている。</QE_Vatgrown.rulePack.rulesStrings.16>
+  <QE_Vatgrown.rulePack.rulesStrings.17>desc_sentence->[PersonJob]は、その光景を見て畏敬の念を抱いている。</QE_Vatgrown.rulePack.rulesStrings.17>
+  <QE_Vatgrown.rulePack.rulesStrings.18>desc_sentence->[PersonJob]は、表情に恐怖を浮かべて見ています。</QE_Vatgrown.rulePack.rulesStrings.18>
+  <QE_Vatgrown.rulePack.rulesStrings.19>desc_sentence->[PersonJob]は、興奮した表情で見守っています。</QE_Vatgrown.rulePack.rulesStrings.19>
+
+</LanguageData>
