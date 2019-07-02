@@ -69,8 +69,13 @@ If you run into errors when adding this mod to your modlist, please let me know 
 
 [Full list of changes](https://github.com/KongMD-Steam/QuestionableEthicsEnhanced/issues?page=1&q=is%3Aissue+is%3Aclosed)
 
+## Translations
+This mod has been translated to the following languages:
+* Japanese
+
 ## Credits
 * KongMD - XML, C#, Preview art
+* Proxyer - Japanese Translation
 
 ## Special Thanks
 * erdelf, Mehni, Bar0th and Jamaican Castle for answering my modding questions
