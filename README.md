@@ -10,7 +10,7 @@
 * **Balance** the mod as you wish, with the Mod Settings menu (see preview image above)
 * **Enhancements** to the original Questionable Ethics mod
 
-![Cloning](https://i.imgur.com/fVL3Bx9.jpg)
+![Cloning](https://i.imgur.com/Sr8GRm1.jpg)
 ![Brain Templating](https://i.imgur.com/7HhYJby.jpg)
 
 ## Changes to Questionable Ethics mechanics
