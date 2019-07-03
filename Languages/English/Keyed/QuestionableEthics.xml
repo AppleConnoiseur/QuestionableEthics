@@ -46,7 +46,7 @@
 	<QE_MessageGrowingDone>Growing {0} is done.</QE_MessageGrowingDone>
 	<!-- Letters -->
 	<QE_LetterHumanlikeGrownLabel>Vatgrown clone made</QE_LetterHumanlikeGrownLabel>
-	<QE_LetterHumanlikeGrownDescription>Welcome vatgrown clone {PAWN_labelShort} to the colony!\n\n{PAWN_pronoun} has no natural skills, but you can apply a brain scan template on {PAWN_possessive} to give {PAWN_possessive} a skillset right away.</QE_LetterHumanlikeGrownDescription>
+	<QE_LetterHumanlikeGrownDescription>Welcome vatgrown clone {PAWN_labelShort} to the colony!\n\n{PAWN_pronoun} has no natural skills, but you can apply a brain scan template on {PAWN_objective} to give {PAWN_objective} a skillset right away.</QE_LetterHumanlikeGrownDescription>
 
 	<!-- Brain scanning -->
 	<QE_BrainScanningRejectNoValidBed>{0} is a valid target, but no available bed could be found.</QE_BrainScanningRejectNoValidBed>

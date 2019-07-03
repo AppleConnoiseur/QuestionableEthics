@@ -21,7 +21,7 @@
 	<ThingDef ParentName="QEGenomeSequencerBase">
 		<defName>QE_GenomeSequencer</defName>
 		<label>genome sequencer</label>
-		<description>A set of tools used for sequencing genomes of living or dead beings. With a pawn selected, right-click this and select another pawn to sequence their genome. The chance of success scales with the surgeon's Medicine skill.</description>
+		<description>A set of tools used for sequencing genomes of living or dead pawns.\n\nTo sequence a living pawn, queue up the 'Sequence Genome' surgery. To sequence a dead pawn, select a living pawn, then right-click this, choose 'Salvage genome', and select the corpse.\n\nThe chance of success scales with the surgeon's Medicine skill.</description>
 		<graphicData>
 			<texPath>Things/Item/Manufactured/GenomeSequencer</texPath>
 		</graphicData>
