@@ -76,6 +76,7 @@ This mod has been translated to the following languages:
 ## Credits
 * KongMD - XML, C#, Preview art
 * Proxyer - Japanese Translation
+* EvaineQ - Cloning vat art
 
 ## Special Thanks
 * erdelf, Mehni, Bar0th and Jamaican Castle for answering my modding questions
