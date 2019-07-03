@@ -310,7 +310,7 @@ namespace QEthics
                 }
                 else
                 {
-                    pawnBeingGrown.DrawAt(drawAltitude);
+                    pawnBeingGrown.DrawAt(drawAltitude + VatGrowerProps.productOffset);
                 }
             }
 

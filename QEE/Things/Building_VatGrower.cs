@@ -107,10 +107,6 @@ namespace QEthics
             if (status == CrafterStatus.Crafting)
             {
                 builder.AppendLine();
-                //builder.AppendLine("QE_VatGrowerMaintenance".Translate() + ": " + String.Format("{0:0%}", scientistMaintenance) +
-                //    " " + "QE_VatGrowerScientistMaintenance".Translate() + ", " + String.Format("{0:0%}", doctorMaintenance) + 
-                //    " " + "QE_VatGrowerDoctorMaintenance".Translate());
-
                 builder.AppendLine("QE_VatGrowerMaintenance".Translate(String.Format("{0:0%}", scientistMaintenance), 
                     String.Format("{0:0%}", doctorMaintenance)));
 
