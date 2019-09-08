@@ -7,7 +7,7 @@ namespace QEthics
     public static class CompatibilityTracker
     {
         private static bool alienRacesActiveInt = false;
-        private static string[] incompatibleModArr = { "Questionable Ethics" };
+        private static string[] incompatibleModArr = { "Questionable Ethics", "Multiplayer" };
 
         public static bool AlienRacesActive
         {

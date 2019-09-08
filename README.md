@@ -49,11 +49,11 @@ This mod patches in changes to vanilla organ defs, but does not remove anything 
 * Harvest Organs Post-Mortem (HOPM) - All natural organs from QEE have a chance to spawn after autopsy
 
 **Incompatible**
+* Multiplayer
 * Questionable Ethics
 
 **Investigating...**
 * Harvest Everything (a lot of duplicate functionality)
-* Multiplayer (probably not compatible due to heavy C# coding. Please let me know, if you try it.)
 * Pawnmorpher
 
 If you run into errors when adding this mod to your modlist, please let me know in the comments. This mod includes a Debug Mode toggle in the Mod Settings, which I would recommend setting to Enabled, if you have problems. [Post an issue on Github for maximum visibility](https://github.com/KongMD-Steam/QuestionableEthicsEnhanced/issues). The more information you include, the easier it will be for me to fix it.
