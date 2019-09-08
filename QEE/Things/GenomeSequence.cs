@@ -14,12 +14,12 @@ namespace QEthics
     public class GenomeSequence : ThingWithComps
     {
         //Relevant for all genomes.
-        public string sourceName = null;
-        public PawnKindDef pawnKindDef;
+        public string sourceName = "QE_BlankGenomeTemplateName".Translate() ?? "Do Not Use This";
+        public PawnKindDef pawnKindDef = PawnKindDefOf.Colonist;
         public Gender gender = Gender.None;
 
         //Only relevant for humanoids.
-        public BodyTypeDef bodyType = null;
+        public BodyTypeDef bodyType = BodyTypeDefOf.Thin;
         public CrownType crownType = CrownType.Undefined;
         public List<ExposedTraitEntry> traits = new List<ExposedTraitEntry>();
         public Color hairColor = new Color();
@@ -27,7 +27,7 @@ namespace QEthics
 
         //AlienRace compatibility.
         /// <summary>
-        /// If true then Alien Race attributes should be shown.
+        /// If true, Alien Race attributes should be shown.
         /// </summary>
         public bool isAlien = false;
         public Color skinColor = new Color();
@@ -147,27 +147,7 @@ namespace QEthics
         {
             get
             {
-                StringBuilder builder = new StringBuilder(base.DescriptionDetailed);
-
-                builder.AppendLine();
-                if(sourceName != null)
-                {
-                    builder.AppendLine("QE_GenomeSequencerDescription_Name".Translate() + ": " + sourceName);
-                }
-                builder.AppendLine("QE_GenomeSequencerDescription_Race".Translate() + ": " + pawnKindDef.race.LabelCap);
-                builder.AppendLine("QE_GenomeSequencerDescription_Gender".Translate() + ": " + GenderUtility.GetLabel(gender, pawnKindDef.race.race.Animal).CapitalizeFirst());
-
-                //Traits
-                if(traits.Count > 0)
-                {
-                    builder.AppendLine("QE_GenomeSequencerDescription_Traits".Translate());
-                    foreach (ExposedTraitEntry traitEntry in traits)
-                    {
-                        builder.AppendLine("    " + traitEntry.def.DataAtDegree(traitEntry.degree).label);
-                    }
-                }
-
-                return builder.ToString().TrimEndNewlines();
+                return CustomDescriptionString(base.DescriptionDetailed);
             }
         }
 
@@ -175,14 +155,37 @@ namespace QEthics
         {
             get
             {
-                StringBuilder builder = new StringBuilder(base.DescriptionFlavor);
+                return CustomDescriptionString(base.DescriptionFlavor);
+            }
+        }
+        /// <summary>
+        /// This function checks if a brain template is valid for use in the cloning vat. The game occasionally generates blank
+        /// templates from events, or the player can debug one in.
+        /// </summary>
+        public bool IsValidTemplate()
+        {
+            if (sourceName != null && pawnKindDef != null && (sourceName != "QE_BlankGenomeTemplateName".Translate() && gender != Gender.None))
+            {
+                return true;
+            }
 
+            return false;
+        }
+
+        /// <summary>
+        /// This helper function appends the data stored in the genome sequence to the item description in-game.
+        /// </summary>
+        public string CustomDescriptionString(string baseDescription)
+        {
+            StringBuilder builder = new StringBuilder();
+
+            if (IsValidTemplate())
+            {
+                builder.AppendLine(baseDescription);
                 builder.AppendLine();
                 builder.AppendLine();
-                if (sourceName != null)
-                {
-                    builder.AppendLine("QE_GenomeSequencerDescription_Name".Translate() + ": " + sourceName);
-                }
+
+                builder.AppendLine("QE_GenomeSequencerDescription_Name".Translate() + ": " + sourceName);
                 builder.AppendLine("QE_GenomeSequencerDescription_Race".Translate() + ": " + pawnKindDef.race.LabelCap);
                 builder.AppendLine("QE_GenomeSequencerDescription_Gender".Translate() + ": " + GenderUtility.GetLabel(gender, pawnKindDef.race.race.Animal).CapitalizeFirst());
 
@@ -195,9 +198,14 @@ namespace QEthics
                         builder.AppendLine("    " + traitEntry.def.DataAtDegree(traitEntry.degree).label.CapitalizeFirst());
                     }
                 }
-
-                return builder.ToString().TrimEndNewlines();
             }
+            else
+            {
+                builder.AppendLine("QE_BlankGenomeTemplateDescription".Translate());
+            }
+
+            return builder.ToString().TrimEndNewlines();
         }
+
     }
 }

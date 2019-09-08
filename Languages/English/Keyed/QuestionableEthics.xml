@@ -99,4 +99,8 @@
 	<QE_MaintenanceWorkThresholdTooltip>Give a pawn the 'Maintain Vat' job at this percentage of maintenance remaining. Default: 40%</QE_MaintenanceWorkThresholdTooltip>
 	<QE_GiveCloneNegativeThought>Give new clones 'vatgrown clone' negative thought</QE_GiveCloneNegativeThought>
 	<QE_GiveCloneNegativeThoughtTooltip>When a humanlike clone is grown, give it a temporary negative thought to indicate confusion about the new environment. Default: Enabled</QE_GiveCloneNegativeThoughtTooltip>
+
+	<!-- version 1.02 Patch -->
+	<QE_BlankGenomeTemplateName>Do Not Use This</QE_BlankGenomeTemplateName>
+	<QE_BlankGenomeTemplateDescription>This template was generated via a game event or debug commands. It is unusuable in the cloning vat.</QE_BlankGenomeTemplateDescription>
 </LanguageData>

@@ -435,14 +435,23 @@ namespace QEthics
                             foreach (Thing genomeThing in validGenomes)
                             {
                                 GenomeSequence genome = genomeThing as GenomeSequence;
-                                string label = genome.pawnKindDef.race.LabelCap + " <- " + genome.sourceName;
 
-                                FloatMenuOption option = new FloatMenuOption(label, delegate ()
+                                //don't add blank genome templates to the list
+                                if (genome.IsValidTemplate())
                                 {
-                                    StartCrafting(genome);
-                                });
+                                    string label = genome.pawnKindDef.race.LabelCap + " <- " + genome.sourceName;
 
-                                options.Add(option);
+                                    FloatMenuOption option = new FloatMenuOption(label, delegate ()
+                                    {
+                                        StartCrafting(genome);
+                                    });
+
+                                    options.Add(option);
+                                }
+                                else
+                                {
+                                    continue;
+                                }
                             }
                         }
 
