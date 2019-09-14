@@ -15,7 +15,6 @@
 		<thingCategories>
 			<li>Manufactured</li>
 		</thingCategories>
-		<resourceReadoutPriority>Uncounted</resourceReadoutPriority>
 	</ThingDef>
 
 	<ThingDef ParentName="QEBrainScanningBase">
