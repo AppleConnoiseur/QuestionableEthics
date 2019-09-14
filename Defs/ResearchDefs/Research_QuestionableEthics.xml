@@ -204,7 +204,7 @@
 		<defName>QE_BrainScanning</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>brainwave scanning</label>
-		<description>Create a brain scanner at the fabrication bench that can map the brainwaves of a pawn. The template preserves the pawn's skill proficiencies and passions. Apply the template on newly-created clones to quickly get them up-to-speed, or use it on other pawns to increase their effectiveness.</description>
+		<description>Create a brain scanner at the Machining Table that can map the brainwaves of a pawn. The template preserves the pawn's skill proficiencies and passions. Apply the template on newly-created clones to quickly get them up-to-speed, or use it on other pawns to increase their effectiveness.</description>
 		<baseCost>2000</baseCost>
 		<techLevel>Spacer</techLevel>
 		<prerequisites>
