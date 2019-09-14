@@ -112,7 +112,7 @@
 		<defName>QE_Neutroamine</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>neutroamine synthesizing</label>
-		<description>Synthesize neutroamine from nutrient solution and protein mash by cleverly combining stem cells with bio-engineered organisms. Neutroamine can now be made at the drug lab.</description>
+		<description>Synthesize neutroamine from nutrient solution and protein mash by cleverly combining stem cells with bio-engineered organisms. Neutroamine can now be made at the Drug Lab.</description>
 		<baseCost>2000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -147,7 +147,7 @@
 		<defName>QE_OrganVat_InternalOrgans</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>natural internal organs</label>
-		<description>Grow natural internal organs at the organ vat.</description>
+		<description>Grow natural internal organs in the Organ Vat.</description>
 		<baseCost>2000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -161,7 +161,7 @@
 		<defName>QE_OrganVat_SensoryOrgans</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>natural sensory organs</label>
-		<description>Grow natural eyes, ears and noses at the organ vat.</description>
+		<description>Grow natural eyes, ears and noses in the Organ Vat.</description>
 		<baseCost>1500</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -175,7 +175,7 @@
 		<defName>QE_OrganVat_Bones</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>natural bones</label>
-		<description>Grow bones at the organ vat.</description>
+		<description>Grow bones in the Organ Vat.</description>
 		<baseCost>1500</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -189,7 +189,7 @@
 		<defName>QE_OrganVat_Limbs</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>natural limbs</label>
-		<description>Grow natural arms, hands, legs and feet at the organ vat.</description>
+		<description>Grow natural arms, hands, legs and feet in the Organ Vat.</description>
 		<baseCost>1200</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
@@ -224,7 +224,7 @@
 		<defName>QE_NerveStapling</defName>
 		<tab>QE_ResearchTab</tab>
 		<label>nerve stapling</label>
-		<description>Create a high-cost brain implant at the machining table that stimulates the control centers of the brain, allowing a pawn to be easily controlled. It can turn the most unruly prisoner into a willing slave, but is considered atrocious by many civilized societies. As a side effect, the pawn's learning ability is severly hampered.</description>
+		<description>Create a high-cost brain implant at the Machining Table that stimulates the control centers of the brain, allowing a pawn to be easily controlled. It can turn the most unruly prisoner into a willing slave, but is considered atrocious by many civilized societies. As a side effect, the pawn's learning ability is severly hampered.</description>
 		<baseCost>3000</baseCost>
 		<techLevel>Industrial</techLevel>
 		<prerequisites>
