@@ -19,7 +19,7 @@ namespace QEthics
         //Humanoid only
         public Backstory backStoryChild;
         public Backstory backStoryAdult;
-        public List<SkillRecord> skills = new List<SkillRecord>();
+        public List<ComparableSkillRecord> skills = new List<ComparableSkillRecord>();
 
         //Animals only
         public bool isAnimal;
@@ -101,9 +101,9 @@ namespace QEthics
                 if (!isAnimal && skills.Count > 0)
                 {
                     builder.AppendLine("QE_BrainScanDescription_Skills".Translate());
-                    foreach (SkillRecord skill in skills.OrderBy(skillRecord => skillRecord.def.index))
+                    foreach (ComparableSkillRecord skill in skills.OrderBy(skillRecord => skillRecord.def.index))
                     {
-                        builder.AppendLine("    " + skill.def.LabelCap + ": " + skill.levelInt);
+                        builder.AppendLine(skill.ToString());
                     }
                 }
 
@@ -141,25 +141,9 @@ namespace QEthics
                 if (!isAnimal && skills.Count > 0)
                 {
                     builder.AppendLine("QE_BrainScanDescription_Skills".Translate());
-                    foreach (SkillRecord skill in skills.OrderBy(skillRecord => skillRecord.def.index))
+                    foreach (ComparableSkillRecord skill in skills.OrderBy(skillRecord => skillRecord.def.index))
                     {
-                        builder.Append("    " + skill.def.LabelCap + ": " + skill.levelInt);
-
-                        switch (skill.passion)
-                        {
-                            case Passion.None:
-                                builder.AppendLine("");
-                                break;
-                            case Passion.Minor:
-                                builder.AppendLine("*");
-                                break;
-                            case Passion.Major:
-                                builder.AppendLine("**");
-                                break;
-                            default:
-                                builder.AppendLine("");
-                                break;
-                        }
+                        builder.AppendLine(skill.ToString());
                     }
                 }
 
@@ -188,12 +172,12 @@ namespace QEthics
                 //Humanoid
                 brainScan.backStoryChild = backStoryChild;
                 brainScan.backStoryAdult = backStoryAdult;
-                foreach (SkillRecord skill in skills)
+                foreach (ComparableSkillRecord skill in skills)
                 {
-                    brainScan.skills.Add(new SkillRecord()
+                    brainScan.skills.Add(new ComparableSkillRecord()
                     {
                         def = skill.def,
-                        Level = skill.Level,
+                        level = skill.level,
                         passion = skill.passion
                     });
                 }
@@ -212,13 +196,36 @@ namespace QEthics
             return splitThing;
         }
 
+        /// <summary>
+        /// Determines whether a list of ComparableSkillRecords is equivalent to another.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool SkillsEqual(List<ComparableSkillRecord> other)
+        {
+            if (skills.Count != other.Count)
+            {
+                return false;
+            }
+
+            //UNCOMMENT BELOW FOR ACTIVE DEBUGGING - too spammy even when debugLogging is true
+            //bool seqEqual = false;
+            //seqEqual = skills.SequenceEqual(other);
+            //QEEMod.TryLog("Skills equivalent: " + seqEqual.ToString().ToUpper());
+            //return seqEqual;
+
+            return skills.SequenceEqual(other);
+        }
+
         public override bool CanStackWith(Thing other)
         {
+
             if (other is BrainScanTemplate brainScan &&
                 backStoryChild == brainScan.backStoryChild &&
                 backStoryAdult == brainScan.backStoryAdult &&
                 DefMapsEqual(trainingLearned, brainScan.trainingLearned) &&
-                DefMapsEqual(trainingSteps, brainScan.trainingSteps))
+                DefMapsEqual(trainingSteps, brainScan.trainingSteps)
+                && SkillsEqual(brainScan.skills))
             {
                 return base.CanStackWith(other);
             }

@@ -109,10 +109,10 @@ namespace QEthics
                 {
                     foreach (SkillRecord skill in skillTracker.skills)
                     {
-                        brainScan.skills.Add(new SkillRecord()
+                        brainScan.skills.Add(new ComparableSkillRecord()
                         {
                             def = skill.def,
-                            Level = skill.Level,
+                            level = skill.Level,
                             passion = skill.passion
                         });
                     }
@@ -159,10 +159,10 @@ namespace QEthics
                 Pawn_SkillTracker skillTracker = thePawn.skills;
                 if (skillTracker != null)
                 {
-                    foreach (SkillRecord skill in brainScan.skills)
+                    foreach (ComparableSkillRecord skill in brainScan.skills)
                     {
                         SkillRecord pawnSkill = skillTracker.GetSkill(skill.def);
-                        pawnSkill.Level = (int)Math.Floor((float)skill.levelInt * efficency);
+                        pawnSkill.Level = (int)Math.Floor((float)skill.level * efficency);
                         pawnSkill.passion = skill.passion;
                         pawnSkill.Notify_SkillDisablesChanged();
                     }
