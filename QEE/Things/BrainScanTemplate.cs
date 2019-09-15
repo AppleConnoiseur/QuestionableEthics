@@ -225,7 +225,8 @@ namespace QEthics
                 backStoryAdult == brainScan.backStoryAdult &&
                 DefMapsEqual(trainingLearned, brainScan.trainingLearned) &&
                 DefMapsEqual(trainingSteps, brainScan.trainingSteps)
-                && SkillsEqual(brainScan.skills))
+                && SkillsEqual(brainScan.skills)
+                && sourceName == brainScan.sourceName)
             {
                 return base.CanStackWith(other);
             }
