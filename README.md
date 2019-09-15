@@ -48,6 +48,9 @@ This mod patches in changes to vanilla organ defs, but does not remove anything 
 * EPOE - Duplicated natural organ defs (two 'Eye' organs with different descriptions, for example). Outside of this, you should have no issues running with both mods enabled.
 * Harvest Organs Post-Mortem (HOPM) - All natural organs from QEE have a chance to spawn after autopsy
 
+**Partially Compatible**
+* Races from Lord of the Rims by Jecrell - Races can be cloned, but won't have their racial bonus. Workaround - Add the racial hediff to your save file for the pawn. Looking into adding this information to genome templates in a future patch.
+
 **Incompatible**
 * Multiplayer
 * Questionable Ethics
