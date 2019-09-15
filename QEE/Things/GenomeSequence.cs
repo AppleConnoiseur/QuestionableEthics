@@ -62,7 +62,7 @@ namespace QEthics
         public override bool CanStackWith(Thing other)
         {
             if(other is GenomeSequence otherGenome &&
-                //sourceName == otherGenome.sourceName &&
+                sourceName == otherGenome.sourceName &&
                 pawnKindDef == otherGenome.pawnKindDef &&
                 gender == otherGenome.gender &&
                 bodyType == otherGenome.bodyType &&
