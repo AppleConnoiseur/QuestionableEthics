@@ -2,7 +2,7 @@
 <LanguageData>
 
   <QE_GenomeSequencer.label>ゲノムシーケンサー</QE_GenomeSequencer.label>
-  <QE_GenomeSequencer.description>生死に関係なく生物の遺伝子配列情報(ゲノム)を解析(シーケンス)するために使用されるツールセットです。解析を行うポーンを選択した状態で、シーケンサーを右クリックして、解析の対象となる別のポーンを選択して、ゲノムシーケンス(解析)を決定します。解析が成功する確率は使用した外科医の医療スキルに比例します。</QE_GenomeSequencer.description>
+  <QE_GenomeSequencer.description>生死に関係なく生物の遺伝子配列情報(ゲノム)を解析(シーケンス)するために使用されるツールセットです。生きているポーンを解析を行うには、健康タブから「ゲノムを解析する」手術に追加します。死亡しているポーンの解析を行うには、解析を行うポーンを選択した状態で、ゲノムシーケンサーを右クリックして「死体からゲノムを回収」を選び、解析の対象となる死亡したポーンを選択して、ゲノムシーケンス(遺伝子解析)を決定します。\n\n解析が成功する確率は使用した外科医の医療スキルに比例します。</QE_GenomeSequencer.description>
 
   <QE_GenomeSequencerFilled.label>ゲノムテンプレート</QE_GenomeSequencerFilled.label>
   <QE_GenomeSequencerFilled.description>生物の持つ遺伝子配列情報(ゲノム)でいっぱいのデータボードです。クローン作成時に使用されると、新しい特性[培養槽育ち]をクローンされた生物に適用します。クローン培養槽を選択して、[培養開始]の機能をクリックしてクローニングしたい生物の遺伝子配列情報が入ったゲノムテンプレートを使用します。</QE_GenomeSequencerFilled.description>
