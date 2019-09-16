@@ -40,7 +40,7 @@
   <QE_GenomeSequencerDescription_Race>種族</QE_GenomeSequencerDescription_Race>
   <QE_GenomeSequencerDescription_Gender>性別</QE_GenomeSequencerDescription_Gender>
   <QE_GenomeSequencerDescription_Traits>特性</QE_GenomeSequencerDescription_Traits>
-  <QE_GenomeSequencerSalvage>死体からのゲノム回収率（{0}％）</QE_GenomeSequencerSalvage>
+  <QE_GenomeSequencerSalvage>死体からゲノムを回収（成功率:{0}）</QE_GenomeSequencerSalvage>
   <!-- Alerts -->
   <QE_AlertMaintenanceRequiredLabel>培養タンクの整備が必要</QE_AlertMaintenanceRequiredLabel>
   <QE_AlertMaintenanceRequiredExplanation>これらの培養タンクは直ちに整備が必要で、整備しなければタンクで培養しているものを失い、費やされた材料を無駄にするでしょう！\n\nすぐに整備を行うために医者(医療スキル)か研究者(知力スキル)を向かわせてください。</QE_AlertMaintenanceRequiredExplanation>
@@ -48,7 +48,7 @@
   <QE_MessageGrowingDone>{0}の培養が完了しました。</QE_MessageGrowingDone>
   <!-- Letters -->
   <QE_LetterHumanlikeGrownLabel>培養クローン製造</QE_LetterHumanlikeGrownLabel>
-  <QE_LetterHumanlikeGrownDescription>{PAWN_labelShort}の培養クローンがコロニーに参加しました！\n\n生まれたばかりの{PAWN_pronoun}は、まだスキルを持っていませんが、{PAWN_possessive}脳にブレインテンプレートを適用して{PAWN_possessive}脳にスキルセットを即座に与えることができます。</QE_LetterHumanlikeGrownDescription>
+  <QE_LetterHumanlikeGrownDescription>{PAWN_labelShort}の培養クローンがコロニーに参加しました！\n\n生まれたばかりの{PAWN_pronoun}は、まだスキルを持っていませんが、{PAWN_objective}脳にブレインテンプレートを適用して{PAWN_objective}脳にスキルセットを即座に与えることができます。</QE_LetterHumanlikeGrownDescription>
 
   <!-- Brain scanning -->
   <QE_BrainScanningRejectNoValidBed>{0}は有効なスキャン対象ですが、使用可能なベッドが見つかりませんでした。</QE_BrainScanningRejectNoValidBed>
@@ -101,5 +101,9 @@
   <QE_MaintenanceWorkThresholdTooltip>設定した整備状態(％)以下で「培養タンクの整備」をする仕事をポーンに与えます。初期値：40％</QE_MaintenanceWorkThresholdTooltip>
   <QE_GiveCloneNegativeThought>誕生したクローンに「培養クローン」のマイナスな思考を付与</QE_GiveCloneNegativeThought>
   <QE_GiveCloneNegativeThoughtTooltip>人間などのクローンが成長した際に、彼らが新しい環境に混乱するのを表現するために、クローンに一時的なマイナス思考を与えます。初期値：有効</QE_GiveCloneNegativeThoughtTooltip>
+
+  <!-- version 1.02 Patch -->
+  <QE_BlankGenomeTemplateName>これは使用しないで</QE_BlankGenomeTemplateName>
+  <QE_BlankGenomeTemplateDescription>このテンプレートは、ゲームイベントまたはデバッグコマンドによって生成されました。クローン生物には使えません。</QE_BlankGenomeTemplateDescription>
 
 </LanguageData>
