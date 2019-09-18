@@ -142,8 +142,8 @@ namespace QEthics
             //Give hair.
             if (pawnBeingGrown != null && pawnBeingGrown.RaceProps.Humanlike && pawnBeingGrown.story != null)
             {
-                HairDef hairDef = PawnHairChooser.RandomHairDefFor(pawnBeingGrown, Faction.def);
-                pawnBeingGrown.story.hairDef = hairDef;
+                //HairDef hairDef = PawnHairChooser.RandomHairDefFor(pawnBeingGrown, Faction.def);
+                //pawnBeingGrown.story.hairDef = hairDef;
                 pawnBeingGrown.Drawer.renderer.graphics.ResolveAllGraphics();
                 PortraitsCache.SetDirty(pawnBeingGrown);
                 PortraitsCache.PortraitsCacheUpdate();

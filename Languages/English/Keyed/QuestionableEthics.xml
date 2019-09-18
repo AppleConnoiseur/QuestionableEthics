@@ -103,4 +103,7 @@
 	<!-- version 1.02 Patch -->
 	<QE_BlankGenomeTemplateName>Do Not Use This</QE_BlankGenomeTemplateName>
 	<QE_BlankGenomeTemplateDescription>This template was generated via a game event or debug commands. It is unusuable in the cloning vat.</QE_BlankGenomeTemplateDescription>
+
+	<!-- version 1.03 Patch -->
+	<QE_GenomeSequencerDescription_Hair>Hair</QE_GenomeSequencerDescription_Hair>
 </LanguageData>

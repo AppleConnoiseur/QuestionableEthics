@@ -34,6 +34,7 @@ namespace QEthics
                     genomeSequence.crownType = story.crownType;
                     genomeSequence.hairColor = story.hairColor;
                     genomeSequence.skinMelanin = story.melanin;
+                    genomeSequence.hair = story.hairDef;
 
                     foreach (Trait trait in story.traits.allTraits)
                     {
@@ -77,11 +78,10 @@ namespace QEthics
             //Set everything else.
             if (pawn.story is Pawn_StoryTracker storyTracker)
             {
-                storyTracker.hairDef = DefDatabase<HairDef>.GetNamed("Shaved");
-
                 storyTracker.bodyType = genomeSequence.bodyType;
                 storyTracker.crownType = genomeSequence.crownType;
                 storyTracker.hairColor = genomeSequence.hairColor;
+                storyTracker.hairDef = genomeSequence.hair ?? PawnHairChooser.RandomHairDefFor(pawn, pawn.Faction.def);
                 storyTracker.melanin = genomeSequence.skinMelanin;
 
                 storyTracker.traits.allTraits.Clear();

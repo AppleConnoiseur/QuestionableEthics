@@ -22,8 +22,9 @@ namespace QEthics
         public BodyTypeDef bodyType = BodyTypeDefOf.Thin;
         public CrownType crownType = CrownType.Undefined;
         public List<ExposedTraitEntry> traits = new List<ExposedTraitEntry>();
-        public Color hairColor = new Color();
+        public Color hairColor = new Color(0.0f,0.0f,0.0f);
         public float skinMelanin = 0f;
+        public HairDef hair = new HairDef();
 
         //AlienRace compatibility.
         /// <summary>
@@ -51,6 +52,18 @@ namespace QEthics
             Scribe_Values.Look(ref skinMelanin, "skinMelanin");
             Scribe_Collections.Look(ref traits, "traits", LookMode.Deep);
 
+            //Values that could be null in save file go here
+            if (Scribe.mode == LoadSaveMode.LoadingVars)
+            {
+                HairDef hairTest = null;
+                Scribe_Defs.Look(ref hairTest, "hair");
+                hair = hairTest ?? DefDatabase<HairDef>.GetNamed("Shaved") ?? null;
+            }
+            else if (hair != null)
+            {
+                Scribe_Defs.Look(ref hair, "hair");
+            }
+
             //Alien Compat.
             Scribe_Values.Look(ref isAlien, "isAlien");
             Scribe_Values.Look(ref skinColor, "skinColor");
@@ -74,6 +87,8 @@ namespace QEthics
                 skinColorSecond == otherGenome.skinColorSecond &&
                 hairColorSecond == otherGenome.hairColorSecond &&
                 crownTypeAlien == otherGenome.crownTypeAlien &&
+                (hair != null && otherGenome.hair != null && hair.ToString() == otherGenome.hair.ToString()
+                    || hair == null && otherGenome.hair == null) &&
                 traits.SequenceEqual(otherGenome.traits))
             {
                 return base.CanStackWith(other);
@@ -107,6 +122,7 @@ namespace QEthics
                 splitThingStack.crownType = crownType;
                 splitThingStack.hairColor = hairColor;
                 splitThingStack.skinMelanin = skinMelanin;
+                splitThingStack.hair = hair;
                 foreach (ExposedTraitEntry traitEntry in traits)
                 {
                     splitThingStack.traits.Add(new ExposedTraitEntry(traitEntry));
@@ -188,6 +204,11 @@ namespace QEthics
                 builder.AppendLine("QE_GenomeSequencerDescription_Name".Translate() + ": " + sourceName);
                 builder.AppendLine("QE_GenomeSequencerDescription_Race".Translate() + ": " + pawnKindDef.race.LabelCap);
                 builder.AppendLine("QE_GenomeSequencerDescription_Gender".Translate() + ": " + GenderUtility.GetLabel(gender, pawnKindDef.race.race.Animal).CapitalizeFirst());
+
+                if (hair != null && hair.texPath != null)
+                {
+                    builder.AppendLine("QE_GenomeSequencerDescription_Hair".Translate() + ": " + hair.ToString());
+                }
 
                 //Traits
                 if (traits.Count > 0)
