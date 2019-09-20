@@ -55,29 +55,13 @@ namespace QEthics
                 Scribe_Values.Look(ref hairColor, "hairColor");
                 Scribe_Values.Look(ref skinMelanin, "skinMelanin");
                 Scribe_Collections.Look(ref traits, "traits", LookMode.Deep);
+                Scribe_Defs.Look(ref hair, "hair");
 
                 //Values that could be null in save file go here
-                if (Scribe.mode == LoadSaveMode.LoadingVars)
+                if (Scribe.mode == LoadSaveMode.PostLoadInit && hair == null)
                 {
-                    HairDef hairFromSave = null;
-                    Scribe_Defs.Look(ref hairFromSave, "hair");
-                    hair = hairFromSave ?? DefDatabase<HairDef>.GetNamed("Shaved");
-
-                    //below is for active debug only. Could spam debug log when loading saves
-                    //if (hair != null)
-                    //{
-                    //    QEEMod.TryLog("loading hair for " + sourceName + ": " + hair.ToString());
-                    //}
-                    //else
-                    //    QEEMod.TryLog("hair is null for " + sourceName);
-                }
-                else if (Scribe.mode == LoadSaveMode.Saving)
-                {
-                    if (hair != null)
-                    {
-                        //QEEMod.TryLog("saving hair for " + sourceName);
-                        Scribe_Defs.Look(ref hair, "hair");
-                    }
+                    //hair = DefDatabase<HairDef>.AllDefs.RandomElement();
+                    hair = DefDatabase<HairDef>.GetNamed("Shaved");
                 }
             }
 
