@@ -24,7 +24,7 @@ namespace QEthics
         public List<ExposedTraitEntry> traits = new List<ExposedTraitEntry>();
         public Color hairColor = new Color(0.0f,0.0f,0.0f);
         public float skinMelanin = 0f;
-        public HairDef hair = new HairDef();
+        public HairDef hair = null;
 
         //AlienRace compatibility.
         /// <summary>
@@ -45,23 +45,40 @@ namespace QEthics
             Scribe_Defs.Look(ref pawnKindDef, "pawnKindDef");
             Scribe_Values.Look(ref gender, "gender");
 
-            //Humanoid only.
-            Scribe_Defs.Look(ref bodyType, "bodyType");
+            //Load first humanoid value
             Scribe_Values.Look(ref crownType, "crownType");
-            Scribe_Values.Look(ref hairColor, "hairColor");
-            Scribe_Values.Look(ref skinMelanin, "skinMelanin");
-            Scribe_Collections.Look(ref traits, "traits", LookMode.Deep);
 
-            //Values that could be null in save file go here
-            if (Scribe.mode == LoadSaveMode.LoadingVars)
+            //Save/Load rest of the humanoid values. CrownType will be Undefined for animals.
+            if (crownType != CrownType.Undefined)
             {
-                HairDef hairTest = null;
-                Scribe_Defs.Look(ref hairTest, "hair");
-                hair = hairTest ?? DefDatabase<HairDef>.GetNamed("Shaved") ?? null;
-            }
-            else if (hair != null)
-            {
-                Scribe_Defs.Look(ref hair, "hair");
+                Scribe_Defs.Look(ref bodyType, "bodyType");
+                Scribe_Values.Look(ref hairColor, "hairColor");
+                Scribe_Values.Look(ref skinMelanin, "skinMelanin");
+                Scribe_Collections.Look(ref traits, "traits", LookMode.Deep);
+
+                //Values that could be null in save file go here
+                if (Scribe.mode == LoadSaveMode.LoadingVars)
+                {
+                    HairDef hairFromSave = null;
+                    Scribe_Defs.Look(ref hairFromSave, "hair");
+                    hair = hairFromSave ?? DefDatabase<HairDef>.GetNamed("Shaved");
+
+                    //below is for active debug only. Could spam debug log when loading saves
+                    //if (hair != null)
+                    //{
+                    //    QEEMod.TryLog("loading hair for " + sourceName + ": " + hair.ToString());
+                    //}
+                    //else
+                    //    QEEMod.TryLog("hair is null for " + sourceName);
+                }
+                else if (Scribe.mode == LoadSaveMode.Saving)
+                {
+                    if (hair != null)
+                    {
+                        //QEEMod.TryLog("saving hair for " + sourceName);
+                        Scribe_Defs.Look(ref hair, "hair");
+                    }
+                }
             }
 
             //Alien Compat.
