@@ -35,6 +35,7 @@ namespace QEthics
                     genomeSequence.hairColor = story.hairColor;
                     genomeSequence.skinMelanin = story.melanin;
                     genomeSequence.hair = story.hairDef;
+                    genomeSequence.headGraphicPath = story.HeadGraphicPath;
 
                     foreach (Trait trait in story.traits.allTraits)
                     {
@@ -83,6 +84,22 @@ namespace QEthics
                 storyTracker.hairColor = genomeSequence.hairColor;
                 storyTracker.hairDef = genomeSequence.hair ?? PawnHairChooser.RandomHairDefFor(pawn, pawn.Faction.def);
                 storyTracker.melanin = genomeSequence.skinMelanin;
+
+                //headGraphicPath is private, so we need Harmony to set its value
+                if (genomeSequence.headGraphicPath != null)
+                {
+                    AccessTools.Field(typeof(Pawn_StoryTracker), "headGraphicPath").SetValue(storyTracker, genomeSequence.headGraphicPath);
+                }
+                else
+                {
+                    //could use this code to make a random head, instead of the static graphic paths.
+                    //AccessTools.Field(typeof(Pawn_StoryTracker), "headGraphicPath").SetValue(storyTracker,
+                    //GraphicDatabaseHeadRecords.GetHeadRandom(genomeSequence.gender, PawnSkinColors.GetSkinColor(genomeSequence.skinMelanin), genomeSequence.crownType).GraphicPath);
+
+                    string path = genomeSequence.gender == Gender.Male ? "Things/Pawn/Humanlike/Heads/Male/Male_Average_Normal" :
+                            "Things/Pawn/Humanlike/Heads/Female/Female_Narrow_Normal";
+                    AccessTools.Field(typeof(Pawn_StoryTracker), "headGraphicPath").SetValue(storyTracker, path);
+                }
 
                 storyTracker.traits.allTraits.Clear();
                 foreach (ExposedTraitEntry trait in genomeSequence.traits)

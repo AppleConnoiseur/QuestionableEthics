@@ -25,6 +25,7 @@ namespace QEthics
         public Color hairColor = new Color(0.0f,0.0f,0.0f);
         public float skinMelanin = 0f;
         public HairDef hair = null;
+        public string headGraphicPath = null;
 
         //AlienRace compatibility.
         /// <summary>
@@ -56,12 +57,24 @@ namespace QEthics
                 Scribe_Values.Look(ref skinMelanin, "skinMelanin");
                 Scribe_Collections.Look(ref traits, "traits", LookMode.Deep);
                 Scribe_Defs.Look(ref hair, "hair");
+                Scribe_Values.Look(ref headGraphicPath, "headGraphicPath");
 
                 //Values that could be null in save file go here
-                if (Scribe.mode == LoadSaveMode.PostLoadInit && hair == null)
+                if (Scribe.mode == LoadSaveMode.PostLoadInit)
                 {
-                    //hair = DefDatabase<HairDef>.AllDefs.RandomElement();
-                    hair = DefDatabase<HairDef>.GetNamed("Shaved");
+                    if (hair == null)
+                    {
+                        //hair = DefDatabase<HairDef>.AllDefs.RandomElement();
+                        hair = DefDatabase<HairDef>.GetNamed("Shaved");
+                    }
+                    if (headGraphicPath == null)
+                    {
+                        //*slaps roof of car* this bad code can crash your game!
+                        //headGraphicPath = GraphicDatabaseHeadRecords.GetHeadRandom(gender, PawnSkinColors.GetSkinColor(skinMelanin), crownType).GraphicPath;
+
+                        headGraphicPath = gender == Gender.Male ? "Things/Pawn/Humanlike/Heads/Male/Male_Average_Normal" :
+                            "Things/Pawn/Humanlike/Heads/Female/Female_Narrow_Normal";
+                    }
                 }
             }
 
@@ -124,6 +137,7 @@ namespace QEthics
                 splitThingStack.hairColor = hairColor;
                 splitThingStack.skinMelanin = skinMelanin;
                 splitThingStack.hair = hair;
+                splitThingStack.headGraphicPath = headGraphicPath;
                 foreach (ExposedTraitEntry traitEntry in traits)
                 {
                     splitThingStack.traits.Add(new ExposedTraitEntry(traitEntry));
