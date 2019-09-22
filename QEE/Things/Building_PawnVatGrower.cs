@@ -90,7 +90,7 @@ namespace QEthics
             }
         }
 
-        public override Thing ExtractProduct(Pawn pawn)
+        public override bool TryExtractProduct(Pawn actor)
         {
             if (status == CrafterStatus.Finished)
             {
@@ -105,20 +105,31 @@ namespace QEthics
             renderMaterial = null;
             lastLifestageAge = null;
 
-            Pawn tempPawn = pawnBeingGrown;
-            pawnBeingGrown = null;
-
-            if(tempPawn.RaceProps.Humanlike)
+            if(pawnBeingGrown == null)
             {
-                Find.LetterStack.ReceiveLetter("QE_LetterHumanlikeGrownLabel".Translate(), "QE_LetterHumanlikeGrownDescription".Translate(tempPawn.Named("PAWN")), LetterDefOf.PositiveEvent, new LookTargets(tempPawn));
-                TaleRecorder.RecordTale(QETaleDefOf.QE_Vatgrown, tempPawn);
-
-                if (QEESettings.instance.giveCloneNegativeThought)
-                {
-                    tempPawn.needs.mood.thoughts.memories.TryGainMemory(QEThoughtDefOf.QE_VatGrownCloneConfusion);
-                }
+                //TODO - translate this
+                //Messages.Message("QE_MessageGrowingDone".Translate(pawnBeingGrown.LabelCap), new LookTargets(this), MessageTypeDefOf.PositiveEvent);
+                Messages.Message("The clone in the Cloning Vat is null. Aborting clone process and refunding ingredients.", new LookTargets(this), MessageTypeDefOf.NegativeEvent);
+                return false;
             }
-            return tempPawn;
+            else 
+            {
+                Pawn tempPawn = pawnBeingGrown;
+                if (tempPawn.RaceProps.Humanlike)
+                {
+                    Find.LetterStack.ReceiveLetter("QE_LetterHumanlikeGrownLabel".Translate(), "QE_LetterHumanlikeGrownDescription".Translate(tempPawn.Named("PAWN")), LetterDefOf.PositiveEvent, new LookTargets(tempPawn));
+                    TaleRecorder.RecordTale(QETaleDefOf.QE_Vatgrown, tempPawn);
+
+                    if (QEESettings.instance.giveCloneNegativeThought)
+                    {
+                        tempPawn.needs?.mood?.thoughts?.memories?.TryGainMemory(QEThoughtDefOf.QE_VatGrownCloneConfusion);
+                    }
+                }
+
+                GenPlace.TryPlaceThing(tempPawn, this.InteractionCell, this.Map, ThingPlaceMode.Near);
+            }
+            pawnBeingGrown = null;
+            return true;
         }
 
         public override void Notify_CraftingStarted()

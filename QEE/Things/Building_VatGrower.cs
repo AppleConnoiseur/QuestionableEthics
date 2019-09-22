@@ -5,6 +5,7 @@ using System.Text;
 using Verse;
 using RimWorld;
 using UnityEngine;
+using Verse.AI;
 
 namespace QEthics
 {
@@ -194,7 +195,7 @@ namespace QEthics
             }
         }
 
-        public override Thing ExtractProduct(Pawn pawn)
+        public override bool TryExtractProduct(Pawn actor)
         {
             Thing product = ThingMaker.MakeThing(activeRecipe.productDef);
             product.stackCount = activeRecipe.productAmount;
@@ -204,7 +205,21 @@ namespace QEthics
                 CraftingFinished();
             }
 
-            return product;
+            //place product on the interaction cell of the grower
+            GenPlace.TryPlaceThing(product, this.InteractionCell, this.Map, ThingPlaceMode.Near);
+
+            //Pawn extracting product hauls product back to storage
+            IntVec3 storeCell;
+            IHaulDestination haulDestination;
+            if (StoreUtility.TryFindBestBetterStorageFor(product, actor, product.Map, StoragePriority.Unstored, actor.Faction, out storeCell, out haulDestination, false))
+            {
+                if (storeCell.IsValid || haulDestination != null)
+                {
+                    actor.jobs.StartJob(HaulAIUtility.HaulToStorageJob(actor, product), JobCondition.Succeeded);
+                }
+            }
+
+            return true;
         }
 
         public void StartCraftingRecipe(GrowerRecipeDef recipeDef)

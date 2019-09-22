@@ -38,30 +38,9 @@ namespace QEthics
                     Building_GrowerBase grower = TargetThingA as Building_GrowerBase;
                     if(grower != null)
                     {
-                        Pawn actor = GetActor();
-                        Thing product = grower.ExtractProduct(actor);
-                        if(!product.Spawned)
-                        {
-                            GenPlace.TryPlaceThing(product, grower.InteractionCell, grower.Map, ThingPlaceMode.Near);
-                        }
-                        
-                        if (product is Pawn)
-                        {
-                            EndJobWith(JobCondition.Succeeded);
-                        }
-                        else
-                        {
-                            //job.SetTarget(TargetIndex.B, product);
-                            IntVec3 storeCell;
-                            IHaulDestination haulDestination;
-                            if(StoreUtility.TryFindBestBetterStorageFor(product, actor, product.Map, StoragePriority.Unstored, actor.Faction, out storeCell, out haulDestination, false))
-                            {
-                                if(storeCell.IsValid || haulDestination != null)
-                                {
-                                    actor.jobs.StartJob(HaulAIUtility.HaulToStorageJob(actor, product), JobCondition.Succeeded);
-                                }
-                            }
-                        }
+                        grower.TryExtractProduct(GetActor());
+
+                        EndJobWith(JobCondition.Succeeded);
                     }
                 }
             };

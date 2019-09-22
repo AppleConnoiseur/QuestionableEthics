@@ -319,9 +319,9 @@ namespace QEthics
             }
         }
 
-        public virtual Thing ExtractProduct(Pawn pawn)
+        public virtual bool TryExtractProduct(Pawn actor)
         {
-            return null;
+            return true;
         }
     }
 }
