@@ -57,6 +57,16 @@ namespace QEthics
 
         private VatGrowerProperties vatGrowerPropsInt;
 
+        public override void ExposeData()
+        {
+            base.ExposeData();
+
+            Scribe_Defs.Look(ref pawnKindToGrow, "pawnKindToGrow");
+            Scribe_Values.Look(ref scientistMaintenance, "scientistMaintenance");
+            Scribe_Values.Look(ref doctorMaintenance, "doctorMaintenance");
+            Scribe_Deep.Look(ref pawnBeingGrown, "pawnBeingGrown");
+        }
+
         public VatGrowerProperties VatGrowerProps
         {
             get
@@ -90,46 +100,28 @@ namespace QEthics
             }
         }
 
-        public override bool TryExtractProduct(Pawn actor)
+        /// <summary>
+        /// Begin the crafting process. Called when the player selects a genome template in the 'Start Growing' gizmo .
+        /// </summary>
+        /// <param name="genome"></param>
+        public void StartCrafting(GenomeSequence genome)
         {
-            if (status == CrafterStatus.Finished)
-            {
-                CraftingFinished();
-                if (innerContainer.Count > 0)
-                {
-                    innerContainer.TryDropAll(InteractionCell, Map, ThingPlaceMode.Near);
-                }
-            }
+            //Setup recipe order
+            orderProcessor.Reset();
+            orderProcessor.desiredIngredients.Add(new ThingOrderRequest(genome));
+            IngredientUtility.FillOrderProcessorFromPawnKindDef(orderProcessor, genome.pawnKindDef);
+            orderProcessor.Notify_ContentsChanged();
+            craftingProgress = 0;
 
-            renderTexture = null;
-            renderMaterial = null;
-            lastLifestageAge = null;
-
-            if(pawnBeingGrown == null)
-            {
-                //TODO - translate this
-                //Messages.Message("QE_MessageGrowingDone".Translate(pawnBeingGrown.LabelCap), new LookTargets(this), MessageTypeDefOf.PositiveEvent);
-                Messages.Message("The clone in the Cloning Vat is null. Aborting clone process and refunding ingredients.", new LookTargets(this), MessageTypeDefOf.NegativeEvent);
-                return false;
-            }
-            else 
-            {
-                Pawn tempPawn = pawnBeingGrown;
-                if (tempPawn.RaceProps.Humanlike)
-                {
-                    Find.LetterStack.ReceiveLetter("QE_LetterHumanlikeGrownLabel".Translate(), "QE_LetterHumanlikeGrownDescription".Translate(tempPawn.Named("PAWN")), LetterDefOf.PositiveEvent, new LookTargets(tempPawn));
-                    TaleRecorder.RecordTale(QETaleDefOf.QE_Vatgrown, tempPawn);
-
-                    if (QEESettings.instance.giveCloneNegativeThought)
-                    {
-                        tempPawn.needs?.mood?.thoughts?.memories?.TryGainMemory(QEThoughtDefOf.QE_VatGrownCloneConfusion);
-                    }
-                }
-
-                GenPlace.TryPlaceThing(tempPawn, this.InteractionCell, this.Map, ThingPlaceMode.Near);
-            }
+            //Reset stuff
             pawnBeingGrown = null;
-            return true;
+
+            //Initialize maintenance
+            scientistMaintenance = 0.25f;
+            doctorMaintenance = 0.25f;
+
+            pawnKindToGrow = genome.pawnKindDef;
+            status = CrafterStatus.Filling;
         }
 
         public override void Notify_CraftingStarted()
@@ -137,43 +129,40 @@ namespace QEthics
             //Remove all except for the GenomeSequence.
             orderProcessor.Reset();
 
-            innerContainer.RemoveAll(thing => !(thing is GenomeSequence));
+            //innerContainer.RemoveAll(thing => !(thing is GenomeSequence));
 
-            //Create and setup pawn.
-            GenomeSequence genome = innerContainer.First(thing => thing is GenomeSequence) as GenomeSequence;
-
-            Pawn pawn = GenomeUtility.MakePawnFromGenomeSequence(genome, this);
-
-            //Finalized.
-            pawnBeingGrown = pawn;
+            TryMakeClone();
         }
 
-        public override void Notify_CraftingFinished()
+        public bool TryMakeClone()
         {
-            //Give hair.
-            if (pawnBeingGrown != null && pawnBeingGrown.RaceProps.Humanlike && pawnBeingGrown.story != null)
+            if (innerContainer.Any(thing => thing is GenomeSequence))
             {
-                //HairDef hairDef = PawnHairChooser.RandomHairDefFor(pawnBeingGrown, Faction.def);
-                //pawnBeingGrown.story.hairDef = hairDef;
-                pawnBeingGrown.Drawer.renderer.graphics.ResolveAllGraphics();
-                PortraitsCache.SetDirty(pawnBeingGrown);
-                PortraitsCache.PortraitsCacheUpdate();
-                Messages.Message("QE_MessageGrowingDone".Translate(pawnBeingGrown.LabelCap), new LookTargets(this), MessageTypeDefOf.PositiveEvent);
+                GenomeSequence genome = innerContainer.FirstOrDefault(thing => thing is GenomeSequence) as GenomeSequence;
+
+                if (genome == null)
+                {
+                    return false;
+                }
+                pawnBeingGrown = GenomeUtility.MakePawnFromGenomeSequence(genome, this);
+
+                return true;
             }
 
-            //set minimum age manually as an extra check against negative ages
-            float minAge = pawnKindToGrow.RaceProps.lifeStageAges.Last().minAge;
-            long calculatedAgeTicks = (long)(minAge * (float)GenDate.TicksPerYear);
-            pawnBeingGrown.ageTracker.AgeBiologicalTicks = calculatedAgeTicks;
-            pawnBeingGrown.ageTracker.AgeChronologicalTicks = calculatedAgeTicks;
+            return false;
         }
 
         public override void Tick_Crafting()
         {
             base.Tick_Crafting();
 
-            //Increment Pawn age
-            if(pawnBeingGrown != null)
+            //attempt to re-make the clone, if it somehow became null
+            if (pawnBeingGrown == null && TryMakeClone() == false)
+            {
+                Messages.Message("QE_CloningPawnNullMessage".Translate(), new LookTargets(this), MessageTypeDefOf.NegativeEvent);
+                StopCrafting(true);
+            }
+            else
             {
                 if (pawnBeingGrown.Rotation != Rotation.Opposite)
                 {
@@ -197,37 +186,142 @@ namespace QEthics
 
                 //QEEMod.TryLog("BioAge of clone " + pawnBeingGrown.LabelShort + ": " + 
                 //    pawnBeingGrown.ageTracker.AgeBiologicalTicks);
+
+                //Deduct maintenance, fail if any of them go below 0%.
+                float powerModifier = 1f;
+                if (PowerTrader != null && !PowerTrader.PowerOn)
+                {
+                    powerModifier = 15f;
+                }
+                float cleanlinessModifer = cleanlinessCurve.Evaluate(RoomCleanliness);
+                float decayRate = 0.00002f * cleanlinessModifer * powerModifier / (QEESettings.instance.maintRateFloat);
+
+                scientistMaintenance -= decayRate;
+                doctorMaintenance -= decayRate;
+
+                if (scientistMaintenance < 0f || doctorMaintenance < 0f)
+                {
+                    //Fail the cloning process and return only the genome template
+                    StopCrafting(false);
+                }
             }
+        }
 
-            //Deduct maintenance, fail if any of them go below 0%.
-            float powerModifier = 1f;
-            if (PowerTrader != null && !PowerTrader.PowerOn)
+        public override void Notify_CraftingFinished()
+        {
+            //attempt to re-make the clone, if it somehow became null
+            if (pawnBeingGrown == null && TryMakeClone() == false)
             {
-                powerModifier = 15f;
-            }
-            float cleanlinessModifer = cleanlinessCurve.Evaluate(RoomCleanliness);
-            float decayRate = 0.00002f * cleanlinessModifer * powerModifier / (QEESettings.instance.maintRateFloat);
-
-            scientistMaintenance -= decayRate;
-            doctorMaintenance -= decayRate;
-
-            if (scientistMaintenance < 0f || doctorMaintenance < 0f)
-            {
-                //Fail the cloning process and return the genome template
-                //Reset();
+                Messages.Message("QE_CloningPawnNullMessage".Translate(), new LookTargets(this), MessageTypeDefOf.NegativeEvent);
                 StopCrafting(true);
             }
+            else
+            {
+                if (pawnBeingGrown.RaceProps.Humanlike && pawnBeingGrown.story != null)
+                {
+                    //HairDef hairDef = PawnHairChooser.RandomHairDefFor(pawnBeingGrown, Faction.def);
+                    //pawnBeingGrown.story.hairDef = hairDef;
+                    pawnBeingGrown.Drawer.renderer.graphics.ResolveAllGraphics();
+                    PortraitsCache.SetDirty(pawnBeingGrown);
+                    PortraitsCache.PortraitsCacheUpdate();
+                    Messages.Message("QE_MessageGrowingDone".Translate(pawnBeingGrown.LabelCap), new LookTargets(this), MessageTypeDefOf.PositiveEvent);
+                }
+
+                //set minimum age manually as an extra check against negative ages
+                float minAge = pawnKindToGrow.RaceProps.lifeStageAges.Last().minAge;
+                long calculatedAgeTicks = (long)(minAge * (float)GenDate.TicksPerYear);
+                pawnBeingGrown.ageTracker.AgeBiologicalTicks = calculatedAgeTicks;
+                pawnBeingGrown.ageTracker.AgeChronologicalTicks = calculatedAgeTicks;
+            }
         }
 
-        public override void ExposeData()
+        /// <summary>
+        /// Stops the cloning process, resets the vat, and refunds any ingredients used. Will always return genome template.
+        /// This function is called if cloning fails, succeeds, or is manually stopped via the Stop gizmo.
+        /// </summary>
+        /// <param name="keepIngredients"></param>
+        public void StopCrafting(bool keepIngredients = true)
         {
-            base.ExposeData();
+            QEEMod.TryLog("Stopping cloning process. Keep Ingredients: " + keepIngredients);
 
-            Scribe_Defs.Look(ref pawnKindToGrow, "pawnKindToGrow");
-            Scribe_Values.Look(ref scientistMaintenance, "scientistMaintenance");
-            Scribe_Values.Look(ref doctorMaintenance, "doctorMaintenance");
-            Scribe_Deep.Look(ref pawnBeingGrown, "pawnBeingGrown");
+            craftingProgress = 0;
+            orderProcessor.Reset();
+            renderTexture = null;
+            renderMaterial = null;
+            lastLifestageAge = null;
+            status = CrafterStatus.Idle;
+            pawnKindToGrow = null;
+
+            //destroy pawn if cloning process is not complete. pawnBeingGrown will be set to null in TryExtractProduct()
+            if (pawnBeingGrown != null && !pawnBeingGrown.Destroyed)
+            {
+                pawnBeingGrown.Destroy();
+            }
+            pawnBeingGrown = null;
+
+            if (innerContainer != null && innerContainer.Count > 0)
+            {
+                QEEMod.TryLog("Inner container count: " + innerContainer.Count);
+
+                if (keepIngredients)
+                {
+                    bool wasSuccess = innerContainer.TryDropAll(InteractionCell, Map, ThingPlaceMode.Near);
+                    //QEEMod.TryLog("TryDropAll() success: " + wasSuccess);
+                }
+
+                else if(innerContainer.Any(thing => thing is GenomeSequence))
+                {
+                    //QEEMod.TryLog("Dropping genome template only");
+                    //drop only the genome template
+                    innerContainer.TryDrop(innerContainer.FirstOrDefault(thing => thing is GenomeSequence), InteractionCell, Map, ThingPlaceMode.Near, out Thing _);
+                }
+            }
+
+            innerContainer.ClearAndDestroyContents();
         }
+
+        /// <summary>
+        /// This function is called when a Pawn goes to extract the clone from the vat. Called from the JobDriver_ExtractGrowerProduct class.
+        /// </summary>
+        /// <param name="actor"></param>
+        /// <returns></returns>
+        public override bool TryExtractProduct(Pawn actor)
+        {
+            bool wasSuccess = true;
+
+            if (pawnBeingGrown == null && TryMakeClone() == false)
+            {
+                Messages.Message("QE_CloningPawnNullMessage".Translate(), new LookTargets(this), MessageTypeDefOf.NegativeEvent);
+                wasSuccess = false;
+                StopCrafting(true);
+            }
+            else
+            {
+                Pawn tempPawn = pawnBeingGrown;
+                pawnBeingGrown = null;
+
+                if (tempPawn.RaceProps.Humanlike)
+                {
+                    Find.LetterStack.ReceiveLetter("QE_LetterHumanlikeGrownLabel".Translate(), "QE_LetterHumanlikeGrownDescription".Translate(tempPawn.Named("PAWN")), LetterDefOf.PositiveEvent, new LookTargets(tempPawn));
+                    TaleRecorder.RecordTale(QETaleDefOf.QE_Vatgrown, tempPawn);
+
+                    if (QEESettings.instance.giveCloneNegativeThought)
+                    {
+                        tempPawn.needs?.mood?.thoughts?.memories?.TryGainMemory(QEThoughtDefOf.QE_VatGrownCloneConfusion);
+                    }
+                }
+
+                //Place new clone on the vat's Interaction Cell
+                GenPlace.TryPlaceThing(tempPawn, this.InteractionCell, this.Map, ThingPlaceMode.Near);
+
+                //remove any ingredients used to create the Pawn
+                innerContainer.RemoveAll(thing => !(thing is GenomeSequence));
+                StopCrafting(false);
+            }
+
+            return wasSuccess;
+        }
+
 
         public override string TransformStatusLabel(string label)
         {
@@ -347,52 +441,6 @@ namespace QEthics
             }
         }
 
-        public void StopCrafting(bool keepIngredients = true)
-        {
-            craftingProgress = 0;
-            orderProcessor.Reset();
-            renderTexture = null;
-            renderMaterial = null;
-            lastLifestageAge = null;
-
-            pawnKindToGrow = null;
-            if(pawnBeingGrown != null && !pawnBeingGrown.Destroyed && status == CrafterStatus.Crafting)
-            {
-                pawnBeingGrown.Destroy();
-                pawnBeingGrown = null;
-            }
-
-            status = CrafterStatus.Idle;
-            if (innerContainer.Count > 0 && keepIngredients)
-            {
-                innerContainer.TryDropAll(InteractionCell, Map, ThingPlaceMode.Near);
-            }
-            else
-            {
-                innerContainer.ClearAndDestroyContents();
-            }
-        }
-
-        public void StartCrafting(GenomeSequence genome)
-        {
-            //Setup recipe order
-            orderProcessor.Reset();
-            orderProcessor.desiredIngredients.Add(new ThingOrderRequest(genome));
-            IngredientUtility.FillOrderProcessorFromPawnKindDef(orderProcessor, genome.pawnKindDef);
-            orderProcessor.Notify_ContentsChanged();
-            craftingProgress = 0;
-
-            //Reset stuff
-            pawnBeingGrown = null;
-
-            //Initialize maintenance
-            scientistMaintenance = 0.25f;
-            doctorMaintenance = 0.25f;
-
-            pawnKindToGrow = genome.pawnKindDef;
-            status = CrafterStatus.Filling;
-        }
-
         public override void Notify_StartedCarryThing(Pawn pawn)
         {
             if(pawn.carryTracker.CarriedThing is GenomeSequence genome)
@@ -484,6 +532,11 @@ namespace QEthics
             }
             else
             {
+                bool shouldRefundIngredients = false;
+                if (status == CrafterStatus.Filling)
+                {
+                    shouldRefundIngredients = true;
+                }
                 if (status != CrafterStatus.Finished)
                 {
                     yield return new Command_Action()
@@ -494,7 +547,7 @@ namespace QEthics
                         order = -100,
                         action = delegate ()
                         {
-                            StopCrafting();
+                            StopCrafting(shouldRefundIngredients);
                         }
                     };
 
