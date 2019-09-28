@@ -109,4 +109,6 @@
 	<QE_CloningPawnNullMessage>The clone pawn in the Cloning Vat is broken and attempts to fix it failed. Aborting clone process, refunding ingredients, and resetting vat.</QE_CloningPawnNullMessage>
 	<QE_CloningMaintFailMessage>Cloning process failed for clone of {SOURCEPAWNNAME}. Reason - Vat not maintained</QE_CloningMaintFailMessage>
 	<QE_CloningMaintFailFallbackMessage>Cloning process failed. Reason - Vat not maintained</QE_CloningMaintFailFallbackMessage>
+	<QE_OrgaVatMaintFailMessage>{ORGANNAME} creation failed. Reason - Vat not maintained</QE_OrgaVatMaintFailMessage>
+	<QE_OrgaVatMaintFailFallbackMessage>Organ creation failed. Reason - Vat not maintained</QE_OrgaVatMaintFailFallbackMessage>
 </LanguageData>

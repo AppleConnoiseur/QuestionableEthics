@@ -192,6 +192,14 @@ namespace QEthics
             {
                 //Fail the craft, waste all products.
                 Reset();
+                if (activeRecipe?.productDef?.defName != null)
+                {
+                    Messages.Message("QE_OrgaVatMaintFailMessage".Translate(activeRecipe.productDef.defName.Named("ORGANNAME")), new LookTargets(this), MessageTypeDefOf.NegativeEvent);
+                }
+                else
+                {
+                    Messages.Message("QE_OrgaVatMaintFailFallbackMessage".Translate(), new LookTargets(this), MessageTypeDefOf.NegativeEvent);
+                }
             }
         }
 
