@@ -107,4 +107,6 @@
 	<!-- version 1.03 Patch -->
 	<QE_GenomeSequencerDescription_Hair>Hair</QE_GenomeSequencerDescription_Hair>
 	<QE_CloningPawnNullMessage>The clone pawn in the Cloning Vat is broken and attempts to fix it failed. Aborting clone process, refunding ingredients, and resetting vat.</QE_CloningPawnNullMessage>
+	<QE_CloningMaintFailMessage>Cloning process failed for clone of {SOURCEPAWNNAME}. Reason - Vat not maintained</QE_CloningMaintFailMessage>
+	<QE_CloningMaintFailFallbackMessage>Cloning process failed. Reason - Vat not maintained</QE_CloningMaintFailFallbackMessage>
 </LanguageData>

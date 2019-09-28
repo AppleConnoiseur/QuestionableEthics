@@ -202,6 +202,17 @@ namespace QEthics
                 if (scientistMaintenance < 0f || doctorMaintenance < 0f)
                 {
                     //Fail the cloning process and return only the genome template
+                    GenomeSequence genome = innerContainer.FirstOrDefault(thing => thing is GenomeSequence) as GenomeSequence;
+
+                    if (genome != null && genome.sourceName != null)
+                    {
+                        Messages.Message("QE_CloningMaintFailMessage".Translate(genome.sourceName.Named("SOURCEPAWNNAME")), new LookTargets(this), MessageTypeDefOf.NegativeEvent);
+                    }
+                    else
+                    {
+                        Messages.Message("QE_CloningMaintFailFallbackMessage".Translate(), new LookTargets(this), MessageTypeDefOf.NegativeEvent);
+                    }
+                    
                     StopCrafting(false);
                 }
             }
