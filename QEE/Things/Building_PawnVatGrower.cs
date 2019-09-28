@@ -233,6 +233,8 @@ namespace QEthics
             }
             else
             {
+                Messages.Message("QE_MessageGrowingDone".Translate(pawnBeingGrown.LabelCap), new LookTargets(this), MessageTypeDefOf.PositiveEvent);
+
                 if (pawnBeingGrown.RaceProps.Humanlike && pawnBeingGrown.story != null)
                 {
                     //HairDef hairDef = PawnHairChooser.RandomHairDefFor(pawnBeingGrown, Faction.def);
@@ -240,7 +242,6 @@ namespace QEthics
                     pawnBeingGrown.Drawer.renderer.graphics.ResolveAllGraphics();
                     PortraitsCache.SetDirty(pawnBeingGrown);
                     PortraitsCache.PortraitsCacheUpdate();
-                    Messages.Message("QE_MessageGrowingDone".Translate(pawnBeingGrown.LabelCap), new LookTargets(this), MessageTypeDefOf.PositiveEvent);
                 }
 
                 //set minimum age manually as an extra check against negative ages
