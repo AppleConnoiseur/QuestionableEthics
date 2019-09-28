@@ -95,7 +95,8 @@ namespace QEthics
                 }
                 else
                 {
-                    return (float)craftingProgress / (float)TicksNeededToCraft;
+                    float percentComplete = (float)craftingProgress / (float)TicksNeededToCraft;
+                    return percentComplete > 1.0f ? 1.0f : percentComplete;
                 }
             }
         }
@@ -183,42 +184,46 @@ namespace QEthics
         {
             base.Tick();
 
-            switch(status)
+            if (this.IsHashIntervalTick(60))
             {
-                case CrafterStatus.Idle:
-                    {
-                        Tick_Idle();
-                    }
-                    break;
-                case CrafterStatus.Filling:
-                    {
-                        //Check if any Things are lost in the order processor.
-                        orderProcessor.Cleanup();
 
-                        if (orderProcessor.requestsLost)
+                switch (status)
+                {
+                    case CrafterStatus.Idle:
                         {
-                            //Abort if any of the requests were lost.
-                            Reset();
-                            Notify_ThingLostInOrderProcessor();
-                            orderProcessor.requestsLost = false;
                             Tick_Idle();
                         }
-                        else
+                        break;
+                    case CrafterStatus.Filling:
                         {
-                            Tick_Filling();
+                            //Check if any Things are lost in the order processor.
+                            orderProcessor.Cleanup();
+
+                            if (orderProcessor.requestsLost)
+                            {
+                                //Abort if any of the requests were lost.
+                                Reset();
+                                Notify_ThingLostInOrderProcessor();
+                                orderProcessor.requestsLost = false;
+                                Tick_Idle();
+                            }
+                            else
+                            {
+                                Tick_Filling();
+                            }
                         }
-                    }
-                    break;
-                case CrafterStatus.Crafting:
-                    {
-                        Tick_Crafting();
-                    }
-                    break;
-                case CrafterStatus.Finished:
-                    {
-                        Tick_Finished();
-                    }
-                    break;
+                        break;
+                    case CrafterStatus.Crafting:
+                        {
+                            Tick_Crafting();
+                        }
+                        break;
+                    case CrafterStatus.Finished:
+                        {
+                            Tick_Finished();
+                        }
+                        break;
+                }
             }
         }
 
@@ -276,7 +281,7 @@ namespace QEthics
             }
             if(doCrafting)
             {
-                craftingProgress++;
+                craftingProgress = craftingProgress + 60;
                 if (craftingProgress >= TicksNeededToCraft)
                 {
                     craftingProgress = TicksNeededToCraft;

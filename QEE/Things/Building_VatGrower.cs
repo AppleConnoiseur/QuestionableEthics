@@ -183,7 +183,7 @@ namespace QEthics
                 powerModifier = 15f;
             }
             float cleanlinessModifer = cleanlinessCurve.Evaluate(RoomCleanliness);
-            float decayRate = 0.00002f * cleanlinessModifer * powerModifier / (QEESettings.instance.maintRateFloat);
+            float decayRate = 0.0012f * cleanlinessModifer * powerModifier / (QEESettings.instance.maintRateFloat);
 
             scientistMaintenance -= decayRate;
             doctorMaintenance -= decayRate;
