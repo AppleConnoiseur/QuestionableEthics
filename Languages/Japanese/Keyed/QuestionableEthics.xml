@@ -106,4 +106,14 @@
   <QE_BlankGenomeTemplateName>これは使用しないで</QE_BlankGenomeTemplateName>
   <QE_BlankGenomeTemplateDescription>このテンプレートは、ゲームイベントまたはデバッグコマンドによって生成されました。クローン生物には使えません。</QE_BlankGenomeTemplateDescription>
 
+  <!-- version 1.03 Patch -->
+  <QE_GenomeSequencerDescription_Hair>髪の毛</QE_GenomeSequencerDescription_Hair>
+  <QE_CloningPawnNullMessage>クローン培養槽で培養中のクローン体が壊れて、その修復に失敗しました。クローン培養を中止して消費された材料を戻し培養槽をリセットします。</QE_CloningPawnNullMessage>
+  <QE_CloningMaintFailMessage>{SOURCEPAWNNAME}のクローン体ですがクローン培養に失敗しました。理由：クローン培養槽が整備されてない</QE_CloningMaintFailMessage>
+  <QE_CloningMaintFailFallbackMessage>クローン培養に失敗した。理由：クローン培養槽が整備されてない</QE_CloningMaintFailFallbackMessage>
+  <QE_OrgaVatMaintFailMessage>{ORGANNAME}の培養に失敗した。理由：クローン培養槽が整備されてない</QE_OrgaVatMaintFailMessage>
+  <QE_OrgaVatMaintFailFallbackMessage>臓器の作成に失敗した。理由：クローン培養槽が整備されてない</QE_OrgaVatMaintFailFallbackMessage>
+  <QE_MaxCloningTime>最大培養時間（日）</QE_MaxCloningTime>
+  <QE_MaxCloningTimeTooltip>クローン培養槽でクローンを培養するのにかかる時間はこの日数より長くなりません。初期値は60日間</QE_MaxCloningTimeTooltip>
+
 </LanguageData>
