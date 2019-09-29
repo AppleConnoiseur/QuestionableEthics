@@ -14,7 +14,7 @@ namespace QEthics
         public static void SliderLabeled(this Listing_Standard ls, string label, ref int val, string format, float min = 0f, float max = 100f, string tooltip = null)
         {
             float fVal = val;
-            ls.SliderLabeled(label: label, val: ref fVal, format: format, min: min, max: max);
+            ls.SliderLabeled(label: label, val: ref fVal, format: format, min: min, max: max, tooltip: tooltip);
             val = (int)fVal;
         }
         public static void SliderLabeled(this Listing_Standard ls, string label, ref float val, string format, float min = 0f, float max = 1f, string tooltip = null)

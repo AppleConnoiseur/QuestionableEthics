@@ -42,10 +42,11 @@ namespace QEthics
 
         /// <summary>
         /// Formula: (2 days + 2 ^ baseBodySize) * TicksPerDay * ModSetting multiplier
+        /// OR Max Cloning Time in days, whichever is less.
         /// </summary>
-        public override int TicksNeededToCraft => (int)((2 + Math.Pow(2.0f, pawnKindToGrow.RaceProps.baseBodySize) +
+        public override int TicksNeededToCraft => (int)Math.Min((2 + Math.Pow(2.0f, pawnKindToGrow.RaceProps.baseBodySize) +
             pawnKindToGrow.RaceProps.lifeStageAges.Last().minAge) * (float)GenDate.TicksPerDay *
-            QEESettings.instance.cloneGrowthRateFloat);
+            QEESettings.instance.cloneGrowthRateFloat, (float)QEESettings.instance.maxCloningTimeDays * (float)GenDate.TicksPerDay);
 
         public float ScientistMaintenance { get => scientistMaintenance; set => scientistMaintenance = value; }
 

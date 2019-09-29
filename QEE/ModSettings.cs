@@ -15,7 +15,7 @@ namespace QEthics
         public float maintWorkThresholdFloat = 0.40f;
         public bool debugLogging = false;
         public bool giveCloneNegativeThought = true;
-        
+        public int maxCloningTimeDays = 60;
 
         public QEESettings()
         {
@@ -35,6 +35,7 @@ namespace QEthics
             Scribe_Values.Look(ref debugLogging, "debugLogging", false);
             Scribe_Values.Look(ref maintWorkThresholdFloat, "maintWorkGiverThresholdFloat", 0.40f);
             Scribe_Values.Look(ref giveCloneNegativeThought, "giveCloneNegativeThought", true);
+            Scribe_Values.Look(ref maxCloningTimeDays, "maxCloningTimeDays", 60);
             base.ExposeData();
         }
     }
@@ -61,6 +62,7 @@ namespace QEthics
             listingStandard.SliderLabeled("QE_OrganGrowthDuration".Translate(), ref QEESettings.instance.organGrowthRateFloat, QEESettings.instance.organGrowthRateFloat.ToString("0.00"), 0.00f, 4.0f, "QE_OrganGrowthDurationTooltip".Translate());
             listingStandard.SliderLabeled("QE_OrganIngredientMult".Translate(), ref QEESettings.instance.organTotalResourcesFloat, QEESettings.instance.organTotalResourcesFloat.ToString("0.00"), 0.00f, 4.0f, "QE_OrganIngredientMultTooltip".Translate());
             listingStandard.SliderLabeled("QE_CloneGrowthDuration".Translate(), ref QEESettings.instance.cloneGrowthRateFloat, QEESettings.instance.cloneGrowthRateFloat.ToString("0.00"), 0.00f, 4.0f, "QE_CloneGrowthDurationTooltip".Translate());
+            listingStandard.SliderLabeled("QE_MaxCloningTime".Translate(), ref QEESettings.instance.maxCloningTimeDays, QEESettings.instance.maxCloningTimeDays.ToString(), 1, 300, "QE_MaxCloningTimeTooltip".Translate());
             listingStandard.SliderLabeled("QE_CloneIngredientMult".Translate(), ref QEESettings.instance.cloneTotalResourcesFloat, QEESettings.instance.cloneTotalResourcesFloat.ToString("0.00"), 0.00f, 4.0f, "QE_CloneIngredientMultTooltip".Translate());
             listingStandard.SliderLabeled("QE_VatMaintTime".Translate(), ref QEESettings.instance.maintRateFloat, QEESettings.instance.maintRateFloat.ToString("0.00"), 0.01f, 4.0f, "QE_VatMaintTimeTooltip".Translate());
             listingStandard.SliderLabeled("QE_MaintenanceWorkThreshold".Translate(), ref QEESettings.instance.maintWorkThresholdFloat, QEESettings.instance.maintWorkThresholdFloat.ToStringPercent(), 0.00f, 1.0f, "QE_MaintenanceWorkThresholdTooltip".Translate());
@@ -68,6 +70,7 @@ namespace QEthics
             listingStandard.CheckboxLabeled("QE_DebugLogging".Translate(), ref QEESettings.instance.debugLogging, "QE_DebugLoggingTooltip".Translate());
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);
+            TryLog("Tooltip: " + "QE_MaxCloningTimeTooltip".Translate());
         }
 
         public static void TryLog(string message)
